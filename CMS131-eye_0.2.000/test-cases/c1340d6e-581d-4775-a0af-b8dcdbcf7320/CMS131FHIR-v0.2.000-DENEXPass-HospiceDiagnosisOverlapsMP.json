@@ -1,0 +1,268 @@
+{
+  "resourceType": "Bundle",
+  "id": "DENEXPass-HospiceDiagnosisOverlapsMP",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "https://madie.cms.gov/Patient/c1340d6e-581d-4775-a0af-b8dcdbcf7320",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "c1340d6e-581d-4775-a0af-b8dcdbcf7320",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2028-9",
+            "display": "Asian",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "Asian"
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "Hispanic or Latino"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "999999995"
+      } ],
+      "name": [ {
+        "family": "Bertha",
+        "given": [ "Betty" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1954-12-31"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/c1340d6e-581d-4775-a0af-b8dcdbcf7320"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Encounter/87cf919c-6ff3-46f9-8533-cc47fa9d53e4",
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "87cf919c-6ff3-46f9-8533-cc47fa9d53e4",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "456201000124103",
+          "display": "Medicare annual wellness visit (procedure)"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/c1340d6e-581d-4775-a0af-b8dcdbcf7320"
+      },
+      "period": {
+        "start": "2026-01-01T00:00:00.000+00:00",
+        "end": "2026-01-01T00:00:00.000+00:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/87cf919c-6ff3-46f9-8533-cc47fa9d53e4"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Condition/3768ebf5-404e-4859-9f44-8c99e59da686",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "3768ebf5-404e-4859-9f44-8c99e59da686",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis" ]
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "102781000119107",
+          "display": "Sensory neuropathy due to type 1 diabetes mellitus (disorder)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/c1340d6e-581d-4775-a0af-b8dcdbcf7320"
+      },
+      "onsetDateTime": "2026-01-01T00:00:00.000+00:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/3768ebf5-404e-4859-9f44-8c99e59da686"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Condition/1a6aae55-7516-4284-aeda-beda3747e7a3",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "1a6aae55-7516-4284-aeda-beda3747e7a3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis" ]
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "170935008",
+          "display": "Full care by hospice (finding)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/c1340d6e-581d-4775-a0af-b8dcdbcf7320"
+      },
+      "onsetDateTime": "2024-12-31T23:59:59.000+00:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/1a6aae55-7516-4284-aeda-beda3747e7a3"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/MeasureReport/a72e7103-bae8-43ee-87be-72b0d32d48b3",
+    "resource": {
+      "resourceType": "MeasureReport",
+      "id": "a72e7103-bae8-43ee-87be-72b0d32d48b3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm" ]
+      },
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "ae4cc5c9-e414-40e6-bcf1-7d3575f4ab56-parameters",
+        "parameter": [ {
+          "name": "subject",
+          "valueString": "c1340d6e-581d-4775-a0af-b8dcdbcf7320"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters",
+        "valueReference": {
+          "reference": "#ae4cc5c9-e414-40e6-bcf1-7d3575f4ab56-parameters"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+        "valueMarkdown": "Hospice diagnosis overlaps the MP"
+      } ],
+      "modifierExtension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+        "valueBoolean": true
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "https://madie.cms.gov/Measure/CMS131FHIRDiabetesEyeExam",
+      "period": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "group": [ {
+        "id": "Group_1",
+        "population": [ {
+          "id": "InitialPopulation_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "Denominator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "DenominatorExclusion_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusion"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "Numerator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+          "value": 1.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/c1340d6e-581d-4775-a0af-b8dcdbcf7320"
+      }, {
+        "reference": "Encounter/87cf919c-6ff3-46f9-8533-cc47fa9d53e4"
+      }, {
+        "reference": "Condition/3768ebf5-404e-4859-9f44-8c99e59da686"
+      }, {
+        "reference": "Condition/1a6aae55-7516-4284-aeda-beda3747e7a3"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/a72e7103-bae8-43ee-87be-72b0d32d48b3"
+    }
+  } ]
+}

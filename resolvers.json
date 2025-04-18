@@ -1,0 +1,70 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:practitioner-f007",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "f007",
+        "name": [{ "family": "Placeholder", "given": ["Practitioner"] }],
+        "identifier": [{
+          "system": "http://example.org/fhir/sid/us-npi",
+          "value": "000000007"
+        }]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/f007"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitioner-123456",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-123456",
+        "name": [{ "family": "Placeholder", "given": ["Practitioner"] }],
+        "identifier": [{
+          "system": "http://example.org/fhir/sid/us-npi",
+          "value": "000123456"
+        }]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/practitioner-123456"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitioner-example",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "example",
+        "name": [{ "family": "Example", "given": ["Practitioner"] }],
+        "identifier": [{
+          "system": "http://example.org/fhir/sid/us-npi",
+          "value": "999999999"
+        }]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/example"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:org-medicare",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "MEDICARE",
+        "name": "Placeholder Medicare Organization",
+        "identifier": [{
+          "system": "http://example.org/fhir/sid/org-id",
+          "value": "MEDICARE"
+        }]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/MEDICARE"
+      }
+    }
+  ]
+}

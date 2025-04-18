@@ -1,0 +1,221 @@
+{
+  "resourceType": "Bundle",
+  "id": "NUMPass-CervicalCytologyDuringMP",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "https://madie.cms.gov/Patient/25727adc-4495-4e13-9dfc-8b9cb6bf17b9",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "25727adc-4495-4e13-9dfc-8b9cb6bf17b9",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2028-9",
+            "display": "Asian"
+          }
+        }, {
+          "url": "text",
+          "valueString": "Asian"
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          }
+        }, {
+          "url": "text",
+          "valueString": "Hispanic or Latino"
+        } ]
+      } ],
+      "identifier": [ {
+        "system": "http://hospital.smarthealthit.org",
+        "value": "999999995"
+      } ],
+      "name": [ {
+        "family": "Bertha",
+        "given": [ "Betty" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2002-12-31"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/25727adc-4495-4e13-9dfc-8b9cb6bf17b9"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Encounter/69d9e5ee-e8a2-447a-a06f-e021886cca35",
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "69d9e5ee-e8a2-447a-a06f-e021886cca35",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "185317003",
+          "display": "Telephone encounter (procedure)"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/Patient-5"
+      },
+      "period": {
+        "start": "2026-01-01T01:00:00.000+00:00",
+        "end": "2026-01-01T01:15:00.000+00:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/69d9e5ee-e8a2-447a-a06f-e021886cca35"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Observation/9d139c86-f6dd-44c7-b62f-badf5f2d8f48",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "9d139c86-f6dd-44c7-b62f-badf5f2d8f48",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "laboratory"
+        } ],
+        "text": "laboratory"
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "10524-7",
+          "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/Patient-5"
+      },
+      "effectivePeriod": {
+        "start": "2026-12-31T23:00:00.000+00:00",
+        "end": "2026-12-31T23:59:00.000+00:00"
+      },
+      "valueInteger": 1
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/9d139c86-f6dd-44c7-b62f-badf5f2d8f48"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/MeasureReport/e2043707-d434-4f70-aef1-25e7a06a6616",
+    "resource": {
+      "resourceType": "MeasureReport",
+      "id": "e2043707-d434-4f70-aef1-25e7a06a6616",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm" ]
+      },
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "cf148ce6-7773-4a13-a0b4-559a089cc579-parameters",
+        "parameter": [ {
+          "name": "subject",
+          "valueString": "25727adc-4495-4e13-9dfc-8b9cb6bf17b9"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters",
+        "valueReference": {
+          "reference": "#cf148ce6-7773-4a13-a0b4-559a089cc579-parameters"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+        "valueMarkdown": "Female 24 years old with Cervical Cytology performed during MP"
+      } ],
+      "modifierExtension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+        "valueBoolean": true
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "https://madie.cms.gov/Measure/CMS124FHIRCervicalCancerScreening",
+      "period": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "group": [ {
+        "id": "Group_1",
+        "population": [ {
+          "id": "InitialPopulation_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "Denominator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "DenominatorExclusion_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusion"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Numerator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 1
+        } ],
+        "measureScore": {
+          "value": 1.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/25727adc-4495-4e13-9dfc-8b9cb6bf17b9"
+      }, {
+        "reference": "Encounter/69d9e5ee-e8a2-447a-a06f-e021886cca35"
+      }, {
+        "reference": "Observation/9d139c86-f6dd-44c7-b62f-badf5f2d8f48"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/e2043707-d434-4f70-aef1-25e7a06a6616"
+    }
+  } ]
+}

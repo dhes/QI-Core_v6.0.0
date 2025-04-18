@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "id": "60eda3c80edfe2d9c328006e",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "https://madie.cms.gov/Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "74e4451c-12d0-4e5b-8f99-c9410766c3c4",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "1002-5",
+            "display": "American Indian or Alaska Native",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "American Indian or Alaska Native"
+        }, {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "1653-5",
+            "display": "Tohono O'Odham"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "Not Hispanic or Latino"
+        }, {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2153-5",
+            "display": "Mexican American Indian"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          } ]
+        },
+        "system": "https://bonnie-fhir.healthit.gov/",
+        "value": "60eda3c80edfe2d9c328006e"
+      } ],
+      "name": [ {
+        "family": "IPPFail",
+        "given": [ "Age65Dec31" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1959-01-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Organization/3fca7946-7b3b-41e1-ab34-e3d125d39b24",
+    "resource": {
+      "resourceType": "Organization",
+      "id": "3fca7946-7b3b-41e1-ab34-e3d125d39b24",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization" ]
+      },
+      "identifier": [ {
+        "use": "temp",
+        "system": "urn:oid:2.16.840.1.113883.4.336",
+        "value": "APayer"
+      } ],
+      "active": true,
+      "type": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "pay",
+          "display": "Payer"
+        } ],
+        "text": "Healthcare Payer"
+      } ],
+      "name": "Test Medical Center",
+      "telecom": [ {
+        "system": "phone",
+        "value": "(+1) 800-123-4567"
+      }, {
+        "system": "email",
+        "value": "mypayer@test.org"
+      } ],
+      "address": [ {
+        "line": [ "600 Maple Avenue" ],
+        "city": "Indianapolis",
+        "state": "IN",
+        "postalCode": "46237",
+        "country": "USA"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Organization/3fca7946-7b3b-41e1-ab34-e3d125d39b24"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Coverage/5d83afc4-f73d-4600-b26d-82a79da8296b",
+    "resource": {
+      "resourceType": "Coverage",
+      "id": "5d83afc4-f73d-4600-b26d-82a79da8296b",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage" ]
+      },
+      "identifier": [ {
+        "system": "http://benefitsinc.com/certificate",
+        "value": "12345"
+      } ],
+      "status": "active",
+      "type": {
+        "coding": [ {
+          "system": "https://nahdo.org/sopt",
+          "code": "59",
+          "display": "Other Private Insurance"
+        } ]
+      },
+      "policyHolder": {
+        "reference": "Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4"
+      },
+      "subscriber": {
+        "reference": "Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4"
+      },
+      "beneficiary": {
+        "reference": "Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4"
+      },
+      "dependent": "0",
+      "relationship": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+          "code": "self"
+        } ]
+      },
+      "period": {
+        "start": "2023-01-01T06:00:00.000+00:00",
+        "end": "2023-01-01T11:06:01.000+00:00"
+      },
+      "payor": [ {
+        "reference": "Organization/3fca7946-7b3b-41e1-ab34-e3d125d39b24"
+      } ],
+      "order": 9
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Coverage/5d83afc4-f73d-4600-b26d-82a79da8296b"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Encounter/c2abcf25-ab0f-4313-bb95-85a04a04f202",
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "c2abcf25-ab0f-4313-bb95-85a04a04f202",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory",
+        "userSelected": true
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "2020-09",
+          "code": "185463005",
+          "display": "Visit out of hours (procedure)",
+          "userSelected": true
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4"
+      },
+      "period": {
+        "start": "2026-04-04T08:00:00.000+00:00",
+        "end": "2026-04-04T08:15:00.000+00:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/c2abcf25-ab0f-4313-bb95-85a04a04f202"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/MeasureReport/5ee2dce4-629a-4514-9996-5fae4f608733",
+    "resource": {
+      "resourceType": "MeasureReport",
+      "id": "5ee2dce4-629a-4514-9996-5fae4f608733",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm" ]
+      },
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "29b52b59-fa84-44ed-9ff5-3be5d9f3b990-parameters",
+        "parameter": [ {
+          "name": "subject",
+          "valueString": "74e4451c-12d0-4e5b-8f99-c9410766c3c4"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters",
+        "valueReference": {
+          "reference": "#29b52b59-fa84-44ed-9ff5-3be5d9f3b990-parameters"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+        "valueMarkdown": "Patient turns 66 on start of MP."
+      } ],
+      "modifierExtension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+        "valueBoolean": true
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "https://madie.cms.gov/Measure/CMS349FHIRHIVScreening",
+      "period": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "group": [ {
+        "id": "Group_1",
+        "population": [ {
+          "id": "InitialPopulation_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Denominator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "DenominatorExclusion_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusion"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Numerator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "DenominatorException_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exception",
+              "display": "Denominator Exception"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+          "value": 1.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4"
+      }, {
+        "reference": "Organization/3fca7946-7b3b-41e1-ab34-e3d125d39b24"
+      }, {
+        "reference": "Coverage/5d83afc4-f73d-4600-b26d-82a79da8296b"
+      }, {
+        "reference": "Encounter/c2abcf25-ab0f-4313-bb95-85a04a04f202"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/5ee2dce4-629a-4514-9996-5fae4f608733"
+    }
+  } ]
+}

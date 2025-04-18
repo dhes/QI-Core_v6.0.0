@@ -1,0 +1,229 @@
+{
+  "resourceType": "Bundle",
+  "id": "IPPass-OphthalmologicalServices",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "https://madie.cms.gov/Patient/b08c80d0-c70e-4653-b5da-e1f8cb858714",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "b08c80d0-c70e-4653-b5da-e1f8cb858714",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2028-9",
+            "display": "Asian",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "Asian"
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "Hispanic or Latino"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "999999995"
+      } ],
+      "name": [ {
+        "family": "Bertha",
+        "given": [ "Betty" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2007-12-31"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/b08c80d0-c70e-4653-b5da-e1f8cb858714"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Encounter/a44e9276-73af-4834-915e-8c7b8a9ce308",
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "a44e9276-73af-4834-915e-8c7b8a9ce308",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "78831002",
+          "display": "Comprehensive eye examination (procedure)"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/b08c80d0-c70e-4653-b5da-e1f8cb858714"
+      },
+      "period": {
+        "start": "2026-01-01T00:00:00.000+00:00",
+        "end": "2026-01-01T00:00:00.000+00:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/a44e9276-73af-4834-915e-8c7b8a9ce308"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Condition/ce50ea49-ca2e-4938-a3cc-e81da7a36192",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "ce50ea49-ca2e-4938-a3cc-e81da7a36192",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis" ]
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "102781000119107",
+          "display": "Sensory neuropathy due to type 1 diabetes mellitus (disorder)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/b08c80d0-c70e-4653-b5da-e1f8cb858714"
+      },
+      "onsetDateTime": "2026-01-01T00:00:00.000+00:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/ce50ea49-ca2e-4938-a3cc-e81da7a36192"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/MeasureReport/9a266b94-a88e-426c-a43f-49195b3a191a",
+    "resource": {
+      "resourceType": "MeasureReport",
+      "id": "9a266b94-a88e-426c-a43f-49195b3a191a",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm" ]
+      },
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "1db5805b-b273-4512-9574-9d5587efb17f-parameters",
+        "parameter": [ {
+          "name": "subject",
+          "valueString": "b08c80d0-c70e-4653-b5da-e1f8cb858714"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters",
+        "valueReference": {
+          "reference": "#1db5805b-b273-4512-9574-9d5587efb17f-parameters"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+        "valueMarkdown": "Qualifying encounter is Ophthalmological Services"
+      } ],
+      "modifierExtension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+        "valueBoolean": true
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "https://madie.cms.gov/Measure/CMS131FHIRDiabetesEyeExam",
+      "period": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "group": [ {
+        "id": "Group_1",
+        "population": [ {
+          "id": "InitialPopulation_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "Denominator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "DenominatorExclusion_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusion"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Numerator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+          "value": 1.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/b08c80d0-c70e-4653-b5da-e1f8cb858714"
+      }, {
+        "reference": "Encounter/a44e9276-73af-4834-915e-8c7b8a9ce308"
+      }, {
+        "reference": "Condition/ce50ea49-ca2e-4938-a3cc-e81da7a36192"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/9a266b94-a88e-426c-a43f-49195b3a191a"
+    }
+  } ]
+}

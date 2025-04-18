@@ -1,0 +1,182 @@
+{
+  "resourceType": "Bundle",
+  "id": "IPFail-65WithQualifyingEncounter",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "https://madie.cms.gov/Patient/b565dc44-4428-417d-bdf6-144e408ad815",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "b565dc44-4428-417d-bdf6-144e408ad815",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2028-9",
+            "display": "Asian"
+          }
+        }, {
+          "url": "text",
+          "valueString": "Asian"
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          }
+        }, {
+          "url": "text",
+          "valueString": "Hispanic or Latino"
+        } ]
+      } ],
+      "identifier": [ {
+        "system": "http://hospital.smarthealthit.org",
+        "value": "999999995"
+      } ],
+      "name": [ {
+        "family": "Bertha",
+        "given": [ "Betty" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1961-12-31"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/b565dc44-4428-417d-bdf6-144e408ad815"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Encounter/a24ea211-2286-4aa0-9338-a34f71fa19e5",
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "a24ea211-2286-4aa0-9338-a34f71fa19e5",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "185317003",
+          "display": "Telephone encounter (procedure)"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/b565dc44-4428-417d-bdf6-144e408ad815"
+      },
+      "period": {
+        "start": "2026-12-31T01:00:00.000+00:00",
+        "end": "2026-12-31T01:15:00.000+00:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/a24ea211-2286-4aa0-9338-a34f71fa19e5"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/MeasureReport/dfafb4ca-7303-4281-8509-0e250c60e4c8",
+    "resource": {
+      "resourceType": "MeasureReport",
+      "id": "dfafb4ca-7303-4281-8509-0e250c60e4c8",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm" ]
+      },
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "f5b434ab-93c5-4609-b20d-a56f431ba96b-parameters",
+        "parameter": [ {
+          "name": "subject",
+          "valueString": "b565dc44-4428-417d-bdf6-144e408ad815"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters",
+        "valueReference": {
+          "reference": "#f5b434ab-93c5-4609-b20d-a56f431ba96b-parameters"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+        "valueMarkdown": "Female 65 years old with a qualifying encounter during MP"
+      } ],
+      "modifierExtension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+        "valueBoolean": true
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "https://madie.cms.gov/Measure/CMS124FHIRCervicalCancerScreening",
+      "period": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "group": [ {
+        "id": "Group_1",
+        "population": [ {
+          "id": "InitialPopulation_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Denominator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "DenominatorExclusion_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusion"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Numerator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+          "value": 1.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/b565dc44-4428-417d-bdf6-144e408ad815"
+      }, {
+        "reference": "Encounter/a24ea211-2286-4aa0-9338-a34f71fa19e5"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/dfafb4ca-7303-4281-8509-0e250c60e4c8"
+    }
+  } ]
+}

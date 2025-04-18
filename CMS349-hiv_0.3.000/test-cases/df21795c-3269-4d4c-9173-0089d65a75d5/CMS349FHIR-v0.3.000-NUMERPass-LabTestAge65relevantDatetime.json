@@ -1,0 +1,241 @@
+{
+  "resourceType": "Bundle",
+  "id": "610965b898086b538055c152",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "https://madie.cms.gov/Patient/df21795c-3269-4d4c-9173-0089d65a75d5",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "df21795c-3269-4d4c-9173-0089d65a75d5",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">LabTestAge65relevantDatetime <b>NUMERPASS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>3a3b648e0cc14e200f2d48b72852219e3b95e5787df1549ba35aedfebdf90868</td></tr><tr><td>Date of birth</td><td><span>02 January 1946</span></td></tr></tbody></table></div>"
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "1002-5",
+            "display": "American Indian or Alaska Native",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "American Indian or Alaska Native"
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino",
+            "userSelected": true
+          }
+        }, {
+          "url": "text",
+          "valueString": "Hispanic or Latino"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          } ]
+        },
+        "system": "https://bonnie-fhir.healthit.gov/",
+        "value": "610965b898086b538055c152"
+      } ],
+      "active": true,
+      "name": [ {
+        "use": "usual",
+        "family": "NUMERPass",
+        "given": [ "LabTestAge65relevantDatetime" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1960-01-02"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/df21795c-3269-4d4c-9173-0089d65a75d5"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Encounter/67ed61f5-8a25-4334-bfbc-5b3b226f2f7a",
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "67ed61f5-8a25-4334-bfbc-5b3b226f2f7a",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory",
+        "userSelected": true
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://www.ama-assn.org/go/cpt",
+          "code": "99395"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/df21795c-3269-4d4c-9173-0089d65a75d5"
+      },
+      "period": {
+        "start": "2026-02-06T08:00:00.000+00:00",
+        "end": "2026-02-06T08:15:00.000+00:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/67ed61f5-8a25-4334-bfbc-5b3b226f2f7a"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Observation/a37cf47b-ff7d-4b33-b6c0-fd7fa36f8890",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "a37cf47b-ff7d-4b33-b6c0-fd7fa36f8890",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory",
+          "userSelected": true
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "10901-7"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/df21795c-3269-4d4c-9173-0089d65a75d5"
+      },
+      "effectiveDateTime": "2026-01-01T08:00:00.000+00:00",
+      "valueBoolean": true
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/a37cf47b-ff7d-4b33-b6c0-fd7fa36f8890"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/MeasureReport/a9091b8d-df68-41c8-a466-76e2db2caf4d",
+    "resource": {
+      "resourceType": "MeasureReport",
+      "id": "a9091b8d-df68-41c8-a466-76e2db2caf4d",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm" ]
+      },
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "f3fa244d-0bdb-4264-96de-9fae8f1adb38-parameters",
+        "parameter": [ {
+          "name": "subject",
+          "valueString": "df21795c-3269-4d4c-9173-0089d65a75d5"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters",
+        "valueReference": {
+          "reference": "#f3fa244d-0bdb-4264-96de-9fae8f1adb38-parameters"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+        "valueMarkdown": "Patient 65 at start of MP, qual encounter during MP, lab test at 65 during MP. - relevantDatetime"
+      } ],
+      "modifierExtension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+        "valueBoolean": true
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "https://madie.cms.gov/Measure/CMS349FHIRHIVScreening",
+      "period": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "group": [ {
+        "id": "Group_1",
+        "population": [ {
+          "id": "InitialPopulation_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "Denominator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "DenominatorExclusion_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusion"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Numerator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "DenominatorException_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exception",
+              "display": "Denominator Exception"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+          "value": 1.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/df21795c-3269-4d4c-9173-0089d65a75d5"
+      }, {
+        "reference": "Encounter/67ed61f5-8a25-4334-bfbc-5b3b226f2f7a"
+      }, {
+        "reference": "Observation/a37cf47b-ff7d-4b33-b6c0-fd7fa36f8890"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/a9091b8d-df68-41c8-a466-76e2db2caf4d"
+    }
+  } ]
+}

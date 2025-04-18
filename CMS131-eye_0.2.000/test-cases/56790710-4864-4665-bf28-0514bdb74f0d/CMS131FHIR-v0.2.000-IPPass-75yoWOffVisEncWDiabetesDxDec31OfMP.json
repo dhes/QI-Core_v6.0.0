@@ -1,0 +1,221 @@
+{
+  "resourceType": "Bundle",
+  "id": "IPPass-75yoWOffVisEncWDiabetesDxDec31OfMP",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "https://madie.cms.gov/Patient/56790710-4864-4665-bf28-0514bdb74f0d",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "56790710-4864-4665-bf28-0514bdb74f0d",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2028-9",
+            "display": "Asian"
+          }
+        }, {
+          "url": "text",
+          "valueString": "Asian"
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          }
+        }, {
+          "url": "text",
+          "valueString": "Hispanic or Latino"
+        } ]
+      } ],
+      "identifier": [ {
+        "system": "http://hospital.smarthealthit.org",
+        "value": "999999995"
+      } ],
+      "name": [ {
+        "family": "Bertha",
+        "given": [ "Betty" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1951-01-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/56790710-4864-4665-bf28-0514bdb74f0d"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Encounter/f191c7ae-e0c4-4787-9a91-63305a52c272",
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "f191c7ae-e0c4-4787-9a91-63305a52c272",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "185463005",
+          "display": "Visit out of hours (procedure)"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/56790710-4864-4665-bf28-0514bdb74f0d"
+      },
+      "period": {
+        "start": "2026-01-01T00:00:00.000+00:00",
+        "end": "2026-01-01T00:00:00.000+00:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/f191c7ae-e0c4-4787-9a91-63305a52c272"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/Condition/12d7d5ef-43de-4564-856d-c2cc02882ad7",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "12d7d5ef-43de-4564-856d-c2cc02882ad7",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis" ]
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "102781000119107",
+          "display": "Sensory neuropathy due to type 1 diabetes mellitus (disorder)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/56790710-4864-4665-bf28-0514bdb74f0d"
+      },
+      "onsetDateTime": "2026-12-31T23:59:59.000+00:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/12d7d5ef-43de-4564-856d-c2cc02882ad7"
+    }
+  }, {
+    "fullUrl": "https://madie.cms.gov/MeasureReport/ef6226b7-3f80-4c64-84af-a7e19f1f9bb5",
+    "resource": {
+      "resourceType": "MeasureReport",
+      "id": "ef6226b7-3f80-4c64-84af-a7e19f1f9bb5",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm" ]
+      },
+      "contained": [ {
+        "resourceType": "Parameters",
+        "id": "364042f2-ad49-4b4d-bc68-61dc07989330-parameters",
+        "parameter": [ {
+          "name": "subject",
+          "valueString": "56790710-4864-4665-bf28-0514bdb74f0d"
+        } ]
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters",
+        "valueReference": {
+          "reference": "#364042f2-ad49-4b4d-bc68-61dc07989330-parameters"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+        "valueMarkdown": "Patient 75 years, 11 months & 30 days  w/ an Office Visit Encounter & Diabetes Condition ending 12/31 during the MP."
+      } ],
+      "modifierExtension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+        "valueBoolean": true
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "https://madie.cms.gov/Measure/CMS131FHIRDiabetesEyeExam",
+      "period": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "group": [ {
+        "id": "Group_1",
+        "population": [ {
+          "id": "InitialPopulation_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "Denominator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "DenominatorExclusion_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusion"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "Numerator_1",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+          "value": 1.0
+        }
+      } ],
+      "evaluatedResource": [ {
+        "reference": "Patient/56790710-4864-4665-bf28-0514bdb74f0d"
+      }, {
+        "reference": "Encounter/f191c7ae-e0c4-4787-9a91-63305a52c272"
+      }, {
+        "reference": "Condition/12d7d5ef-43de-4564-856d-c2cc02882ad7"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MeasureReport/ef6226b7-3f80-4c64-84af-a7e19f1f9bb5"
+    }
+  } ]
+}

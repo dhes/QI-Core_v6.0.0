@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #ffffff;;
+            margin: 0px;
+            padding: 10px;
+            height: 100%;
+            font-size: 1em;
+        }
+
+        p, li {
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+        }
+
+        td {
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        tr {
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        table.colstu td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #fff5e6;
+        }
+
+        table.colsd td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #efefef;
+        }
+
+        table.colsn td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #e6ffe6;
+        }
+
+        table.colse td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #e6e6e6;
+        }
+
+        table.colsi td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #ffffe6;
+        }
+
+        table.list td {
+            border-top: 1px silver solid;
+            border-spacing: 0;
+        }
+
+        table.bare td {
+            border-spacing: 0;
+        }
+
+        ul.dict li {
+            font-size: 11px;
+            line-height: 1.2em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+        }
+
+        table.dict td {
+            padding: 3px 7px 2px 7px;
+            font-size: 11px;
+            line-height: 1.2em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        table.dict p {
+            font-size: 11px;
+        }
+
+        table {
+            margin-bottom: 10px;
+            border-collapse: collapse;
+        }
+
+        table.codes td {
+            border: 1px solid silver;
+            padding: 3px 7px 2px 7px;
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        table.grid {
+            margin-bottom: 10px;
+            border: 1px black solid;
+            margin-right: auto;
+
+        }
+
+        table.grid th {
+            border: 1px solid silver;
+            padding: 3px 7px 2px 7px;
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: bold;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        table.grid td {
+            border: 1px solid silver;
+            padding: 3px 7px 2px 7px;
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding: 0 0 0 25px;
+        }
+
+        .dense li {
+            margin: 0 0 0 0;
+        }
+
+        li {
+            margin: 0 0 5px 0;
+        }
+
+        h1 {
+            font-size: 16px;
+            margin: 0 0 4px 0;
+            font-family: verdana;
+            border-bottom: 1px solid #7e7e7e;
+            padding-bottom: 2px;
+        }
+
+        h2 {
+            font-family: verdana;
+            line-height: 1.2em;
+            font-size: 14px;
+            margin: 0 0 3px 0;
+            margin-top: 15px;
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 2px;
+        }
+
+        h3 {
+            font-family: verdana;
+            line-height: 1.2em;
+            font-size: 12px;
+            margin: 0 0 3px 0;
+            margin-top: 10px;
+        }
+
+        h4 {
+            font-family: verdana;
+            line-height: 1.2em;
+            font-size: 11px;
+            margin: 0 0 3px 0;
+            margin-top: 10px;
+        }
+
+        div.sidebar h2 {
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 2px;
+            padding-top: 0px;
+            margin-top: 0px;
+            font-weight: normal;
+            margin-left: 8px;
+            margin-bottom: 0px;
+            font-size: 12px;
+        }
+
+        div.sidebar p {
+            padding-bottom: 0px;
+            padding-top: 10px;
+            font-weight: normal;
+            margin-left: 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        div.sidebar ul {
+            list-style: none;
+            padding: 0px;
+            margin-left: 6px;
+            font-size: 11px;
+            line-height: 2.125em;
+        }
+
+        div.sidebar li {
+            margin: 0px 0px 0px 6px;
+            padding: 0px;
+            font-size: 11px;
+            line-height: 2.125em;
+        }
+
+        a {
+            color: #428bca;
+            text-decoration: none;
+        }
+
+        a.xmltag :visited {
+            color: Navy;
+        }
+
+        a.xmltag :hover {
+            color: Blue;
+        }
+
+        pre {
+            display: block;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        pre a {
+            color: darkgreen;
+            text-decoration: none;
+            border: 0;
+
+        }
+
+        /* PrismJS 1.21.0
+        https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+autohotkey+autoit+bash+basic+batch+bbcode+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cil+clojure+cmake+coffeescript+concurnas+csp+crystal+css-extras+cypher+d+dart+dax+dhall+diff+django+dns-zone-file+docker+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+firestore-security-rules+flow+fortran+ftl+gml+gcode+gdscript+gedcom+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+http+hpkp+hsts+ichigojam+icon+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keyman+kotlin+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+lolcode+lua+makefile+markdown+markup-templating+matlab+mel+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nginx+nim+nix+nsis+objectivec+ocaml+opencl+oz+parigp+parser+pascal+pascaligo+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+q+qml+qore+r+racket+jsx+tsx+reason+regex+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+stan+iecst+stylus+swift+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+turtle+twig+typescript+typoscript+unrealscript+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+wiki+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=keep-markup */
+        /**
+         * prism.js default theme for JavaScript, CSS and HTML
+         * Based on dabblet (http://dabblet.com)
+         * @author Lea Verou
+         */
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: black;
+            background: none;
+            text-shadow: 0 1px white;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.95em;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+        code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+        code[class*="language-"]::selection, code[class*="language-"] ::selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        @media print {
+            code[class*="language-"],
+            pre[class*="language-"] {
+                text-shadow: none;
+            }
+        }
+
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+        }
+
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+            background: #f5f2f0;
+        }
+
+        /* Inline code */
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+        /*
+  ===============================
+  Liquid Narrative Styling Start
+  ===============================
+  */
+
+        .narrative-table {
+            border: 1pt inset rgb(0, 0, 0);
+            line-height: 10pt;
+            border-collapse: separate;
+            -webkit-border-horizontal-spacing: 2px;
+            -webkit-border-vertical-spacing: 2px;
+        }
+
+        .narrative-table>tbody {
+            display: table-row-group;
+            vertical-align: middle;
+        }
+
+        .narrative-table>tbody>tr {
+            display: table-row;
+            background-color: lightgray;
+            vertical-align: inherit;
+        }
+
+        .narrative-table>tbody>tr>th {
+            padding: 5px;
+        }
+
+        .section-header {
+            background-color: #656565;
+            color: whitesmoke;
+            vertical-align: inherit;
+        }
+
+        .row-header {
+            background-color: #656565;
+            color: whitesmoke;
+            vertical-align: inherit;
+        }
+
+        .tab-one {
+            padding-left: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .row-header {
+                min-width: 138px;
+                max-width: 138px;
+            }
+
+            .content-container {
+                max-width: 576px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .row-header {
+                min-width: 181px;
+                max-width: 181px;
+            }
+
+            .content-container {
+                max-width: 745px;
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .row-header {
+                min-width: 213px;
+                max-width: 213px;
+            }
+
+            .content-container {
+                max-width: 873px;
+            }
+        }
+
+        /*
+        ===============================
+        Liquid Narrative Styling End
+        ===============================
+        */
+    </style>
+</head>
+<body>
+<div xmlns="http://www.w3.org/1999/xhtml" class="col-12">
+  <table class="narrative-table">
+    <tbody>
+<tr>
+
+<th colspan="2" scope="row" class="row-header">Knowledge Artifact Metadata</th>
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Metadata</th>
+
+</tr>
+
+  
+<tr>
+
+<th scope="row" class="row-header">Short Name Identifier</th>
+
+<td class="content-container">CMS349FHIR</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Version Independent Identifier</th>
+
+<td class="content-container">urn:uuid:40b617bf-3054-4663-bf9c-a15417c9a7dc</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Version Specific Identifier</th>
+
+<td class="content-container">urn:uuid:345c69f4-0634-4f0a-8bf4-3607431a6817</td>
+</tr>
+
+
+
+  
+    
+    
+<tr>
+
+<th scope="row" class="row-header">Publisher (CMS) Identifier</th>
+
+<td class="content-container">349FHIR</td>
+</tr>
+
+  
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Version Number</th>
+
+<td class="content-container">0.3.000</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Rationale</th>
+
+<td class="content-container">HIV is a communicable infection that leads to a progressive disease with a long asymptomatic period. There were an estimated 32,100 new HIV infections in the United States in 2021 (Centers for Disease Control and Prevention, 2023a). Without treatment, most persons develop acquired immunodeficiency syndrome (AIDS) within 10 years of HIV infection. Antiretroviral therapy (ART) delays this progression and increases the length of survival, but it is most effective when initiated during the asymptomatic phase. Persons living with HIV who use ART and achieve viral suppression can have a nearly normal life expectancy (Samji et al., 2013). The Department of Health and Human Services (DHHS) Guidelines for the Use of Antiretroviral Agents in HIV-1-Infected Adults and Adolescents recommends immediate antiretroviral therapy for all HIV-infected individuals, regardless of CD4 count at diagnosis, to reduce the risk of disease progression (Panel on Antiretroviral Guidelines for Adults and Adolescents, 2022).
+ 
+CDC estimates that, in 2021, approximately 13% of the 1.2 million adults and adolescents living with HIV infection in the United States were unaware of their infection (CDC, 2023a). Among persons diagnosed with HIV in 2021, approximately 21% were diagnosed with Stage 3 HIV (AIDS) at the time of HIV diagnosis (CDC, 2023b), which is when there is a CD4 lymphocyte count of less than 200 cells/mm3 or a CD4 percentage of total lymphocytes of less than 14 or documentation of AIDS-defining condition at diagnosis (CDC, 2023b).HIV screening identifies infected persons who were previously unaware of their infection, which enables them to seek medical and social services that can improve their health and the quality and length of their lives. Additionally, using ART with high levels of medication adherence has been shown to substantially reduce the risk of HIV transmission (Panel on Antiretroviral Guidelines for Adults and Adolescents, 2022).
+ 
+Based on the Behavioral Risk Factor Surveillance System (BRFSS), the percentage of ever tested for HIV increased from 42.9% in 2011 to 45.9% in 2017. Despite this increase, less than half of US adults have ever been tested for HIV over ten years after CDC's recommendations (Patel et al., 2020).</td>
+</tr>
+
+
+<tr>
+
+<th scope="row" class="row-header">Clinical Recommendation Statement</th>
+
+<td class="content-container">The US Preventive Services Task Force recommends that clinicians screen for HIV infection in adolescents and adults aged 15 to 65 years. Younger adolescents and older adults who are at increased risk should also be screened (A Recommendation) (Owens, et al., 2019). 
+
+Since 2006, the CDC has recommended routine opt-out HIV screening (i.e., patient is notified that testing will be performed unless the patient declines) in healthcare facilities of adolescents and adults 13-64 years of age and HIV diagnostic testing of adolescents and adults with clinical signs or symptoms consistent with HIV infection (Centers for Disease Control and Prevention, 2006).</td>
+</tr>
+
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Guidance</th>
+
+<td class="content-container">This measure evaluates the proportion of patients aged 15 to 65 at the start of the measurement period who have documentation of having received an HIV test at least once on or after their 15th birthday and before their 66th birthday. In order to satisfy the measure, the reporting provider must have documentation of the administration of a laboratory or point of care (POC) test present in the patient's medical record. In cases where the HIV test was performed elsewhere, providers cannot rely on patient attestation or self-report to meet the measure requirements, as previous research has shown that patient self-report is an unreliable indicator of previous HIV testing history. Rather, providers must request documentation of those test results. If such documentation is not available, the patient should be considered still eligible for HIV screening. If such documentation is available, but cannot be provided in a standardized, structured format (such that the laboratory or point of care (POC) test and results can be readily incorporated as structured data within the EHR), providers should enter the information into their EHR as a laboratory test in a manner consistent with the EHR in use. If the specific Human Immunodeficiency Virus (HIV) Laboratory Test LOINC code of the test is not known, the entry should use the more generic code LOINC panel code [75622-1].
+
+This eCQM is a patient-based measure.
+
+This version of the eCQM uses QDM version 5.6. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.</td>
+</tr>
+
+
+  
+    
+<tr>
+
+<th scope="row" class="row-header">Supplemental Data Guidance</th>
+
+<td class="content-container">For every patient evaluated by this measure also identify payer, race, ethnicity and sex; SDE Ethnicity 
+ SDE Payer 
+ SDE Race 
+ SDE Sex 
+ </td>
+</tr>
+
+  
+
+
+
+
+
+  
+    
+    <tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Population Criteria (ID: Group_1)</th>
+
+</tr>
+  
+  
+  
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Initial Population</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: InitialPopulation_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Patients 15 to 65 years of age at the start of the measurement period without an HIV diagnosis prior to the start of the measurement period AND who had at least one outpatient visit during the day of the measurement period</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-initial-population">Initial Population</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Denominator</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: Denominator_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Equals Initial Population</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-denominator">Denominator</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Denominator Exclusion</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: DenominatorExclusion_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Patients diagnosed with HIV prior to the start of the day of the measurement period</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-denominator-exclusions">Denominator Exclusions</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Numerator</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: Numerator_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Patients with documentation of an HIV test performed on or after their 15th birthday and before their 66th birthday</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-numerator">Numerator</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Denominator Exception</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: DenominatorException_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Patients who die on or before the end of the day of the measurement period</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-denominator-exceptions">Denominator Exceptions</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+  
+  
+<tr>
+
+<th scope="row" class="row-header">Population Basis</th>
+
+<td class="content-container">boolean</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Scoring</th>
+
+<td class="content-container">[http://terminology.hl7.org/CodeSystem/measure-scoring#proportion: 'Proportion']</td>
+</tr>
+
+
+
+
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Type</th>
+
+<td class="content-container">[http://terminology.hl7.org/CodeSystem/measure-type#process: 'Process']</td>
+</tr>
+
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Rate Aggregation</th>
+
+<td class="content-container">None</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Improvement Notation</th>
+
+<td class="content-container">[http://terminology.hl7.org/CodeSystem/measure-improvement-notation#decrease: 'increase']</td>
+</tr>
+
+
+
+
+  <tr>
+
+<th colspan="2" scope="row" class="row-header">Supplemental Data Elements</th>
+
+</tr>
+
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-ethnicity
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Ethnicity
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-sde-ethnicity">SDE Ethnicity</a> 
+      
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-payer
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Payer
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-sde-payer">SDE Payer</a> 
+      
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-race
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Race
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-sde-race">SDE Race</a> 
+      
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-sex
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Sex
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms349fhirhivscreening-sde-sex">SDE Sex</a> 
+      
+    
+  </td>
+</tr>
+
+
+<tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Logic</th>
+
+</tr>
+
+<tr>
+
+<th scope="row" class="row-header">Primary Library</th>
+
+<td class="content-container">https://madie.cms.gov/Library/CMS349FHIRHIVScreening</td>
+</tr>
+
+
+
+
+  
+  
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Library SDE
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: https://madie.cms.gov/Library/SupplementalDataElements|5.1.000
+    <br/>
+    <em>Canonical URL</em>: <tt>https://madie.cms.gov/Library/SupplementalDataElements|5.1.000</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Library FHIRHelpers
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: https://madie.cms.gov/Library/FHIRHelpers|4.4.000
+    <br/>
+    <em>Canonical URL</em>: <tt>https://madie.cms.gov/Library/FHIRHelpers|4.4.000</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Library QICoreCommon
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: https://madie.cms.gov/Library/QICoreCommon|4.0.000
+    <br/>
+    <em>Canonical URL</em>: <tt>https://madie.cms.gov/Library/QICoreCommon|4.0.000</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Code system SNOMEDCT
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://snomed.info/sct
+    <br/>
+    <em>Canonical URL</em>: <tt>http://snomed.info/sct</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Code system LOINC
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://loinc.org
+    <br/>
+    <em>Canonical URL</em>: <tt>http://loinc.org</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Code system ConditionVerificationStatus
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://terminology.hl7.org/CodeSystem/condition-ver-status
+    <br/>
+    <em>Canonical URL</em>: <tt>http://terminology.hl7.org/CodeSystem/condition-ver-status</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Human Immunodeficiency Virus (HIV) Laboratory Test Codes (Ab and Ag)
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1056.50
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1056.50</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Preventive Care Services, Initial Office Visit, 0 to 17
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1022
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1022</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Preventive Care Services-Initial Office Visit, 18 and Up
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Preventive Care, Established Office Visit, 0 to 17
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1024
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1024</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Preventive Care Services - Established Office Visit, 18 and Up
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Office Visit
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Payer Type
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set HIV
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.120.12.1003
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.120.12.1003</tt>
+    
+  </td>
+</tr>
+
+
+  
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Male (finding)
+        <br/>
+      
+      <em>Code</em>: 248153007
+      <br/>
+      <em>System</em>: <tt>http://snomed.info/sct</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Female (finding)
+        <br/>
+      
+      <em>Code</em>: 248152002
+      <br/>
+      <em>System</em>: <tt>http://snomed.info/sct</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: HIV 1 and 2 tests - Meaningful Use set
+        <br/>
+      
+      <em>Code</em>: 75622-1
+      <br/>
+      <em>System</em>: <tt>http://loinc.org</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+      <em>Code</em>: refuted
+      <br/>
+      <em>System</em>: <tt>http://terminology.hl7.org/CodeSystem/condition-ver-status</tt>
+    </td>
+  </tr>
+
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: Measurement Period
+    <br/>
+    <em>Use</em>: in
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: Period
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: Numerator
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: boolean
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: Denominator
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: boolean
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: Initial Population
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: boolean
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: Denominator Exclusions
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: boolean
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: Denominator Exceptions
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: boolean
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: SDE Sex
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: Coding
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: SDE Payer
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: *
+    <br/>
+    <em>Type</em>: Resource
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: SDE Ethnicity
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: Resource
+  </td>
+</tr>
+  
+  <tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    <em>Name</em>: SDE Race
+    <br/>
+    <em>Use</em>: out
+    <br/>
+    <em>Min Cardinality</em>: 0
+    <br/>
+    <em>Max Cardinality</em>: 1
+    <br/>
+    <em>Type</em>: Resource
+  </td>
+</tr>
+  
+  
+  <tr>
+    <th colspan="2" scope="row" class="section-header"><a name="effective-data-requirements"> </a>Measure Logic Data Requirements</th>
+  </tr>
+  
+  
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Patient
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: extension, url, deceased
+    <br/>
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, value, effective, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1056.50
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, value, effective, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code</em>: </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Encounter
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1022
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Encounter
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Encounter
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1024
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Encounter
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Encounter
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Coverage
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Condition
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.120.12.1003
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Condition
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.120.12.1003
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+  
+  <tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Logic Definitions</th>
+
+</tr>
+  
+          
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-sex"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Sex&quot;:
+  case
+    when Patient.sex = '248153007' then &quot;Male (finding)&quot;
+    when Patient.sex = '248152002' then &quot;Female (finding)&quot;
+    else null
+  end</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-sde-sex"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Sex&quot;:
+  SDE.&quot;SDE Sex&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-has-hiv-test-performed"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Has HIV Test Performed&quot;:
+  exists ( [&quot;LaboratoryResultObservation&quot;: &quot;Human Immunodeficiency Virus (HIV) Laboratory Test Codes (Ab and Ag)&quot;]
+    union [&quot;LaboratoryResultObservation&quot;: &quot;HIV 1 and 2 tests - Meaningful Use set&quot;] ) HIVTest
+    where HIVTest.value is not null
+      and AgeInYearsAt(date from start of HIVTest.effective.toInterval()) in Interval[15, 65]
+      and HIVTest.effective.toInterval ( ) starts before end of &quot;Measurement Period&quot;
+      and ( HIVTest.status = 'final'
+          or HIVTest.status = 'amended'
+          or HIVTest.status = 'corrected'
+      )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-numerator"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Numerator&quot;:
+  ( &quot;Has HIV Test Performed&quot; )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-qualifying-encounters"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Qualifying Encounters&quot;:
+  ( [&quot;Encounter&quot;: type in &quot;Preventive Care Services, Initial Office Visit, 0 to 17&quot;]
+    union [&quot;Encounter&quot;: type in &quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot;]
+    union [&quot;Encounter&quot;: type in &quot;Preventive Care, Established Office Visit, 0 to 17&quot;]
+    union [&quot;Encounter&quot;: type in &quot;Preventive Care Services - Established Office Visit, 18 and Up&quot;]
+    union [&quot;Encounter&quot;: type in &quot;Office Visit&quot;] ) Encounter
+    where Encounter.period during day of &quot;Measurement Period&quot;
+      and Encounter.status = 'finished'</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-initial-population"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Initial Population&quot;:
+  AgeInYearsAt(date from start of &quot;Measurement Period&quot;) in Interval[15, 65]
+    and exists &quot;Qualifying Encounters&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-denominator"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Denominator&quot;:
+  &quot;Initial Population&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-payer"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Payer&quot;:
+  [Coverage: type in &quot;Payer Type&quot;] Payer
+    return {
+      code: Payer.type,
+      period: Payer.period
+    }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-sde-payer"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Payer&quot;:
+  SDE.&quot;SDE Payer&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-ethnicity"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Ethnicity&quot;:
+  Patient.ethnicity E
+    return Tuple {
+      codes: { E.ombCategory } union E.detailed,
+      display: E.text
+    }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-sde-ethnicity"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Ethnicity&quot;:
+  SDE.&quot;SDE Ethnicity&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-denominator-exclusions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Denominator Exclusions&quot;:
+  exists ( ( [ConditionProblemsHealthConcerns: &quot;HIV&quot;]
+      union [ConditionEncounterDiagnosis: &quot;HIV&quot;] ) HIVDiagnosis
+      where HIVDiagnosis.prevalenceInterval ( ) starts before day of start of &quot;Measurement Period&quot;
+        and HIVDiagnosis.verificationStatus !~ &quot;refuted&quot;
+  )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-race"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Race&quot;:
+  Patient.race R
+    return Tuple {
+      codes: R.ombCategory union R.detailed,
+      display: R.text
+    }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-sde-race"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Race&quot;:
+  SDE.&quot;SDE Race&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-patient-expired"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Patient Expired&quot;:
+  Patient.deceased on or before end of &quot;Measurement Period&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms349fhirhivscreening-denominator-exceptions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS349FHIRHIVScreening</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Denominator Exceptions&quot;:
+  &quot;Patient Expired&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="fhirhelpers-tostring"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> FHIRHelpers</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define function ToString(value uri): value.value</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="fhirhelpers-tointerval"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> FHIRHelpers</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">/*
+@description: Converts the given [Period](https://hl7.org/fhir/datatypes.html#Period)
+value to a CQL DateTime Interval
+@comment: If the start value of the given period is unspecified, the starting
+boundary of the resulting interval will be open (meaning the start of the interval
+is unknown, as opposed to interpreted as the beginning of time).
+*/
+define function ToInterval(period FHIR.Period):
+    if period is null then
+        null
+    else
+        if period.&quot;start&quot; is null then
+            Interval(period.&quot;start&quot;.value, period.&quot;end&quot;.value]
+        else
+            Interval[period.&quot;start&quot;.value, period.&quot;end&quot;.value]</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="fhirhelpers-tocode"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> FHIRHelpers</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">/*
+@description: Converts the given FHIR [Coding](https://hl7.org/fhir/datatypes.html#Coding) value to a CQL Code.
+*/
+define function ToCode(coding FHIR.Coding):
+    if coding is null then
+        null
+    else
+        System.Code {
+          code: coding.code.value,
+          system: coding.system.value,
+          version: coding.version.value,
+          display: coding.display.value
+        }</code></pre>
+  </td>
+
+</tr>
+
+  
+
+<tr>
+  <th colspan="2" scope="row" class="row-header">Generated using version 0.4.6 of the sample-content-ig Liquid templates</th>
+</tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
