@@ -79,7 +79,7 @@ async function run() {
   }
 
   const files = fs.readdirSync(resourcesDir)
-    .filter(f => f.endsWith('.json') && f !== "bundle.json");
+    .filter(f => f.endsWith('.json') && f !== "fqm-bundle.json");
 
   console.log(`📦 Found ${files.length} resources under ${resourcesDir}`);
   for (const filename of files) {

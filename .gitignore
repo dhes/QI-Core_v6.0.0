@@ -36,3 +36,8 @@ puppeteer_cache/
 
 # Ignore OS trash files
 .Trashes
+
+**/fqm-bundle.json
+**/*.numbers
+**/fqm-output.json
+**/test-case-eval-report.csv

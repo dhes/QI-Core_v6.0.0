@@ -21,7 +21,7 @@ if (!measureDir) {
 }
 
 const resourcesDir = path.join(measureDir, "resources");
-const outputPath = path.join(resourcesDir, "bundle.json");
+const outputPath = path.join(resourcesDir, "fqm-bundle.json");
 
 const bundle = {
   resourceType: "Bundle",
