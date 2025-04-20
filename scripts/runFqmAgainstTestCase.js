@@ -6,27 +6,33 @@ const { execSync } = require("child_process");
 
 // Parse arguments
 const args = process.argv.slice(2);
-let measureDir, patientBundle;
+let measureDir;
+let patientBundles = [];
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === "--measure-dir" && args[i + 1]) {
     measureDir = args[i + 1];
-  } else if (args[i] === "--patient-bundles" && args[i + 1]) {
-    patientBundle = args[i + 1];
+  } else if (args[i] === "--patient-bundles") {
+    let j = i + 1;
+    while (j < args.length && !args[j].startsWith("--")) {
+      patientBundles.push(args[j]);
+      j++;
+    }
+    i = j - 1;
   }
 }
 
-if (!measureDir || !patientBundle) {
+if (!measureDir || patientBundles.length === 0) {
   console.error(
-    "❌ Usage: node runFqmAgainstTestCase.js --measure-dir <folder> --patient-bundles <file>"
+    "❌ Usage: node runFqmAgainstTestCase.js --measure-dir <folder> --patient-bundles <file1> <file2> ..."
   );
   process.exit(1);
 }
 
-// Load the patient bundle and extract the Measurement Period
+// Load the first patient bundle and extract the Measurement Period
 let rawBundle;
 try {
-  rawBundle = JSON.parse(fs.readFileSync(patientBundle, "utf8"));
+  rawBundle = JSON.parse(fs.readFileSync(patientBundles[0], "utf8"));
 } catch (err) {
   console.error("❌ Failed to read patient bundle:", err.message);
   process.exit(1);
@@ -49,11 +55,13 @@ require("dotenv").config();
 const VSAC_API_KEY = process.env.VSAC_API_KEY;
 
 // Build the FQM command
+const patientBundlesArg = patientBundles.map(p => `"${p}"`).join(" ");
 const command = `fqm-execution reports \
   --slim \
+  --cache-valuesets \
+  --report-type summary \
   --measure-bundle ${bundlePath} \
-  --patient-bundles ${patientBundle} \
-  --report-type individual \
+  --patient-bundles ${patientBundlesArg} \
   --measurement-period-start ${periodStart} \
   --measurement-period-end ${periodEnd} \
   --vs-api-key ${VSAC_API_KEY}`;

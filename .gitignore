@@ -41,3 +41,5 @@ puppeteer_cache/
 **/*.numbers
 **/fqm-output.json
 **/test-case-eval-report.csv
+cache/terminology/
+test-case-eval-fqm.*
