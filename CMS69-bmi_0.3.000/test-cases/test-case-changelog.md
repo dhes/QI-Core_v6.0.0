@@ -95,4 +95,15 @@ Similar pattern for patients:
 - Remove redundant valueBoolean": "true"
 - change "amended" to "cancelled"
 
+### Patient ID: c1df0273-aad8-41a8-859c-edd204bb4f1
+**Issues:**
+- patient file name and description indicate that the patient has a low BMI, but the actual recorded BMI value is normal. 
+- 
+**Proposed edit:** 
+- set the BMI to 18.4
+-
+**Notes:*
+This patient file name and test-case description are 'CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralForLowBMI.json' and 'Enc first day of MP, BMI Low at 24.9, no referral where weight assessment might be performed.' In the test case MeasureReport the denominator exception =1 and the numerator is 0. It's possible that the author is attempting to establish a denominator-exception based on "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI". I've not completed review of this case. TODO: rerun fqm with corrected BMI value. 
+
+
 
