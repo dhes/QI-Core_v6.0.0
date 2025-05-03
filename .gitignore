@@ -11,7 +11,7 @@ yarn-error.log*
 .DS_Store
 
 # Output logs and test result files
-output/
+# output/
 **/test-case-eval-report.txt
 **/testCaseValidationReport.txt
 **/upload-vsac-log.txt

@@ -1,0 +1,171 @@
+{
+  "patientId": "cd81ff3a-3d2b-472e-bf0f-f951aee7d2c4",
+  "patientResults": {
+    "Patient": {
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                },
+                "code": {
+                  "value": "MR"
+                }
+              }
+            ]
+          },
+          "system": {
+            "value": "https://bonnie-fhir.healthit.gov/"
+          },
+          "value": {
+            "value": "62aa507fc4be4c506d4a533a"
+          }
+        }
+      ],
+      "name": [
+        {
+          "family": {
+            "value": "DENOMPass"
+          },
+          "given": [
+            {
+              "value": "Patient18DayOfEncounter"
+            }
+          ]
+        }
+      ],
+      "gender": {
+        "value": "male"
+      },
+      "birthDate": {
+        "value": "2005-01-01"
+      },
+      "extension": [
+        {
+          "url": {
+            "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          "extension": [
+            {
+              "url": {
+                "value": "ombCategory"
+              },
+              "value": {
+                "system": {
+                  "value": "urn:oid:2.16.840.1.113883.6.238"
+                },
+                "code": {
+                  "value": "1002-5"
+                },
+                "display": {
+                  "value": "American Indian or Alaska Native"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            },
+            {
+              "url": {
+                "value": "text"
+              },
+              "value": {
+                "value": "American Indian or Alaska Native"
+              }
+            }
+          ]
+        },
+        {
+          "url": {
+            "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          "extension": [
+            {
+              "url": {
+                "value": "ombCategory"
+              },
+              "value": {
+                "system": {
+                  "value": "urn:oid:2.16.840.1.113883.6.238"
+                },
+                "code": {
+                  "value": "2186-5"
+                },
+                "display": {
+                  "value": "Not Hispanic or Latino"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            },
+            {
+              "url": {
+                "value": "text"
+              },
+              "value": {
+                "value": "Not Hispanic or Latino"
+              }
+            }
+          ]
+        }
+      ],
+      "id": {
+        "value": "cd81ff3a-3d2b-472e-bf0f-f951aee7d2c4"
+      },
+      "meta": {
+        "profile": [
+          {
+            "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+          }
+        ]
+      }
+    },
+    "Qualifying Encounter During Day Of Measurement Period": [],
+    "Initial Population": false,
+    "Denominator": false,
+    "Is Pregnant During Day Of Measurement Period": [],
+    "Denominator Exclusions": false,
+    "BMI During Measurement Period": [],
+    "Documented High BMI During Measurement Period": [],
+    "High BMI Interventions Ordered": [],
+    "High BMI Interventions Performed": [],
+    "High BMI And Follow Up Provided": [],
+    "Documented Low BMI During Measurement Period": [],
+    "Low BMI Interventions Ordered": [],
+    "Low BMI Interventions Performed": [],
+    "Low BMI And Follow Up Provided": [],
+    "Has Normal BMI": false,
+    "Numerator": false,
+    "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI": [],
+    "Medical Reason Or Patient Reason For Not Performing BMI Exam": [],
+    "Denominator Exceptions": false,
+    "SDE Ethnicity": {
+      "codes": [
+        {
+          "code": "2186-5",
+          "system": "urn:oid:2.16.840.1.113883.6.238",
+          "version": null,
+          "display": "Not Hispanic or Latino"
+        }
+      ],
+      "display": "Not Hispanic or Latino"
+    },
+    "SDE Payer": [],
+    "SDE Race": {
+      "codes": [
+        {
+          "code": "1002-5",
+          "system": "urn:oid:2.16.840.1.113883.6.238",
+          "version": null,
+          "display": "American Indian or Alaska Native"
+        }
+      ],
+      "display": "American Indian or Alaska Native"
+    },
+    "SDE Sex": null
+  },
+  "unfilteredResults": null
+}

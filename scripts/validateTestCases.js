@@ -14,8 +14,15 @@ if (!measureDir) {
 }
 
 const TEST_CASES_DIR = path.join(measureDir, 'test-cases');
-const REPORT_PATH = path.join(measureDir, 'testCaseValidationReport.txt');
+// const REPORT_PATH = path.join(measureDir, 'testCaseValidationReport.txt');
+const outputDir = path.join(measureDir, 'output');
 
+// Create the directory if it doesn't exist
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir);
+}
+
+const REPORT_PATH = path.join(outputDir, 'testCaseValidationReport.txt');
 function findAllBundles(dirPath) {
   const bundles = [];
   const dirs = fs.readdirSync(dirPath);
