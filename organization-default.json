@@ -1,0 +1,6 @@
+{
+  "resourceType": "Organization",
+  "id": "default",
+  "name": "Default Organization",
+  "active": true
+}

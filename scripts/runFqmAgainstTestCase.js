@@ -1,82 +1,100 @@
-#!/usr/bin/env node
-
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { Calculator } = require("fqm-execution");
 
-// Parse arguments
-const args = process.argv.slice(2);
-let measureDir;
-let patientBundles = [];
+// Load your measure and patient bundles from files
+// Update these paths to point to your actual files
+const measureBundlePath = "CMS69-bmi_0.3.000/resources/fqm-bundle.json";
+const patientBundlePath =
+  "CMS69-bmi_0.3.000/new-test-cases/86a542ea-a8de-49e8-be6d-6ca395a571fc/CMS69FHIR-v0.3.000-1110.json";
 
-for (let i = 0; i < args.length; i++) {
-  if (args[i] === "--measure-dir" && args[i + 1]) {
-    measureDir = args[i + 1];
-  } else if (args[i] === "--patient-bundles") {
-    let j = i + 1;
-    while (j < args.length && !args[j].startsWith("--")) {
-      patientBundles.push(args[j]);
-      j++;
+// Function to load value set cache from the specified location
+function loadValueSetCache() {
+  const cacheDir = path.resolve("./cache/terminology");
+  const valueSetCache = [];
+
+  try {
+    if (fs.existsSync(cacheDir)) {
+      const files = fs.readdirSync(cacheDir);
+      console.log(`Found ${files.length} files in cache directory`);
+
+      files.forEach((file) => {
+        if (file.endsWith(".json")) {
+          try {
+            const content = fs.readFileSync(path.join(cacheDir, file), "utf8");
+            valueSetCache.push(JSON.parse(content));
+          } catch (err) {
+            console.warn(
+              `Could not load valueset from file ${file}: ${err.message}`
+            );
+          }
+        }
+      });
+
+      console.log(
+        `Successfully loaded ${valueSetCache.length} valuesets from cache`
+      );
+    } else {
+      console.log("Cache directory does not exist:", cacheDir);
     }
-    i = j - 1;
+  } catch (error) {
+    console.error("Error loading value set cache:", error);
+  }
+
+  return valueSetCache;
+}
+// Configure calculation options
+const options = {
+  measurementPeriodStart: "2026-01-01",
+  measurementPeriodEnd: "2026-12-31",
+  reportType: "individual",
+  calculateSDEs: false,
+  calculateHTML: false,
+  calculateDRC: false,
+  includeClauseResults: false,
+  calculateClauseCoverage: false,
+  verboseCalculationResults: false,
+};
+
+// Run the calculation
+async function runCalculation() {
+  try {
+    // Load measure and patient bundles
+    const measureBundle = JSON.parse(fs.readFileSync(measureBundlePath));
+    const patientBundle = JSON.parse(fs.readFileSync(patientBundlePath));
+    console.log("Successfully loaded bundles from files");
+
+    // Load value set cache from specified location
+    const valueSetCache = loadValueSetCache();
+
+    console.log("Starting calculation...");
+    // Pass valueSetCache as the fourth parameter
+    const { results } = await Calculator.calculateMeasureReports(
+      measureBundle,
+      [patientBundle],
+      options,
+      valueSetCache
+    );
+
+    // Save results to a file for easier viewing
+    fs.writeFileSync(
+      "./detailedResults.json",
+      JSON.stringify(results, null, 2)
+    );
+    console.log("Results saved to detailedResults.json");
+
+    // Output basic population results to console
+    if (results && results[0] && results[0].detailedResults) {
+      console.log("Population results:");
+      console.log(
+        JSON.stringify(results[0].detailedResults[0].populationResults, null, 2)
+      );
+    } else {
+      console.log("No detailed results found in the calculation output");
+    }
+  } catch (error) {
+    console.error("Error calculating measure:", error);
   }
 }
 
-if (!measureDir || patientBundles.length === 0) {
-  console.error(
-    "❌ Usage: node runFqmAgainstTestCase.js --measure-dir <folder> --patient-bundles <file1> <file2> ..."
-  );
-  process.exit(1);
-}
-
-// Load the first patient bundle and extract the Measurement Period
-let rawBundle;
-try {
-  rawBundle = JSON.parse(fs.readFileSync(patientBundles[0], "utf8"));
-} catch (err) {
-  console.error("❌ Failed to read patient bundle:", err.message);
-  process.exit(1);
-}
-
-const measureReport = rawBundle.entry.find(
-  (e) => e.resource.resourceType === "MeasureReport"
-)?.resource;
-
-if (!measureReport || !measureReport.period) {
-  console.error("❌ Could not find MeasureReport with a period in the bundle.");
-  process.exit(1);
-}
-
-const periodStart = measureReport.period.start;
-const periodEnd = measureReport.period.end;
-const bundlePath = path.join(measureDir, "resources", "fqm-bundle.json");
-
-require("dotenv").config();
-const VSAC_API_KEY = process.env.VSAC_API_KEY;
-
-// Build the FQM command
-const patientBundlesArg = patientBundles.map(p => `"${p}"`).join(" ");
-const command = `fqm-execution reports \
-  --slim \
-  --cache-valuesets \
-  --report-type summary \
-  --measure-bundle ${bundlePath} \
-  --patient-bundles ${patientBundlesArg} \
-  --measurement-period-start ${periodStart} \
-  --measurement-period-end ${periodEnd} \
-  --vs-api-key ${VSAC_API_KEY}`;
-
-console.log("🚀 Running fqm-execution:");
-console.log(command);
-
-try {
-  const result = execSync(command, { encoding: "utf8" });
-
-  const outputPath = path.join(measureDir, "fqm-output.json");
-  fs.writeFileSync(outputPath, result);
-
-  console.log(`\n✅ MeasureReport saved to ${outputPath}`);
-} catch (err) {
-  console.error("❌ fqm-execution failed:", err.message);
-  process.exit(1);
-}
+runCalculation();

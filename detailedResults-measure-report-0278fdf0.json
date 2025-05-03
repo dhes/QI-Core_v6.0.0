@@ -1,0 +1,101 @@
+[
+  {
+    "id": "bfaf0277-e809-4f34-940f-d564a8888598",
+    "resourceType": "MeasureReport",
+    "period": {
+      "start": "2026-01-01",
+      "end": "2026-12-31"
+    },
+    "status": "complete",
+    "type": "individual",
+    "measure": "https://madie.cms.gov/Measure/CMS69FHIRPCSBMIScreenAndFollowUp",
+    "contained": [],
+    "group": [
+      {
+        "id": "Group_1",
+        "population": [
+          {
+            "count": 1,
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                }
+              ]
+            }
+          },
+          {
+            "count": 1,
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator",
+                  "display": "Denominator"
+                }
+              ]
+            }
+          },
+          {
+            "count": 0,
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator-exclusion",
+                  "display": "Denominator Exclusion"
+                }
+              ]
+            }
+          },
+          {
+            "count": 0,
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "numerator",
+                  "display": "Numerator"
+                }
+              ]
+            }
+          },
+          {
+            "count": 1,
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator-exception",
+                  "display": "Denominator Exception"
+                }
+              ]
+            }
+          }
+        ],
+        "measureScore": {
+          "value": 0
+        }
+      }
+    ],
+    "evaluatedResource": [
+      {
+        "reference": "Patient/0278fdf0-f067-46e8-aeb1-fb96dff3c947"
+      },
+      {
+        "reference": "Encounter/dbe8c09a-ae37-496c-bf5c-34aad18abc91"
+      },
+      {
+        "reference": "Observation/191645e4-7a23-44e5-963a-e09a6e70a194"
+      },
+      {
+        "reference": "ServiceRequest/11b7b338-b9e9-4bd0-8ac8-3633459a603e"
+      }
+    ],
+    "subject": {
+      "reference": "Patient/0278fdf0-f067-46e8-aeb1-fb96dff3c947"
+    }
+  }
+]

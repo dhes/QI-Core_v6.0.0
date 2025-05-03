@@ -98,12 +98,24 @@ Similar pattern for patients:
 ### Patient ID: c1df0273-aad8-41a8-859c-edd204bb4f1
 **Issues:**
 - patient file name and description indicate that the patient has a low BMI, but the actual recorded BMI value is normal. 
-- 
 **Proposed edit:** 
-- set the BMI to 18.4
--
+- set the BMI to 18.4 in the test case
 **Notes:*
-This patient file name and test-case description are 'CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralForLowBMI.json' and 'Enc first day of MP, BMI Low at 24.9, no referral where weight assessment might be performed.' In the test case MeasureReport the denominator exception =1 and the numerator is 0. It's possible that the author is attempting to establish a denominator-exception based on "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI". I've not completed review of this case. TODO: rerun fqm with corrected BMI value. 
+This patient file name and test-case description are 'CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralForLowBMI.json' and 'Enc first day of MP, BMI Low at 24.9, no referral where weight assessment might be performed.' In the test case MeasureReport the denominator exception =1 and the numerator is 0. Apparently the author is attempting to establish a denominator-exception based on "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI". 
 
+Rerunning fqm report against the corrected file results in counts that match result in expected values. 
 
+### Patient ID: 6553adbf-2a30-4861-97e6-cca7d2274f01, a4a1ed63..., b98fcec4...
+**Issues:**
+- expected denominator-exception = 1; actual = 0
+**Proposed edit:** 
 
+**Notes**
+This patient's file name is CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForAboveNormalBMI and description is "Adult, Enc first 30 minutes of the first day of the MP, BMI result above normal, no f/u plan due to medical reason". The assigned BMI value is 25. High BMI in the cql is defined as "BMI.value >= 25 'kg/m2'", so the value in the test-case appears correct (testing an edge case). So the discrepancy may be from the "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI" values. In the cql identifier "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI", the section "union [MedicationNotRequested: "Medications for Below Normal BMI"] ) NoBMIFollowUp" there is a comment
+```
+          // TODO: https://oncprojectracking.healthit.gov/support/projects/MADIE/issues/MADIE-2124
+          // Expecting 4 failures until this translator issue is incorporated into MADiE
+```
+which may account for the discrepancy. 
+
+That completes the first round of discrepancy analysis. 

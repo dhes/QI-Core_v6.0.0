@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "axios": "^1.8.4",
+    "csv-writer": "^1.6.0",
     "dotenv": "^16.5.0",
+    "fqm-execution": "^1.7.0",
     "glob": "^10.4.5",
     "puppeteer": "^24.6.1"
   }

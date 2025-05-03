@@ -18,7 +18,7 @@ output/
 **/load-vsac-log.txt
 
 # Downloaded VSAC files (can regenerate)
-vocabulary/valueset/external/
+**/vocabulary/**
 
 # Temporary or scratch JSONs
 # resolvers.json
