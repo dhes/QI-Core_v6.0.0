@@ -19,8 +19,20 @@ if (!FHIR_SERVER_URL) {
   process.exit(1);
 }
 
+const args = process.argv.slice(2);
+let measureDir;
+const idx = args.indexOf("--measure-dir");
+if (idx !== -1 && args[idx + 1]) {
+  measureDir = args[idx + 1];
+}
+
+if (!measureDir) {
+  console.error("❌  Missing --measure-dir argument");
+  process.exit(1);
+}
+
 // point at the shared, central VSAC‐expansions folder
-const valuesetDir = path.join(__dirname, '..', 'vocabulary', 'valueset', 'external');
+const valuesetDir = path.join(measureDir, 'vocabulary', 'valueset', 'external');
 const logFile     = path.join(__dirname, '..', 'output', 'upload-vsac-log.txt');
 
 // ensure output folder exists

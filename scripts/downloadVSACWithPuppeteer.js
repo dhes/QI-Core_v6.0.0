@@ -6,8 +6,10 @@ const path = require("path");
 const glob = require("glob");
 require("dotenv").config();
 
-const outputDir = path.join("vocabulary", "valueset", "external");
-fs.mkdirSync(outputDir, { recursive: true });
+let outputDir; // will be assigned later once measureDir is known
+
+// const outputDir = path.join("vocabulary", "valueset", "external");
+// fs.mkdirSync(outputDir, { recursive: true });
 
 function parseCQLValueSetsFromFiles(cqlDir) {
   const files = glob.sync(path.join(cqlDir, "*.cql"));
@@ -129,6 +131,9 @@ async function main() {
   }
 
   // now you can safely do:
+  outputDir = path.join(measureDir, "vocabulary", "valueset", "external");
+  fs.mkdirSync(outputDir, { recursive: true });
+
   const cqlDir = path.join(measureDir, "cql");
   const overwrite = args.includes("--overwrite");
 

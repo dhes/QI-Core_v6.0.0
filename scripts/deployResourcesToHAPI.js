@@ -36,9 +36,11 @@ const measureDir = args[mdIndex + 1];
 const resourcesDir = path.join(measureDir, 'resources');
 
 // prepare logging
-fs.mkdirSync('output', { recursive: true });
-const logFile = path.join('output', 'deploy-resources-log.txt');
-fs.appendFileSync(logFile, `\n🚀 DEPLOY RUN @ ${new Date().toISOString()}\n`);
+// fs.mkdirSync('output', { recursive: true });
+// const logFile = path.join('output', 'deploy-resources-log.txt');
+const logDir = path.join(measureDir, 'output');
+fs.mkdirSync(logDir, { recursive: true });
+const logFile = path.join(logDir, 'deploy-resources-log.txt');fs.appendFileSync(logFile, `\n🚀 DEPLOY RUN @ ${new Date().toISOString()}\n`);
 
 async function deployResource(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');

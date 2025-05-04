@@ -1,0 +1,333 @@
+{
+  "patientId": "ff09cf1e-5b30-45c7-9cc6-d5daf48a3933",
+  "patientResults": {
+    "Patient": {
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                },
+                "code": {
+                  "value": "MR"
+                }
+              }
+            ]
+          },
+          "system": {
+            "value": "https://bonnie-fhir.healthit.gov/"
+          },
+          "value": {
+            "value": "62ab5d9131fa0a130d9331db"
+          }
+        }
+      ],
+      "name": [
+        {
+          "family": {
+            "value": "DENEXCEPPass"
+          },
+          "given": [
+            {
+              "value": "MedicalReasonNotPerformed"
+            }
+          ]
+        }
+      ],
+      "gender": {
+        "value": "unknown"
+      },
+      "birthDate": {
+        "value": "1957-11-07"
+      },
+      "extension": [
+        {
+          "url": {
+            "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          "extension": [
+            {
+              "url": {
+                "value": "ombCategory"
+              },
+              "value": {
+                "system": {
+                  "value": "urn:oid:2.16.840.1.113883.6.238"
+                },
+                "code": {
+                  "value": "2106-3"
+                },
+                "display": {
+                  "value": "White"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            },
+            {
+              "url": {
+                "value": "text"
+              },
+              "value": {
+                "value": "White"
+              }
+            }
+          ]
+        },
+        {
+          "url": {
+            "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          "extension": [
+            {
+              "url": {
+                "value": "ombCategory"
+              },
+              "value": {
+                "system": {
+                  "value": "urn:oid:2.16.840.1.113883.6.238"
+                },
+                "code": {
+                  "value": "2186-5"
+                },
+                "display": {
+                  "value": "Not Hispanic or Latino"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            },
+            {
+              "url": {
+                "value": "text"
+              },
+              "value": {
+                "value": "Not Hispanic or Latino"
+              }
+            }
+          ]
+        }
+      ],
+      "id": {
+        "value": "ff09cf1e-5b30-45c7-9cc6-d5daf48a3933"
+      },
+      "meta": {
+        "profile": [
+          {
+            "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+          }
+        ]
+      }
+    },
+    "Qualifying Encounter During Day Of Measurement Period": [
+      {
+        "status": {
+          "value": "finished"
+        },
+        "class": {
+          "system": {
+            "value": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+          },
+          "code": {
+            "value": "AMB"
+          },
+          "display": {
+            "value": "ambulatory"
+          }
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://snomed.info/sct"
+                },
+                "version": {
+                  "value": "2022-03"
+                },
+                "code": {
+                  "value": "10197000"
+                },
+                "display": {
+                  "value": "Psychiatric interview and evaluation (procedure)"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": {
+            "value": "Patient/ff09cf1e-5b30-45c7-9cc6-d5daf48a3933"
+          }
+        },
+        "period": {
+          "start": {
+            "value": "2026-01-02T00:00:00.000+00:00"
+          },
+          "end": {
+            "value": "2026-01-02T00:30:00.000+00:00"
+          }
+        },
+        "id": {
+          "value": "5db8bb86-2221-46f5-b069-d94a77bdb5d6"
+        },
+        "meta": {
+          "profile": [
+            {
+              "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            }
+          ]
+        }
+      }
+    ],
+    "Initial Population": true,
+    "Denominator": true,
+    "Is Pregnant During Day Of Measurement Period": [],
+    "Denominator Exclusions": false,
+    "BMI During Measurement Period": [],
+    "Documented High BMI During Measurement Period": [],
+    "High BMI Interventions Ordered": [],
+    "High BMI Interventions Performed": [],
+    "High BMI And Follow Up Provided": [],
+    "Documented Low BMI During Measurement Period": [],
+    "Low BMI Interventions Ordered": [],
+    "Low BMI Interventions Performed": [],
+    "Low BMI And Follow Up Provided": [],
+    "Has Normal BMI": false,
+    "Numerator": false,
+    "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI": [
+      {
+        "status": {
+          "value": "completed"
+        },
+        "intent": {
+          "value": "order"
+        },
+        "doNotPerform": {
+          "value": true
+        },
+        "code": {
+          "coding": [
+            {
+              "system": {
+                "value": "http://snomed.info/sct"
+              },
+              "version": {
+                "value": "2022-03"
+              },
+              "code": {
+                "value": "182922004"
+              },
+              "display": {
+                "value": "Dietary regime (regime/therapy)"
+              },
+              "userSelected": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "subject": {
+          "reference": {
+            "value": "Patient/ff09cf1e-5b30-45c7-9cc6-d5daf48a3933"
+          }
+        },
+        "authoredOn": {
+          "value": "2026-01-02T00:29:00.000+00:00"
+        },
+        "extension": [
+          {
+            "url": {
+              "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason"
+            },
+            "value": {
+              "coding": [
+                {
+                  "system": {
+                    "value": "http://snomed.info/sct"
+                  },
+                  "code": {
+                    "value": "183932001"
+                  },
+                  "display": {
+                    "value": "Procedure contraindicated (situation)"
+                  },
+                  "userSelected": {
+                    "value": true
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "url": {
+              "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-reasonRefused"
+            },
+            "value": {
+              "coding": [
+                {
+                  "system": {
+                    "value": "http://snomed.info/sct"
+                  },
+                  "code": {
+                    "value": "183932001"
+                  },
+                  "display": {
+                    "value": "Procedure contraindicated (situation)"
+                  },
+                  "userSelected": {
+                    "value": true
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "id": {
+          "value": "07eeb470-ab68-43ac-93a7-65297bda77fa"
+        },
+        "meta": {
+          "profile": [
+            {
+              "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested"
+            }
+          ]
+        }
+      }
+    ],
+    "Medical Reason Or Patient Reason For Not Performing BMI Exam": [],
+    "Denominator Exceptions": true,
+    "SDE Ethnicity": {
+      "codes": [
+        {
+          "code": "2186-5",
+          "system": "urn:oid:2.16.840.1.113883.6.238",
+          "version": null,
+          "display": "Not Hispanic or Latino"
+        }
+      ],
+      "display": "Not Hispanic or Latino"
+    },
+    "SDE Payer": [],
+    "SDE Race": {
+      "codes": [
+        {
+          "code": "2106-3",
+          "system": "urn:oid:2.16.840.1.113883.6.238",
+          "version": null,
+          "display": "White"
+        }
+      ],
+      "display": "White"
+    },
+    "SDE Sex": null
+  },
+  "unfilteredResults": null
+}

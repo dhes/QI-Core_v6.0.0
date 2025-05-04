@@ -1,0 +1,524 @@
+{
+  "patientId": "8e38b797-4dec-437d-8bf0-6f0fc78f8ea7",
+  "patientResults": {
+    "Patient": {
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                },
+                "code": {
+                  "value": "MR"
+                }
+              }
+            ]
+          },
+          "system": {
+            "value": "https://bonnie-fhir.healthit.gov/"
+          },
+          "value": {
+            "value": "62df045c5db91778f87ca900"
+          }
+        }
+      ],
+      "name": [
+        {
+          "family": {
+            "value": "NUMERPass"
+          },
+          "given": [
+            {
+              "value": "HighBMIAndInterventionOrderedFollowUp"
+            }
+          ]
+        }
+      ],
+      "gender": {
+        "value": "male"
+      },
+      "birthDate": {
+        "value": "1957-11-07"
+      },
+      "extension": [
+        {
+          "url": {
+            "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          "extension": [
+            {
+              "url": {
+                "value": "ombCategory"
+              },
+              "value": {
+                "system": {
+                  "value": "urn:oid:2.16.840.1.113883.6.238"
+                },
+                "code": {
+                  "value": "2106-3"
+                },
+                "display": {
+                  "value": "White"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            },
+            {
+              "url": {
+                "value": "text"
+              },
+              "value": {
+                "value": "White"
+              }
+            }
+          ]
+        },
+        {
+          "url": {
+            "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          "extension": [
+            {
+              "url": {
+                "value": "ombCategory"
+              },
+              "value": {
+                "system": {
+                  "value": "urn:oid:2.16.840.1.113883.6.238"
+                },
+                "code": {
+                  "value": "2186-5"
+                },
+                "display": {
+                  "value": "Not Hispanic or Latino"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            },
+            {
+              "url": {
+                "value": "text"
+              },
+              "value": {
+                "value": "Not Hispanic or Latino"
+              }
+            }
+          ]
+        }
+      ],
+      "id": {
+        "value": "8e38b797-4dec-437d-8bf0-6f0fc78f8ea7"
+      },
+      "meta": {
+        "profile": [
+          {
+            "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+          }
+        ]
+      }
+    },
+    "Qualifying Encounter During Day Of Measurement Period": [
+      {
+        "status": {
+          "value": "finished"
+        },
+        "class": {
+          "system": {
+            "value": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+          },
+          "code": {
+            "value": "AMB"
+          },
+          "display": {
+            "value": "ambulatory"
+          }
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://snomed.info/sct"
+                },
+                "version": {
+                  "value": "2022-03"
+                },
+                "code": {
+                  "value": "10197000"
+                },
+                "display": {
+                  "value": "Psychiatric interview and evaluation (procedure)"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": {
+            "value": "Patient/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7"
+          }
+        },
+        "period": {
+          "start": {
+            "value": "2026-01-01T00:00:00.000+00:00"
+          },
+          "end": {
+            "value": "2026-01-01T00:30:00.000+00:00"
+          }
+        },
+        "id": {
+          "value": "518dfbff-ae73-4c44-ad97-159fe5cc7de3"
+        },
+        "meta": {
+          "profile": [
+            {
+              "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            }
+          ]
+        }
+      }
+    ],
+    "Initial Population": true,
+    "Denominator": true,
+    "Is Pregnant During Day Of Measurement Period": [],
+    "Denominator Exclusions": false,
+    "BMI During Measurement Period": [
+      {
+        "status": {
+          "value": "final"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://terminology.hl7.org/CodeSystem/observation-category"
+                },
+                "code": {
+                  "value": "vital-signs"
+                },
+                "display": {
+                  "value": "Vital Signs"
+                }
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": {
+                "value": "http://loinc.org"
+              },
+              "code": {
+                "value": "39156-5"
+              },
+              "display": {
+                "value": "Body mass index (BMI) [Ratio]"
+              },
+              "userSelected": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "subject": {
+          "reference": {
+            "value": "Patient/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7"
+          }
+        },
+        "effective": {
+          "value": "2026-01-01T00:30:00.000+00:00"
+        },
+        "value": {
+          "value": {
+            "value": 30
+          },
+          "unit": {
+            "value": "kg/m2"
+          },
+          "system": {
+            "value": "http://unitsofmeasure.org"
+          },
+          "code": {
+            "value": "kg/m2"
+          }
+        },
+        "id": {
+          "value": "c3979246-668d-4c30-aaa0-647f5314eb18"
+        },
+        "meta": {
+          "profile": [
+            {
+              "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
+            }
+          ]
+        }
+      }
+    ],
+    "Documented High BMI During Measurement Period": [
+      {
+        "status": {
+          "value": "final"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://terminology.hl7.org/CodeSystem/observation-category"
+                },
+                "code": {
+                  "value": "vital-signs"
+                },
+                "display": {
+                  "value": "Vital Signs"
+                }
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": {
+                "value": "http://loinc.org"
+              },
+              "code": {
+                "value": "39156-5"
+              },
+              "display": {
+                "value": "Body mass index (BMI) [Ratio]"
+              },
+              "userSelected": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "subject": {
+          "reference": {
+            "value": "Patient/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7"
+          }
+        },
+        "effective": {
+          "value": "2026-01-01T00:30:00.000+00:00"
+        },
+        "value": {
+          "value": {
+            "value": 30
+          },
+          "unit": {
+            "value": "kg/m2"
+          },
+          "system": {
+            "value": "http://unitsofmeasure.org"
+          },
+          "code": {
+            "value": "kg/m2"
+          }
+        },
+        "id": {
+          "value": "c3979246-668d-4c30-aaa0-647f5314eb18"
+        },
+        "meta": {
+          "profile": [
+            {
+              "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
+            }
+          ]
+        }
+      }
+    ],
+    "High BMI Interventions Ordered": [
+      {
+        "status": {
+          "value": "active"
+        },
+        "intent": {
+          "value": "order"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": {
+                "value": "http://snomed.info/sct"
+              },
+              "version": {
+                "value": "2022-03"
+              },
+              "code": {
+                "value": "182922004"
+              },
+              "display": {
+                "value": "Dietary regime (regime/therapy)"
+              },
+              "userSelected": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "subject": {
+          "reference": {
+            "value": "Patient/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7"
+          }
+        },
+        "authoredOn": {
+          "value": "2026-01-01T00:30:00.000+00:00"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://hl7.org/fhir/sid/icd-10-cm"
+                },
+                "version": {
+                  "value": "2023"
+                },
+                "code": {
+                  "value": "E66.01"
+                },
+                "display": {
+                  "value": "Morbid (severe) obesity due to excess calories"
+                },
+                "userSelected": {
+                  "value": true
+                }
+              }
+            ]
+          }
+        ],
+        "id": {
+          "value": "c9e6466d-361c-45f5-9e69-f0c27bdf7002"
+        },
+        "meta": {
+          "profile": [
+            {
+              "value": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
+            }
+          ]
+        }
+      }
+    ],
+    "High BMI Interventions Performed": [],
+    "High BMI And Follow Up Provided": [
+      {
+        "status": {
+          "value": "final"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": {
+                  "value": "http://terminology.hl7.org/CodeSystem/observation-category"
+                },
+                "code": {
+                  "value": "vital-signs"
+                },
+                "display": {
+                  "value": "Vital Signs"
+                }
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": {
+                "value": "http://loinc.org"
+              },
+              "code": {
+                "value": "39156-5"
+              },
+              "display": {
+                "value": "Body mass index (BMI) [Ratio]"
+              },
+              "userSelected": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "subject": {
+          "reference": {
+            "value": "Patient/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7"
+          }
+        },
+        "effective": {
+          "value": "2026-01-01T00:30:00.000+00:00"
+        },
+        "value": {
+          "value": {
+            "value": 30
+          },
+          "unit": {
+            "value": "kg/m2"
+          },
+          "system": {
+            "value": "http://unitsofmeasure.org"
+          },
+          "code": {
+            "value": "kg/m2"
+          }
+        },
+        "id": {
+          "value": "c3979246-668d-4c30-aaa0-647f5314eb18"
+        },
+        "meta": {
+          "profile": [
+            {
+              "value": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
+            }
+          ]
+        }
+      }
+    ],
+    "Documented Low BMI During Measurement Period": [],
+    "Low BMI Interventions Ordered": [],
+    "Low BMI Interventions Performed": [],
+    "Low BMI And Follow Up Provided": [],
+    "Has Normal BMI": false,
+    "Numerator": true,
+    "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI": [],
+    "Medical Reason Or Patient Reason For Not Performing BMI Exam": [],
+    "Denominator Exceptions": false,
+    "SDE Ethnicity": {
+      "codes": [
+        {
+          "code": "2186-5",
+          "system": "urn:oid:2.16.840.1.113883.6.238",
+          "version": null,
+          "display": "Not Hispanic or Latino"
+        }
+      ],
+      "display": "Not Hispanic or Latino"
+    },
+    "SDE Payer": [],
+    "SDE Race": {
+      "codes": [
+        {
+          "code": "2106-3",
+          "system": "urn:oid:2.16.840.1.113883.6.238",
+          "version": null,
+          "display": "White"
+        }
+      ],
+      "display": "White"
+    },
+    "SDE Sex": null
+  },
+  "unfilteredResults": null
+}
