@@ -1,20 +1,27 @@
 ## Steps
 
-- deploy resolvers bundle via ThunderClient
-- deploy ValueSets via scripts/deployValueSetsToHAPI.js
+- deploy measure-specific resolvers bundle via ThunderClient
+- scan cql, identify valueset and download valueset to vocabulary/valueset/external using
 ```
-node scripts/deployValueSetsToHAPI.js
+node scripts/downloadVSACWithPuppeteer.js --measure-dir={measureDir}
+```
+- deploy ValueSets to HAPI
+```
+node scripts/deployValueSetsToHAPI.js --measure-dir={measureDir}
 ```
 - deploy Measure and Library resource e.g. (2 methods)
-1) script
+  - script (preferred)
 ```
-node scripts/deployResourcesToHAPI.js --measure-dir CMS69-bmi_0.3.000
+node scripts/deployResourcesToHAPI.js --measure-dir {measureDir}
 ```
-2) API call POST as-is resource bundle
+  - API call POST as-is resource bundle
+
 - deploy test cases
 ```
-node scripts/deployTestCases.js --measure-dir CMS69-bmi_0.3.000
+node scripts/deployTestCases.js --measure-dir {measureDir}
 ```
+  - if you are performing this step for the first time with a new measure, you may have to cycle through some error to build a new resolver.json bundle. 
+
 - maybe reboot server ;)
 - gather ID of Measure if you used API call POST as-is resource bundle
 ```
@@ -24,6 +31,7 @@ GET Measure
 ```
 Measure/{measureId}/$evaluate-measure?subject=Patient/5d34e56e-f4f1-4817-b7e4-e4c57f811300&periodStart=2026-01-01&periodEnd=2026-12-31
 ```
+- upload any new common libraries with `safeLoadCommonLibraries.js`
 
 ## Gotcha!
 
@@ -40,4 +48,6 @@ That means if you are planning different version of a library on one server and 
 - remove the |{version} from Measure.library
 - run RefreshIG
 - put it back in its input/measure version and its bundle/measure version. 
+
+
 
