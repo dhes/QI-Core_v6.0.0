@@ -38,3 +38,7 @@
 ✅ PUT Library/Status-1-13-000
 ✅ PUT Library/SupplementalDataElements-5-1-000
 ✅ PUT Measure/CMS69FHIRPCSBMIScreenAndFollowUp-0-3-000
+
+🚀 DEPLOY RUN @ 2025-05-04T00:30:51.102Z
+✅ PUT Library/CMS69FHIRPCSBMIScreenAndFollowUp
+✅ PUT Measure/CMS69FHIRPCSBMIScreenAndFollowUp

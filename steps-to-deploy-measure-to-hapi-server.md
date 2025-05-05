@@ -20,10 +20,10 @@ node scripts/deployResourcesToHAPI.js --measure-dir {measureDir}
 ```
 node scripts/deployTestCases.js --measure-dir {measureDir}
 ```
-  - if you are performing this step for the first time with a new measure, you may have to cycle through some error to build a new resolver.json bundle. 
+  - if you are performing this step for the first time with a new measure, you may have to cycle through some errors to build a new resolver.json bundle. 
 
 - maybe reboot server ;)
-- gather ID of Measure if you used API call POST as-is resource bundle
+- (obsolete) gather ID of Measure if you used API call POST as-is resource bundle
 ```
 GET Measure
 ```
