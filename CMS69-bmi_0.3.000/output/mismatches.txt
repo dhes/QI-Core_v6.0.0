@@ -1,0 +1,123 @@
+❌ ✅ test-cases/03f01144-2230-42ab-b81f-594e1c2baa62/CMS69FHIR-v0.3.000-DENEXFail-PalliativeCareEncounterAfterMP.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/050201c2-c2c4-46e6-8288-a34f99caebdc/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndIntervenionOrderedMedication.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/1102009b-6f05-4bab-9fd1-191e81cf50e8/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformed.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/1ba2fc33-1a1b-416b-bb3c-79ba5d0d3359/CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/1c607e84-c7c2-4dae-bf63-a75d7a9cfd38/CMS69FHIR-v0.3.000-NUMERFail-ObeseDxEndsBeforeIntervention.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/1e23fb8f-e27b-4553-a62a-f66edeb4528a/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformedCondition.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/27849d59-3cef-40bf-8338-a6ec7c0bcf81/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedMedication.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/296d38e4-d69b-481e-a8cf-f7eee8b9e5d7/CMS69FHIR-v0.3.000-IPPPass-Age18HasEnc.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/2a976bc2-493b-421f-842e-36d31463f261/CMS69FHIR-v0.3.000-DENOMPass-Patient18DayOfEncounter.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/405d4940-7ab2-4d26-b55f-3c27e07eba33/CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndConditionEndsBeforeInterventionPerformed.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/42e6b4d6-defc-4ec5-894f-e3333e3039a3/CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt24pt9.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/461fdfab-fcc1-4630-9dae-2ba3a6ab0c25/CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt18pt5.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/463dd868-997d-472f-962c-96383fd2a5c4/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformedCondition.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/5d34e56e-f4f1-4817-b7e4-e4c57f811300/CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/5d48c3b8-93e9-4e29-8c20-a002761d9e24/CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare-67f7f25a181d33930444658e.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/5ef4acf3-4b42-41fd-8793-7d1a9342865a/CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/7902e3dc-f3da-4cc2-9f2e-4a6c8cd33b88/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformed.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/80a53697-3fdb-4721-87aa-64462a6708dd/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnset1YearAgo.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/8835a50b-0a0f-4e2f-94fa-7c180cd7f905/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedCondition.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/8e130410-9710-45f3-ac56-e69dee0755d9/CMS69FHIR-v0.3.000-DENOMPass-Patient18LastDayOfEncounter.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedFollowUp.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/9d92be1d-6fc8-40f2-99a0-4be9ce1f244b/CMS69FHIR-v0.3.000-NUMERPass-HighInterventionsPerformedDiagnosis.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/a0aacdbc-4954-48af-aa88-361ea7e32736/CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndConditionEndsBeforeInterventionPerformed.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/c3caf126-12a2-473f-8f51-1c7828d63d16/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedReferral.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/c84bf29f-80ac-4bf0-beeb-404ba96a3fa8/CMS69FHIR-v0.3.000-DENEXFail-DischargeToHomeHospiceAfterMP.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/ca6deaeb-459d-4d1a-9daf-e454ff76a6f0/CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition-67f6d67ebdc50b65bdb89c70.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/d3054ffa-e17b-4611-b7e0-4523fb0f9e1d/CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/d318f512-656e-43bf-a409-16b6e24462a9/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/d4d064be-d55a-47b5-9bfd-993afebd95a5/CMS69FHIR-v0.3.000-DENEXFail-DischargeToHospiceFacilityAfterMP.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
+
+❌ ✅ test-cases/ddfb765a-a3fb-467f-a9d9-ac6faf4cea9a/CMS69FHIR-v0.3.000-NUMERFail-UnderweightEndsBeforeIntervention.json
+   measureScore=1 but expected=0
+   IP=1, DENOM=1, DENEX=0, NUMER=0, DENEXCEP=0
+
+❌ ✅ test-cases/f5ae6269-d09b-47f8-a519-f1a8a81549fc/CMS69FHIR-v0.3.000-NUMERPass-HighBMIDietaryRecommendations.json
+   measureScore=0 but expected=1
+   IP=1, DENOM=1, DENEX=0, NUMER=1, DENEXCEP=0
