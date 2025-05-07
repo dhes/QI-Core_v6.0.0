@@ -167,9 +167,12 @@ and rerun the $evaluate-measure call.
 Result:
 Counts:
 ```
-
+(no change)
 ```
 measureScore
 ```
-
+"measureScore": 0.0
 ```
+which proves that HAPI $evaluate-measure R4 is reading the group measure-improvement-notation extension, and that correcting the value *resolves* the issue. 
+
+I leave it to he curious to test the other two options :) .

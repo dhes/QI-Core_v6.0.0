@@ -1,0 +1,22 @@
+- Patient
+  - >18
+  - <18
+- Qualifying Encounter
+  - too soon
+  - too late
+  - just right
+- BMI Observation
+  - correct date
+  - range
+    - high
+    - normal
+    - low
+- Palliative Care
+  - 4 types of resource
+  - correct date
+- Hospice
+  - types of resource
+  - correct date
+- Pregnant
+- Medical Reason
+- Intervention

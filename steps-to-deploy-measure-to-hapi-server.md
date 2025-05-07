@@ -49,5 +49,23 @@ That means if you are planning different version of a library on one server and 
 - run RefreshIG
 - put it back in its input/measure version and its bundle/measure version. 
 
+## Finally
+
+Once everything is uploaded and ready to go, run `runEvaluateMeasureActualOnly.js` e.g.
+```
+node scripts/runEvaluateMeasureActualOnly.js --measure-dir=CMS69-bmi_0.3.000 --measure-id=CMS69FHIRPCSBMIScreenAndFollowUp
+```
+That will report all population counts as well as measureScore per HAPI, and compare it with our own measureScore calculation
+```
+      const MS = res.data.group?.[0]?.measureScore?.value ?? null;
+      const TD = counts.D === 1 && counts.DX === 0 && counts.DE === 0;
+      const TN = TD && counts.N === 1 && counts.NX === 0;
+      const eMS = TD ? (TN ? 1.0 : 0.0) : null;
+
+```
+Beautiful and concise, no?
+
+Review the outputs of that routine in {measure-dir}/actual-eval-report.csv and {measure-dir}/actual-eval-report.txt. If it look good you can move on to the next Measure. 
+
 
 
