@@ -1,0 +1,77 @@
+
+Checking Encounter counts (BMI-eligible only) in test cases for measure: /Users/danheslinga/QI-Core_v6.0.0/CMS69-bmi_0.3.000
+
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json → BMI-eligible Encounter count: 1
+⚠️ Encounter f52944a2-34d8-410c-a98a-a71eb76dd0cd has codes: http://snomed.info/sct|305284002 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXFail-PalliativeCareEncounterAfterMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndIntervenionOrderedMedication.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-HospiceProcedure.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareProcedureFirstDayOfMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformed.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-HospicePerformedDuringMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERFail-ObeseDxEndsBeforeIntervention.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformedCondition.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-ElevatedDeclineFU.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowupPlanHighBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedMedication.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-IPPPass-Age18HasEnc.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENOMPass-Patient18DayOfEncounter.json → BMI-eligible Encounter count: 1
+⚠️ Encounter 419c4e61-70fd-47c4-a160-bfc0e6a07157 has codes: http://snomed.info/sct|103705002 — none matched
+❌ CMS69FHIR-v0.3.000-IPFail-EncounterOneDayAfterMP.json → BMI-eligible Encounter count: 0
+✅ CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareProcedureLastDayOfMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareObservation.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndConditionEndsBeforeInterventionPerformed.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt24pt9.json → BMI-eligible Encounter count: 1
+⚠️ Encounter aeb9cce5-09dd-4791-821d-162a6774fcb6 has codes: http://snomed.info/sct|305336008 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXPass-HospiceEncounter.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt18pt5.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformedCondition.json → BMI-eligible Encounter count: 1
+⚠️ Encounter 03d09a0b-08b5-4072-9a65-b3d14831b998 has codes: http://snomed.info/sct|183452005 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXPass-DischargeToHomeHospiceCareDuringMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare-67f7f25a181d33930444658e.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition.json → BMI-eligible Encounter count: 1
+⚠️ Encounter f94d5db0-66e5-4dcf-8f75-45e047c1f865 has codes: http://snomed.info/sct|305284002 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareEncounter.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForAboveNormalBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-PatientReasonforNoBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralHighBMI.json → BMI-eligible Encounter count: 1
+⚠️ Encounter 4a9ce496-caa8-4021-bfce-c588ad1fdb53 failed date check: start=2024-12-31T00:00:00.000Z, end=2024-12-31T00:30:00.000Z
+❌ CMS69FHIR-v0.3.000-IPPFail-Encounter1DayB4MP.json → BMI-eligible Encounter count: 0
+⚠️ Encounter eb8f0a14-129a-4b58-898f-bdd4166cdc62 has codes: http://snomed.info/sct|183452005 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXPass-DischargedToHomeFaciltyDuringMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-HospiceObservationAssessment.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformed.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-NotRequestedReferralForHighBMI.json → BMI-eligible Encounter count: 1
+⚠️ Encounter a7848230-2dcd-4b42-8d5d-86ddb69bcd6d has codes: http://snomed.info/sct|183452005 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXPass-InpatientEncounterDischargedToHospiceFacility.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnset1YearAgo.json → BMI-eligible Encounter count: 1
+⚠️ Encounter 24487b45-4664-417f-ad1f-36f5dea60987 class is 'virtual': class=VR
+❌ CMS69FHIR-v0.3.000-IPPFail-VirtualEncounter.json → BMI-eligible Encounter count: 0
+✅ CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedCondition.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowUpPlanLowBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoMedicationBMIDeclined.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENOMPass-Patient18LastDayOfEncounter.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedFollowUp.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-HospiceOrder.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-HighInterventionsPerformedDiagnosis.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndConditionEndsBeforeInterventionPerformed.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonMedicationForLowBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForBelowNormalBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralForLowBMI.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedReferral.json → BMI-eligible Encounter count: 1
+⚠️ Encounter b2460972-31a8-43ac-af8f-11eb0f1c375d has codes: http://snomed.info/sct|183452005 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXFail-DischargeToHomeHospiceAfterMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition-67f6d67ebdc50b65bdb89c70.json → BMI-eligible Encounter count: 1
+⚠️ Encounter 1e0d003c-d050-41c5-be7f-5a2460e11f6c failed date check: start=2027-01-01T00:00:00.000Z, end=2027-01-01T00:30:00.000Z
+❌ CMS69FHIR-v0.3.000-IPPFail-Enc1DayAfterMP.json → BMI-eligible Encounter count: 0
+✅ CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json → BMI-eligible Encounter count: 1
+⚠️ Encounter c52ee4cd-0831-4ffa-a216-669a068f0f7d has codes: http://snomed.info/sct|183452005 — none matched
+✅ CMS69FHIR-v0.3.000-DENEXFail-DischargeToHospiceFacilityAfterMP.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-IPPFail-Patient17DayOfEncounter.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERFail-UnderweightEndsBeforeIntervention.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-NUMERPass-HighBMIDietaryRecommendations.json → BMI-eligible Encounter count: 1
+✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNotPerformed.json → BMI-eligible Encounter count: 1

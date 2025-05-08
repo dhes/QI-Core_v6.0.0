@@ -38,8 +38,8 @@ jq '
   .entry[] 
   | select(.resource.resourceType == "Observation") 
   | select(.resource.code.coding[]? 
-  | select(.system == "http://loinc.org" and .code == "139156-5"))
-  | .resource
+  | select(.system == "http://loinc.org" and .code == "39156-5"))
+  | .resourcev.alueQuantity
 ' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
 ```
 no such.
@@ -49,8 +49,8 @@ jq '
   .entry[] 
   | select(.resource.resourceType == "Observation") 
   | select(.resource.code.coding[]? 
-  | select(.system == "http://loinc.org" and .code == "139156-5"))
-  | .resource
+  | select(.system == "http://loinc.org" and .code == "39156-5"))
+  | .resource.valueQuantity
 ' CMS69-bmi_0.3.000/test-cases/1ba2fc33-1a1b-416b-bb3c-79ba5d0d3359/CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json
 ```
 OK, that returns a file name if the BMI observation is present in the bundle. How about we display the code for all Observations in the bundle. 
@@ -495,3 +495,569 @@ and that's a match.
 
 So much for Hospice. On to Pregnancy. 
 
+## Pregnancy
+ValueSet 2.16.840.1.113883.3.600.1.1623
+timing prevalenceInterval overlaps MP
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "Condition") 
+  | .resource.code
+' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+The index patient has no Condition resource. 
+
+### Positive Test Case
+
+d318f512-656e-43bf-a409-16b6e24462a9/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json
+
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "Condition") 
+  | .resource.code
+' CMS69-bmi_0.3.000/test-cases/d318f512-656e-43bf-a409-16b6e24462a9/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json
+```
+returns
+```
+{
+  "coding": [
+    {
+      "system": "http://snomed.info/sct",
+      "version": "2022-03",
+      "code": "10231000132102",
+      "display": "In-vitro fertilization pregnancy (finding)",
+      "userSelected": true
+    }
+  ]
+}
+```
+and 
+```
+jq '.expansion.contains[] | select(.code == "10231000132102")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.600.1.1623.json
+```
+returns
+```
+{
+  "system": "http://snomed.info/sct",
+  "version": "http://snomed.info/sct/731000124108/version/20240901",
+  "code": "10231000132102",
+  "display": "In-vitro fertilization pregnancy (finding)"
+}
+```
+Now for the prevalenceInterval. 
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "Condition") 
+  | .resource.onsetDateTime
+' CMS69-bmi_0.3.000/test-cases/d318f512-656e-43bf-a409-16b6e24462a9/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json
+```
+and
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "Condition") 
+  | .resource.abatementDateTime
+' CMS69-bmi_0.3.000/test-cases/d318f512-656e-43bf-a409-16b6e24462a9/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json
+```
+That's it for Exclusions now for 
+# Exceptions
+## "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI"
+### ServiceRequest: [ServiceNotRequested: "Referrals Where Weight Assessment May Occur"]
+valueSet 2.16.840.1.113883.3.600.1.1525,2.16.840.1.113883.3.600.1.1527,2.16.840.1.113883.3.600.1.1527
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "ServiceRequest") 
+  | .resource.code
+' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+Our index patient does have a ServiceRequest, so we get
+```
+{
+  "coding": [
+    {
+      "system": "http://snomed.info/sct",
+      "version": "2022-03",
+      "code": "386292004",
+      "display": "Exercise promotion: stretching (procedure)",
+      "userSelected": true
+    }
+  ]
+}
+```
+so we'll look for the code in the valuesets. There are actually three, due to unions in the CQL statement. Any one will satisfy. We'll do all three
+```
+jq '.expansion.contains[] | select(.code == "386292004")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.600.1.1525.json
+```
+{
+  "system": "http://snomed.info/sct",
+  "version": "http://snomed.info/sct/731000124108/version/20240901",
+  "code": "386292004",
+  "display": "Exercise promotion: stretching (procedure)"
+}
+```
+jq '.expansion.contains[] | select(.code == "386292004")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.600.1.1527.json
+```
+null
+```
+jq '.expansion.contains[] | select(.code == "386292004")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.600.1.1528.json
+```
+and something. 
+```
+{
+  "system": "http://snomed.info/sct",
+  "version": "http://snomed.info/sct/731000124108/version/20240901",
+  "code": "386292004",
+  "display": "Exercise promotion: stretching (procedure)"
+}
+```
+showing that valueset may sometimes intersect. Not done yet. Because of the line
+```
+...
+      with "Qualifying Encounter During Day Of Measurement Period" QualifyingEncounter
+        such that NoBMIFollowUp.authoredOn same day as start of QualifyingEncounter.period
+...
+```
+we have to compare the day of the serviceRequest vs the day of the Encounter. Here's the encounter again
+```
+jq '.entry[] | select(.resource.resourceType == "Encounter") | .resource.period' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+=
+```
+{
+  "start": "2026-01-01T08:00:00.000+00:00",
+  "end": "2026-01-01T08:30:00.000+00:00"
+}
+```
+So now for the SR.authoredOn
+```
+jq '.entry[] | select(.resource.resourceType == "ServiceRequest") | .resource.authoredOn' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+"2026-01-01T08:01:00.000+00:00"
+Is the authored on the same day as the start of the encounter? I think so! So we're past that hurdle.
+
+Two more filters
+```
+NoBMIFollowUp.status ~ 'completed'
+```
+We'll test with 
+```
+jq '.entry[] | select(.resource.resourceType == "ServiceRequest") | .resource.status' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+```
+"completed"
+```
+and 
+```
+NoBMIFollowUp.reasonRefused in "Medical Reason"
+```
+"Medical Reason" valueset is 2.16.840.1.113883.3.526.3.1007, so let's check, using this time the value of the extension valueCodeableConcept. First we have to extract that code 
+```
+jq '
+  .entry[]
+  | select(.resource.resourceType == "ServiceRequest")
+  | .resource.extension[]
+  | select(.url == "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason")
+  | .valueCodeableConcept.coding[]
+' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+returning
+```
+{
+  "system": "http://snomed.info/sct",
+  "code": "407563006",
+  "display": "Treatment not tolerated (situation)",
+  "userSelected": true
+}
+```
+
+```
+jq '.expansion.contains[] | select(.code == "407563006")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.526.3.1007.json
+```
+=>
+```
+{
+  "system": "http://snomed.info/sct",
+  "version": "http://snomed.info/sct/731000124108/version/20240901",
+  "code": "407563006",
+  "display": "Treatment not tolerated (situation)"
+}
+```
+So it looks like this patient has DE=1!
+
+Now of course we're are done with this case, but not yet with the logic. 
+### MedicationNotRequested
+```
+define "Medical Reason For Not Documenting A Follow Up Plan For Low Or High BMI":
+    ...already done...
+    union ( ( [MedicationNotRequested: "Medications for Above Normal BMI"]
+        union [MedicationNotRequested: "Medications for Below Normal BMI"] ) NoBMIFollowUp
+        with "Qualifying Encounter During Day Of Measurement Period" QualifyingEncounter
+          such that NoBMIFollowUp.authoredOn same day as start of QualifyingEncounter.period
+        where NoBMIFollowUp.status ~ 'completed'
+          // TODO: https://oncprojectracking.healthit.gov/support/projects/MADIE/issues/MADIE-2124
+          // Expecting 4 failures until this translator issue is incorporated into MADiE
+          
+          
+          and NoBMIFollowUp.reasonCode in "Medical Reason"
+    )
+```
+This runs parallel to the ServicNotRequested style resource. 
+The valuesets are 
+- "Medications for Above Normal BMI": 2.16.840.1.113883.3.526.3.1561
+- "Medications for Below Normal BMI": 2.16.840.1.113883.3.526.3.1562
+
+So we test for a MedicationRequest resource. 
+```
+jq '.entry[] | select(.resource.resourceType == "MedicationRequest") | .resource.medicationCodeableConcept' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+which is null. This patient has no MedicationRequest resource. 
+
+#### Positive test case
+050201c2-c2c4-46e6-8288-a34f99caebdc/050201c2-c2c4-46e6-8288-a34f99caebdc.json
+Resource code
+```
+jq '
+  .entry[]
+  | select(.resource.resourceType == "MedicationRequest")
+  | .resource.medicationCodeableConcept.coding[]
+' CMS69-bmi_0.3.000/test-cases/050201c2-c2c4-46e6-8288-a34f99caebdc/050201c2-c2c4-46e6-8288-a34f99caebdc.json
+```
+```
+{
+  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code": "1112982",
+  "display": "phentermine hydrochloride 15 MG Disintegrating Oral Tablet",
+  "userSelected": true
+}
+```
+Now to look into the valueset 2.16.840.1.113883.3.526.3.1561
+```
+jq '.expansion.contains[] | select(.code == "1112982")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.526.3.1561.json
+```
+yielding
+```
+{
+  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "version": "03032025",
+  "code": "1112982",
+  "display": "phentermine hydrochloride 15 MG Disintegrating Oral Tablet"
+}
+```
+So we know this jq works. 
+
+I'm going to skip over "Medications for Below Normal BMI". We've tested similar logic for the rest of this CQL identifier, so we'll move on. 
+
+## "Medical Reason Or Patient Reason For Not Performing BMI Exam"
+This is the second part of "Denominator Exceptions". This is a step backward in the sequence of event. Now we are addressing missing BMIs, now lack of action like in the previous section. Here's the full CQL definition
+```
+define "Medical Reason Or Patient Reason For Not Performing BMI Exam":
+  [ObservationCancelled: code = "Body mass index (BMI) [Ratio]"] NoBMI
+    with "Qualifying Encounter During Day Of Measurement Period" QualifyingEncounter
+      such that NoBMI.effective.toInterval ( ) ends same day as start of QualifyingEncounter.period
+    where NoBMI.status = 'cancelled'
+      and ( NoBMI.notDoneReason in "Patient Declined"
+          or NoBMI.notDoneReason in "Medical Reason"
+      )
+```
+# Back to the Numerator
+
+We have two targets to meet to make Medicare happy. It's not enough to measure the BMI. No! You must do something about it. First remember -- if you don't have a denominator, there is no numerator. Fahgeddaboudit. 
+
+Here is the CQL "Numerator" identifier, entire. 
+```
+define "Numerator":
+  exists "High BMI And Follow Up Provided"
+    or exists "Low BMI And Follow Up Provided"
+    or "Has Normal BMI"
+```
+We've already checked for a BMI Observation resource. Now we have to examine its value. 
+
+## Normal BMI?
+
+Recall the BMI Observation query. 
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "Observation") 
+  | select(.resource.code.coding[]? 
+  | select(.system == "http://loinc.org" and .code == "39156-5"))
+  | .resource.valueQuantity
+' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+In our test case this return nothing, because Poor Patient didn't get their BMI recorded. Let's pick a positive test case. 
+
+### Positive Test Case
+42e6b4d6-defc-4ec5-894f-e3333e3039a3/CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt24pt9
+
+#### Just Right
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "Observation") 
+  | select(.resource.code.coding[]? 
+  | select(.system == "http://loinc.org" and .code == "39156-5"))
+  | .resource.valueQuantity
+' CMS69-bmi_0.3.000/test-cases/42e6b4d6-defc-4ec5-894f-e3333e3039a3/CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt24pt9.json
+```
+returns
+```
+{
+  "value": 24.9,
+  "unit": "kg/m2",
+  "system": "http://unitsofmeasure.org",
+  "code": "kg/m2"
+}
+```
+Now we have a number to work with. Here is the definition of 'normal' from the CQL.
+```
+ "BMI During Measurement Period" BMI
+      where BMI.value >= 18.5 'kg/m2'
+        and BMI.value < 25 'kg/m2'
+```
+So our value of 24.9 passes as normal. In the case of this test patient, the Measure has been satisfied. 
+
+#### Too much
+
+Now for a test case that is positive on the first requirement (BMI recorded) but unknown on the second (BMI abnormal, anything done.) Let's find a case where the BMI is too high. 
+```
+260e1fc8-227f-4c16-bfc6-22625380a12c/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowupPlanHighBMI
+```
+Grab the value
+```
+jq '
+  .entry[] 
+  | select(.resource.resourceType == "Observation") 
+  | select(.resource.code.coding[]? 
+  | select(.system == "http://loinc.org" and .code == "39156-5"))
+  | .resource.valueQuantity
+' CMS69-bmi_0.3.000/test-cases/260e1fc8-227f-4c16-bfc6-22625380a12c/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowupPlanHighBMI.json
+```
+result
+```
+{
+  "value": 30,
+  "unit": "kg/m2",
+  "system": "http://unitsofmeasure.org",
+  "code": "kg/m2"
+}
+```
+Too high! 'Cha gonna do about it? Here's the clue. 
+```cql
+  "Documented High BMI During Measurement Period" HighBMI
+    with ( "High BMI Interventions Ordered"
+      union "High BMI Interventions Performed" ) HighBMIInterventions
+```
+If you want to win the prize, you have to order an Intervention or perform one. Let's drill down on the first. Brace yourself. 
+```cql
+define "High BMI Interventions Ordered":
+  ( ( [ServiceRequest: "Follow Up for Above Normal BMI"]
+      union [ServiceRequest: "Referrals Where Weight Assessment May Occur"]
+      union [MedicationRequest: "Medications for Above Normal BMI"] ) HighInterventionsOrdered
+      where HighInterventionsOrdered.reasonCode in "Overweight or Obese"
+        or ( exists [ConditionProblemsHealthConcerns: "Overweight or Obese"] OverweightObese
+            where ( OverweightObese.isProblemListItem ( )
+                or OverweightObese.isHealthConcern ( )
+            )
+              and OverweightObese.isActive ( )
+              and OverweightObese.prevalenceInterval ( ) starts before or on day of HighInterventionsOrdered.authoredOn
+        )
+  )
+```
+There's a lot here. The good news is that you have lots of options. But it looks complicated. Basically you have a make a ServiceRequest or MedicationRequest AND it has to be paired with a Condition resource that is properly coded, active and starts on or before the day of the order. It's all pretty detailed. 
+Let's first look at the ValueSets
+
+|resource|identifier|valueSet|
+|---|---|---|
+|ServiceRequest|"Follow Up for Above Normal BMI"|2.16.840.1.113883.3.600.1.1525|
+|ServiceRequest|"Referrals Where Weight Assessment May Occur"|2.16.840.1.113883.3.600.1.1527|
+|MedicationRequest|"Medications for Above Normal BMI"|2.16.840.1.113883.3.526.3.1561|
+
+Let's look at the resources in this positive test case. In the first case
+```
+jq '
+  .entry[]
+  | select(.resource.resourceType == "ServiceRequest")
+  | .resource.code[]
+' CMS69-bmi_0.3.000/test-cases/260e1fc8-227f-4c16-bfc6-22625380a12c/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowupPlanHighBMI.json
+```
+returns
+```
+[
+  {
+    "system": "http://snomed.info/sct",
+    "version": "2022-03",
+    "code": "182922004",
+    "display": "Dietary regime (regime/therapy)",
+    "userSelected": true
+  }
+]
+```
+OK! This patient has ServiceRequest that looks promising. 
+Grab the first ValueSet from the table above. 
+```
+jq '.expansion.contains[] | select(.code == "182922004")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.600.1.1525.json
+```
+Returns
+```
+{
+  "system": "http://snomed.info/sct",
+  "version": "http://snomed.info/sct/731000124108/version/20240901",
+  "code": "182922004",
+  "display": "Dietary regime (regime/therapy)"
+}
+```
+But here there's a catch. This coding element is part of a 'do not perform' resource, part of the Exception logic. Just be aware, we have shown that our logic is solid, but this case is actually excluded from scoring. 
+
+##### Next Valueset
+
+Find a positive test case for ServiceRequest|"Referrals Where Weight Assessment May Occur"|2.16.840.1.113883.3.600.1.1527.
+
+7ac9722f-8763-4380-a741-53ee4bb98819/CMS69FHIR-v0.3.000-DENEXCEPPass-NotRequestedReferralForHighBMI
+
+This one also happens to be a *not performed case*
+
+```
+jq '
+  .entry[]
+  | select(.resource.resourceType == "ServiceRequest")
+  | .resource.code[]
+' CMS69-bmi_0.3.000/test-cases/7ac9722f-8763-4380-a741-53ee4bb98819/CMS69FHIR-v0.3.000-DENEXCEPPass-NotRequestedReferralForHighBMI.json
+```
+=>
+```
+[
+  {
+    "system": "http://snomed.info/sct",
+    "version": "2022-03",
+    "code": "103699006",
+    "display": "Patient referral to dietitian (procedure)",
+    "userSelected": true
+  }
+]
+```
+Checking the valueset
+
+```
+jq '.expansion.contains[] | select(.code == "103699006")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.600.1.1527.json
+```
+confirms
+```
+{
+  "system": "http://snomed.info/sct",
+  "version": "http://snomed.info/sct/731000124108/version/20240901",
+  "code": "103699006",
+  "display": "Referral to dietitian (procedure)"
+}
+```
+And for the MedicationRequest
+6553adbf-2a30-4861-97e6-cca7d2274f01/CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForAboveNormalBMI
+```
+jq '
+  .entry[]
+  | select(.resource.resourceType == "MedicationRequest")
+  | .resource.medicationCodeableConcept[]
+' CMS69-bmi_0.3.000/test-cases/6553adbf-2a30-4861-97e6-cca7d2274f01/CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForAboveNormalBMI.json
+```
+```
+[
+  {
+    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+    "code": "1112982",
+    "display": "phentermine hydrochloride 15 MG Disintegrating Oral Tablet",
+    "userSelected": true
+  }
+]
+```
+```
+jq '.expansion.contains[] | select(.code == "1112982")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.526.3.1561.json
+```
+```
+{
+  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "version": "03032025",
+  "code": "1112982",
+  "display": "phentermine hydrochloride 15 MG Disintegrating Oral Tablet"
+}
+```
+To do this round trip I first start by 
+- opening the values
+- start from the code at the top
+- search all test cases for that code
+- go to next code if not found
+- repeat until a case is found
+- run that case resource query
+- harvest the code and run a valueset query. 
+
+So if I pick a case based on a code from the valueset, of course I should end up a hit when I go back and look for the code in the valueset. It's a way to validate the jq query. 
+
+##### Aside
+
+To query a valueset for its first expansion element:
+```
+jq '.expansion.contains[0]' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113883.3.526.3.1561.json
+```
+
+##### Next line of CQL
+```
+define "High BMI Interventions Ordered":
+  ( ( [ServiceRequest: "Follow Up for Above Normal BMI"]
+      union [ServiceRequest: "Referrals Where Weight Assessment May Occur"]
+      union [MedicationRequest: "Medications for Above Normal BMI"] ) HighInterventionsOrdered
+      where HighInterventionsOrdered.reasonCode in "Overweight or Obese"
+...
+```
+We've gotten through MedicationRequest. Now to examine `where HighInterventionsOrdered.reasonCode in "Overweight or Obese"`. 
+
+|resource|element|valueset|
+|---|---|---|
+|MedicationRequest|reason|2.16.840.1.113762.1.4.1047.502|
+
+Looking at our standard test case *0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json*
+
+```
+jq '
+  select(.resource.resourceType == "MedicationRequest")
+  .resource.reasonCode[]
+' CMS69-bmi_0.3.000/test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json
+```
+Sorry kid, no MedicationRequest resource. 
+
+Test case with MedicationRequest: *27849d59-3cef-40bf-8338-a6ec7c0bcf81/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedMedication*
+
+```
+jq '
+  .entry[]
+  | select(.resource.resourceType == "MedicationRequest")
+  | .resource.reasonCode[]
+' CMS69-bmi_0.3.000/test-cases/27849d59-3cef-40bf-8338-a6ec7c0bcf81/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedMedication.json
+```
+=>
+```
+{
+  "coding": [
+    {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "code": "R63.6",
+      "display": "Underweight",
+      "userSelected": true
+    }
+  ]
+}
+```
+This is probably not the test case we want right now. Save it for the **Not enough** section. 
+
+New test case. 
+- 050201c2-c2c4-46e6-8288-a34f99caebdc/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndIntervenionOrderedMedication
+```
+jq '
+  .entry[]
+  | select(.resource.resourceType == "MedicationRequest")
+  | .resource.reasonCode[]
+' CMS69-bmi_0.3.000/test-cases/050201c2-c2c4-46e6-8288-a34f99caebdc/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndIntervenionOrderedMedication.json
+```
+```
+jq '.expansion.contains[] | select(.code == "E66.01")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113762.1.4.1047.502.json
+```
