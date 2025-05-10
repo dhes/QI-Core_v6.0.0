@@ -1061,3 +1061,43 @@ jq '
 ```
 jq '.expansion.contains[] | select(.code == "E66.01")' CMS69-bmi_0.3.000/vocabulary/valueset/external/2.16.840.1.113762.1.4.1047.502.json
 ```
+# Troubleshooting CMS69-bmi mismatch between file name Pass/Fail and actual result
+## Select a MeasureReport from a test case bundle
+All mismatches are in the DX population filters. For details please refer to this [spreadsheet](CMS69-bmi_0.3.000/notes/all-test-cases-evaluated.numbers)
+```
+jq '.entry[] 
+  | select(.resource.resourceType == "MeasureReport") 
+  | .resource.extension[]
+  | select(.url == "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription")
+  | .valueMarkdown
+' {relativePath}
+```
+Examine resources in bundle
+```
+jq '.entry[].resource.resourceType
+' {}
+```
+Open a Condition
+
+```
+jq '.entry[] 
+  | select(.resource.resourceType == "Condition") 
+'
+```
+Take note of 
+```
+"onsetDateTime": "2026-01-01T00:30:00.000+00:00"
+```
+and 
+"code": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "441874000",
+          "display": "Seen by palliative care service (finding)",
+          "userSelected": true
+        }
+      ]
+    },
+```

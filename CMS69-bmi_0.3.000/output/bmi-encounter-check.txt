@@ -71,7 +71,8 @@ Checking Encounter counts (BMI-eligible only) in test cases for measure: /Users/
 ✅ CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json → BMI-eligible Encounter count: 1
 ⚠️ Encounter c52ee4cd-0831-4ffa-a216-669a068f0f7d has codes: http://snomed.info/sct|183452005 — none matched
 ✅ CMS69FHIR-v0.3.000-DENEXFail-DischargeToHospiceFacilityAfterMP.json → BMI-eligible Encounter count: 1
-✅ CMS69FHIR-v0.3.000-IPPFail-Patient17DayOfEncounter.json → BMI-eligible Encounter count: 1
+⚠️ Encounter 6952b029-084f-4fa1-979d-5e14def2db59 excluded: patient age 18.0 < 18 at encounter start
+❌ CMS69FHIR-v0.3.000-IPPFail-Patient17DayOfEncounter.json → BMI-eligible Encounter count: 0
 ✅ CMS69FHIR-v0.3.000-NUMERFail-UnderweightEndsBeforeIntervention.json → BMI-eligible Encounter count: 1
 ✅ CMS69FHIR-v0.3.000-NUMERPass-HighBMIDietaryRecommendations.json → BMI-eligible Encounter count: 1
 ✅ CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNotPerformed.json → BMI-eligible Encounter count: 1
