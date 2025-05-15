@@ -1,0 +1,59 @@
+# 2025-05-15
+# Clean Up BMI Observations. 
+
+## Problem
+
+10 test cases have BMI observations with this meta profile
+```
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation"
+          ]
+        }
+```
+and this category
+```
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ]
+```
+The rest have (the more correct-looking)
+```
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi" ]
+      }
+```
+and
+```
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        } ]
+      } ]
+```
+I've cleaned up the *tests* folder in the BMI working copy repository. Next is to clean up the *test-cases* folder in the CMS69-bmi section of this repo. The revised Observations will have to be carefully deployed, probably by expunging the existing resources and redeploying (if referential integrity allows). The hope is that this will get rid of the dreaded OperationOutcome error `Could not resolve call to operator 'ToQuantity(org.hl7.fhir.r4.model.CodeableConcept)' in library 'FHIRHelpers'.`
+
+|patientId|ObservationId|profile fixed?|category fixed?|deployed?|
+|---|---|---|---|---|
+|736b5472-4a6f-4278-80d3-373d1c78c4c5|1a6b47b3-ee45-4599-87ed-92d527c4ea33|Y|Y|Y|
+|260e1fc8-227f-4c16-bfc6-22625380a12c|f71d8f3e-282e-4b72-9fe6-900d656c4698|Y|Y|Y|
+||9c4a9a3d-f92f-4276-829c-e4649abb8f20|Y|Y|Y|
+||e36c2052-9f92-40d6-b2ae-e7685b2a3da9|Y|Y|Y|
+||0e1d0e2b-4619-4a47-ac1f-75afb3e8dd4e|Y|Y|Y|
+||14926853-1f2b-43ef-805d-84adbdf2bfa6|Y|Y|Y|
+||3af844a2-30d4-4219-8f41-29d1a01b8fa7|Y|Y|Y|
+||cff2ace6-c92d-469a-be77-07b76823a903|Y|Y|Y|
+||11449887-c688-49fe-ba81-2d0087926461|Y|Y|Y|
+||eed55a15-b305-48ef-afc8-eb2cf13c30b2|Y|Y|Y|
+
+The deployement process is laborious - DELETE exposes a referencing MeasureReport; it must be DELETEd and expunged; then DELETE Obs works, followed by expunge; the PUT and recheck a GET to make sure there is one an only on Obs by that id. Rinse and repeat for the remaining 9. 
