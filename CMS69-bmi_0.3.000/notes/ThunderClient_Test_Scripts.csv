@@ -1,0 +1,807 @@
+Test Case File,ThunderClient Test Script
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoMedicationBMIDeclined.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndConditionEndsBeforeInterventionPerformed.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-DischargeToHomeHospiceCareDuringMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERFail-UnderweightEndsBeforeIntervention.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForAboveNormalBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralForLowBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-HospicePerformedDuringMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-NotRequestedReferralForHighBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-HospiceProcedure.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-IPPFail-Encounter1DayB4MP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 0"", getPopCount(""initial-population"") === 0);
+tc.test(""Denominator = 0"", getPopCount(""denominator"") === 0);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXFail-DischargeToHospiceFacilityAfterMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXFail-DischargeToHomeHospiceAfterMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndIntervenionOrderedMedication.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndConditionEndsBeforeInterventionPerformed.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNotPerformed.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareProcedureLastDayOfMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformed.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENOMPass-Patient18LastDayOfEncounter.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-HospiceObservationAssessment.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareProcedureFirstDayOfMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-IPFail-EncounterOneDayAfterMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 0"", getPopCount(""initial-population"") === 0);
+tc.test(""Denominator = 0"", getPopCount(""denominator"") === 0);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedMedication.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareEncounter.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERFail-ObeseDxEndsBeforeIntervention.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-PatientReasonforNoBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare-67f7f25a181d33930444658e.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-HighInterventionsPerformedDiagnosis.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnset1YearAgo.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-DischargedToHomeFaciltyDuringMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformedCondition.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowUpPlanLowBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformedCondition.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForBelowNormalBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-HospiceEncounter.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedFollowUp.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformed.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-IPPFail-Patient17DayOfEncounter.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 0"", getPopCount(""initial-population"") === 0);
+tc.test(""Denominator = 0"", getPopCount(""denominator"") === 0);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt24pt9.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-HighBMIDietaryRecommendations.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt18pt5.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-HospiceOrder.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXFail-PalliativeCareEncounterAfterMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedCondition.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareObservation.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-IPPPass-Age18HasEnc.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowupPlanHighBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-IPPFail-Enc1DayAfterMP.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 0"", getPopCount(""initial-population"") === 0);
+tc.test(""Denominator = 0"", getPopCount(""denominator"") === 0);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedReferral.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 1"", getPopCount(""numerator"") === 1);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-ElevatedDeclineFU.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENOMPass-Patient18DayOfEncounter.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonMedicationForLowBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-IPPFail-VirtualEncounter.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 0"", getPopCount(""initial-population"") === 0);
+tc.test(""Denominator = 0"", getPopCount(""denominator"") === 0);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition-67f6d67ebdc50b65bdb89c70.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXPass-InpatientEncounterDischargedToHospiceFacility.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 1"", getPopCount(""denominator-exclusion"") === 1);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 0"", getPopCount(""denominator-exception"") === 0);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"
+CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralHighBMI.json,"let json = tc.response.json;
+function getPopCount(code) {
+    let pop = json.group[0]?.population.find(p =>
+        p.code?.coding?.some(c => c.code === code)
+    );
+    return pop?.count;
+}
+tc.test(""Initial Population = 1"", getPopCount(""initial-population"") === 1);
+tc.test(""Denominator = 1"", getPopCount(""denominator"") === 1);
+tc.test(""Denominator Exclusion = 0"", getPopCount(""denominator-exclusion"") === 0);
+tc.test(""Numerator = 0"", getPopCount(""numerator"") === 0);
+tc.test(""Denominator Exception = 1"", getPopCount(""denominator-exception"") === 1);
+tc.test(""Measure Score = 1.0"", json.group[0]?.measureScore?.value == 1.0);"

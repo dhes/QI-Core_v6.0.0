@@ -36,12 +36,9 @@ code "Encounter for palliative care": 'Z51.5' from "ICD10CM" display 'Encounter 
 code "Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)": '71007-9' from "LOINC" display 'Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)'
 code "virtual": 'VR' from "ActCode" display 'virtual'
 
-parameter "Measurement Period" Interval<DateTime> default Interval[@2026-01-01T00:00:00.0, @2026-12-31T23:59:59.999]
+parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-// define HelloWorld:
-// 	'Hello World!'
 
 define "Initial Population":
   exists "Qualifying Encounter During Day Of Measurement Period" QualifyingEncounter
@@ -217,91 +214,3 @@ define "SDE Race":
 
 define "SDE Sex":
   SDE."SDE Sex"
-
-// define Debug0MeasurementPeriod:
-//   "Measurement Period"
-
-// define Debug01ConditionProblemsHealthConcernsPalliativeCareDiagnosis:
-//   [ConditionProblemsHealthConcerns: "Palliative Care Diagnosis"]
-
-// define Debug02ConditionEncounterDiagnosisPalliativeCareDiagnosis:
-//   [ConditionEncounterDiagnosis: "Palliative Care Diagnosis"]
-
-// define Debug03UnionOfProblemAndEncounterConditions:
-//   (([ConditionProblemsHealthConcerns: "Palliative Care Diagnosis"])
-//     union ([ConditionEncounterDiagnosis: "Palliative Care Diagnosis"]))
-
-// define Debug04UnionOfProblemAndEncounterConditionsFirstDraftFix:
-//   flatten({
-//     [ConditionProblemsHealthConcerns: "Palliative Care Diagnosis"],
-//     [ConditionEncounterDiagnosis: "Palliative Care Diagnosis"]
-//   })
-
-// define Debug5ProblemAndEncounterConditionTypes:
-//     type of Debug1ConditionProblemsHealthConcernsPalliativeCareDiagnosis
-    // Type2: type of Debug2ConditionEncounterDiagnosisPalliativeCareDiagnosis //,
-    // Null1: Debug1ConditionProblemsHealthConcernsPalliativeCareDiagnosis null,
-    // Null2: Debug2ConditionEncounterDiagnosisPalliativeCareDiagnosis = null
-
-// define Debug4UseExistsOrExists:
-
-// define Debug05GetActualTypeConditionProblemsHealthConcerns:
-//   First([ConditionProblemsHealthConcerns: "Palliative Care Diagnosis"])
-
-// define Debug06GetActualTypeConditionEncounterDiagnosis:
-//   First([ConditionEncounterDiagnosis: "Palliative Care Diagnosis"])
-
-// define Debug07TryExistsInsteadOfUnion:
-//   exists ([ConditionProblemsHealthConcerns: "Palliative Care Diagnosis"])
-//     or exists ([ConditionEncounterDiagnosis: "Palliative Care Diagnosis"])
-
-// define Debug08EncounterPrevalenceInterval:
-//    First([ConditionEncounterDiagnosis: "Palliative Care Diagnosis"]).prevalenceInterval()
-// 	//  return First(PalliativeEncounterDiagnosis.prevalenceInterval())
-
-// define Debug09EncounterPrevalenceIntervalOverlaps:
-//    First([ConditionEncounterDiagnosis: "Palliative Care Diagnosis"]).prevalenceInterval() overlaps day of "Measurement Period"
-// 	//  return First(PalliativeEncounterDiagnosis.prevalenceInterval())
-
-// define Debug10DayFromStartOfMeasurementPeriod: 
-//   day from start of "Measurement Period"
-
-// define Debug11DayFromEntOfMeasurementPeriod: 
-//   day from end of "Measurement Period"
-
-// define Debug12ToDateStartOfMeasurementPeriod:
-//   ToDate(start of "Measurement Period")
-
-// from PalliativeCare - original
-// define "Has Palliative Care in the Measurement Period":
-//   exists ((([ObservationScreeningAssessment: "Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)"]).isAssessmentPerformed()) PalliativeAssessment
-//       where PalliativeAssessment.effective.toInterval() overlaps day of "Measurement Period"
-//   )
-//     or exists ((([ConditionProblemsHealthConcerns: "Palliative Care Diagnosis"])
-//     union ([ConditionEncounterDiagnosis: "Palliative Care Diagnosis"])) PalliativeDiagnosis
-//         where PalliativeDiagnosis.prevalenceInterval() overlaps day of "Measurement Period"
-//     )
-//     or exists ((([Encounter: "Palliative Care Encounter"]).isEncounterPerformed()) PalliativeEncounter
-//         where PalliativeEncounter.period.toInterval() overlaps day of "Measurement Period"
-//     )
-//     or exists ((([Procedure: "Palliative Care Intervention"]).isInterventionPerformed()) PalliativeIntervention
-//         where PalliativeIntervention.performed.toInterval() overlaps day of "Measurement Period"
-//     )
-
-// working copy
-// define "Has Palliative Care in the Measurement Period":
-//   exists ((([ObservationScreeningAssessment: "Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)"]).isAssessmentPerformed()) PalliativeAssessment
-//       where PalliativeAssessment.effective.toInterval() overlaps day of "Measurement Period"
-//   )
-//     or exists (([ConditionProblemsHealthConcerns: "Palliative Care Diagnosis"]) PalliativeProblemDiagnosis
-//         where PalliativeProblemDiagnosis.prevalenceInterval() overlaps day of "Measurement Period"
-//     )
-//     or exists (([ConditionEncounterDiagnosis: "Palliative Care Diagnosis"]) PalliativeEncounterDiagnosis
-//         where PalliativeEncounterDiagnosis.prevalenceInterval() overlaps day of "Measurement Period"
-//     )
-//     or exists ((([Encounter: "Palliative Care Encounter"]).isEncounterPerformed()) PalliativeEncounter
-//         where PalliativeEncounter.period.toInterval() overlaps day of "Measurement Period"
-//     )
-//     or exists ((([Procedure: "Palliative Care Intervention"]).isInterventionPerformed()) PalliativeIntervention
-//         where PalliativeIntervention.performed.toInterval() overlaps day of "Measurement Period"
-//     )
