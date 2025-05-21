@@ -1,0 +1,119 @@
+{
+    "_id": "4fa28375-a593-451f-82e5-26e735fb8bfb",
+    "colName": "CMS124-pap_0.2.000",
+    "created": "2025-05-03T01:23:30.226Z",
+    "sortNum": 60000,
+    "folders": [
+        {
+            "_id": "9ac28cd7-8769-47ea-a4ef-3ba4e450e1df",
+            "name": "maintenance",
+            "containerId": "",
+            "created": "2025-05-03T01:24:02.603Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "ae9f4199-1d28-4aee-b44c-5c4e822fe1a0",
+            "name": "$evaluate-measure",
+            "containerId": "",
+            "created": "2025-05-03T01:24:17.145Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "00e489b7-700f-4cb4-bd59-12ebe488a85c",
+            "name": "$care-gaps",
+            "containerId": "",
+            "created": "2025-05-03T01:24:30.604Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "e4b30043-6a1a-45c0-8d42-430ad01162bd",
+            "colId": "4fa28375-a593-451f-82e5-26e735fb8bfb",
+            "containerId": "",
+            "name": "misc",
+            "url": "MeasureReport?_summary=count",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-05-03T22:30:20.598Z",
+            "modified": "2025-05-03T22:40:06.818Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "_summary",
+                    "value": "count",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "abc8eb9a-e497-4c6c-b5e9-d33c3e864512",
+            "colId": "4fa28375-a593-451f-82e5-26e735fb8bfb",
+            "containerId": "ae9f4199-1d28-4aee-b44c-5c4e822fe1a0",
+            "name": "GET $evaluate-measure subject=e8813151-9334-41d7-ab4b-1d597f08d4a9",
+            "url": "Measure/CMS124FHIRCervicalCancerScreening/$evaluate-measure?subject=Patient/0e296f04-855b-42ad-aa20-295a719a96e5&periodStart=2026-01-01&periodEnd=2026-12-31",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-05-03T22:40:49.807Z",
+            "modified": "2025-05-03T22:53:46.279Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/0e296f04-855b-42ad-aa20-295a719a96e5",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "bc68cc38-f952-4543-b1c3-55c0de9ce6f7",
+            "colId": "4fa28375-a593-451f-82e5-26e735fb8bfb",
+            "containerId": "ae9f4199-1d28-4aee-b44c-5c4e822fe1a0",
+            "name": "GET $evaluate-measure subject=296d38e4-d69b-481e-a8cf-f7eee8b9e5d7 from BMI",
+            "url": "Measure/CMS124FHIRCervicalCancerScreening/$evaluate-measure?subject=Patient/296d38e4-d69b-481e-a8cf-f7eee8b9e5d7&periodStart=2026-01-01&periodEnd=2026-12-31",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2025-05-04T01:09:12.308Z",
+            "modified": "2025-05-04T01:09:59.458Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/296d38e4-d69b-481e-a8cf-f7eee8b9e5d7",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31",
+                    "isPath": false
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/jfhir+son"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    }
+}

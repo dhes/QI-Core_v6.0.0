@@ -25,7 +25,7 @@ yarn-error.log*
 temp*.json
 
 # Thunder Client environment files (if applicable)
-thunder-tests/
+# thunder-tests/
 
 # Ignore test bundles if not under version control
 **/test-cases/**/README.txt
