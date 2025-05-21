@@ -1,0 +1,85 @@
+{
+    "_id": "f5ce36d3-4ac1-4f69-b8ab-5dc8182c4dcf",
+    "colName": "CMS-breast_0.2.000",
+    "created": "2025-05-21T20:45:46.077Z",
+    "sortNum": 80000,
+    "folders": [
+        {
+            "_id": "16fd78ce-92fc-4c11-8f7d-1b4288d359b3",
+            "name": "$evaluate-measure",
+            "containerId": "",
+            "created": "2025-05-21T20:46:25.358Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "8ae7cb76-87ba-4ce0-94a0-48b20e0b7dd4",
+            "colId": "f5ce36d3-4ac1-4f69-b8ab-5dc8182c4dcf",
+            "containerId": "16fd78ce-92fc-4c11-8f7d-1b4288d359b3",
+            "name": "16b5141f-ec71-499c-a6f1-59b3c390a54a",
+            "url": "Measure/CMS125FHIRBreastCancerScreening/$evaluate-measure?subject=Patient/16b5141f-ec71-499c-a6f1-59b3c390a54a&periodStart=2026-01-01&periodEnd=2026-12-31",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-05-21T20:47:10.463Z",
+            "modified": "2025-05-21T22:00:48.517Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/16b5141f-ec71-499c-a6f1-59b3c390a54a",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    }
+}
