@@ -33,20 +33,6 @@
             "sortNum": 40000
         },
         {
-            "_id": "ed3a01a0-b745-4e7f-a650-15628e2c4567",
-            "name": "D == 0",
-            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
-            "created": "2025-05-08T15:19:28.644Z",
-            "sortNum": 50000
-        },
-        {
-            "_id": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
-            "name": "Pass/Fail mismatches",
-            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
-            "created": "2025-05-09T22:02:14.094Z",
-            "sortNum": 25000
-        },
-        {
             "_id": "fe2e14d1-db5b-4771-820e-541511f0b99d",
             "name": "expunge Measure & Library",
             "containerId": "",
@@ -145,13 +131,6 @@
             "sortNum": 170000
         },
         {
-            "_id": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "Pass/Fail matches",
-            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
-            "created": "2025-05-16T01:02:03.862Z",
-            "sortNum": 90000
-        },
-        {
             "_id": "e795fb23-7019-412e-8e10-c62268b168b0",
             "name": "experimental Hospice MDS Observation",
             "containerId": "8039c5eb-b1c0-4267-b352-c06b7c595ea1",
@@ -178,12 +157,12 @@
             "_id": "55009725-98c2-45af-b9f5-b5f505218f27",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
             "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
-            "name": "CMS69-bmi patient 1b102c21-830a-41a5-ac27-9aa77ea5adfe",
+            "name": "1b102c21-830a-41a5-ac27-9aa77ea5adfe",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/1b102c21-830a-41a5-ac27-9aa77ea5adfe&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 10000,
+            "sortNum": 490000,
             "created": "2025-05-03T01:18:44.789Z",
-            "modified": "2025-05-04T01:15:00.917Z",
+            "modified": "2025-05-21T03:02:00.048Z",
             "headers": [],
             "params": [
                 {
@@ -201,18 +180,39 @@
                     "value": "2026-12-31",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "5f53849b-387c-40c2-b8a2-ccc8e2b11d4f",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
             "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
-            "name": "CMS69-bmi patient 5d34e56e-f4f1-4817-b7e4-e4c57f811300",
+            "name": "5d34e56e-f4f1-4817-b7e4-e4c57f811300",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/5d34e56e-f4f1-4817-b7e4-e4c57f811300&periodStart=2026&periodEnd=2026&reportType=subject",
             "method": "GET",
-            "sortNum": 20000,
+            "sortNum": 350000,
             "created": "2025-05-03T01:18:52.032Z",
-            "modified": "2025-05-04T02:49:08.481Z",
+            "modified": "2025-05-21T03:03:25.239Z",
             "headers": [],
             "params": [
                 {
@@ -235,7 +235,28 @@
                     "value": "subject",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "9a0ec3cf-67a8-42b6-ac3a-d7f70608b739",
@@ -569,12 +590,12 @@
             "_id": "442c54c1-b087-445b-9713-60f1ea4c2020",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
             "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
-            "name": "CMS69-bmi patient 296d38e4-d69b-481e-a8cf-f7eee8b9e5d7",
+            "name": "296d38e4-d69b-481e-a8cf-f7eee8b9e5d7",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/296d38e4-d69b-481e-a8cf-f7eee8b9e5d7&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 30000,
+            "sortNum": 360000,
             "created": "2025-05-04T01:03:10.327Z",
-            "modified": "2025-05-04T01:20:07.416Z",
+            "modified": "2025-05-21T03:05:33.979Z",
             "headers": [],
             "params": [
                 {
@@ -592,18 +613,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "663aedee-29d7-44b5-a765-920aa3ecbcf4",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 0278fdf0-f067-46e8-aeb1-fb96dff3c947",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "0278fdf0-f067-46e8-aeb1-fb96dff3c947",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/0278fdf0-f067-46e8-aeb1-fb96dff3c947&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 20000,
+            "sortNum": 510000,
             "created": "2025-05-04T02:26:22.931Z",
-            "modified": "2025-05-04T02:27:14.240Z",
+            "modified": "2025-05-21T03:16:08.723Z",
             "headers": [],
             "params": [
                 {
@@ -621,7 +663,28 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "06af4222-07fc-4384-a287-c974b37fdb9a",
@@ -644,13 +707,13 @@
         {
             "_id": "75021ecf-dff8-4f6e-8969-1ee180f24374",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "ed3a01a0-b745-4e7f-a650-15628e2c4567",
-            "name": "1b102c21",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "30561eea-67f0-487c-aff4-a2dea36cb0f9",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/30561eea-67f0-487c-aff4-a2dea36cb0f9&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 170000,
+            "sortNum": 470000,
             "created": "2025-05-08T15:21:40.928Z",
-            "modified": "2025-05-08T15:23:02.130Z",
+            "modified": "2025-05-21T02:58:14.056Z",
             "headers": [],
             "params": [
                 {
@@ -668,18 +731,39 @@
                     "value": "2026-12-31",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "b00cbc88-425a-4c2f-8242-dc85a6330de8",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "ed3a01a0-b745-4e7f-a650-15628e2c4567",
-            "name": "6f03c77f",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "6f03c77f-035f-4e3a-a8d9-57892dec4030",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/6f03c77f-035f-4e3a-a8d9-57892dec4030&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 180000,
+            "sortNum": 480000,
             "created": "2025-05-08T15:24:10.681Z",
-            "modified": "2025-05-08T15:24:54.506Z",
+            "modified": "2025-05-21T03:00:04.410Z",
             "headers": [],
             "params": [
                 {
@@ -697,18 +781,39 @@
                     "value": "2026-12-31",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "0ef00e1b-e00a-46eb-9027-8859b6b8b11e",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 1f16120b-56c9-4d72-8dd4-01d8a0175d77",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "1f16120b-56c9-4d72-8dd4-01d8a0175d77",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/1f16120b-56c9-4d72-8dd4-01d8a0175d77&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 10000,
+            "sortNum": 500000,
             "created": "2025-05-09T00:24:25.848Z",
-            "modified": "2025-05-09T00:45:32.157Z",
+            "modified": "2025-05-21T03:14:52.085Z",
             "headers": [],
             "params": [
                 {
@@ -726,18 +831,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "be70a948-a9ec-43c9-9170-ed1da00b310c",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
             "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
-            "name": "CMS69-bmi patient c84bf29f-80ac-4bf0-beeb-404ba96a3fa8",
+            "name": "c84bf29f-80ac-4bf0-beeb-404ba96a3fa8",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/c84bf29f-80ac-4bf0-beeb-404ba96a3fa8&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 70000,
+            "sortNum": 370000,
             "created": "2025-05-09T00:59:58.866Z",
-            "modified": "2025-05-09T01:00:24.705Z",
+            "modified": "2025-05-21T03:06:46.204Z",
             "headers": [],
             "params": [
                 {
@@ -755,16 +881,37 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "04b56976-a7e1-47ed-827e-21fde32cbef7",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
             "name": "5d48c3b8-93e9-4e29-8c20-a002761d9e24",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/5d48c3b8-93e9-4e29-8c20-a002761d9e24&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 190000,
+            "sortNum": 380000,
             "created": "2025-05-09T22:02:41.083Z",
             "modified": "2025-05-19T01:35:52.429Z",
             "headers": [],
@@ -934,20 +1081,20 @@
             }
         },
         {
-            "_id": "69c0377c-ac97-46d3-870b-40666311a8e8",
+            "_id": "5645a8b5-e579-42f1-8eeb-81760f621eee",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
-            "name": "5d34e56e-f4f1-4817-b7e4-e4c57f811300",
-            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/5d34e56e-f4f1-4817-b7e4-e4c57f811300&periodStart=2026-01-01&periodEnd=2026-12-31",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "ca6deaeb-459d-4d1a-9daf-e454ff76a6f0",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/ca6deaeb-459d-4d1a-9daf-e454ff76a6f0&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 200000,
-            "created": "2025-05-10T23:28:03.423Z",
-            "modified": "2025-05-21T00:39:27.022Z",
+            "sortNum": 400000,
+            "created": "2025-05-10T23:28:58.183Z",
+            "modified": "2025-05-21T02:44:41.229Z",
             "headers": [],
             "params": [
                 {
                     "name": "subject",
-                    "value": "Patient/5d34e56e-f4f1-4817-b7e4-e4c57f811300",
+                    "value": "Patient/ca6deaeb-459d-4d1a-9daf-e454ff76a6f0",
                     "isPath": false
                 },
                 {
@@ -992,52 +1139,15 @@
             }
         },
         {
-            "_id": "5645a8b5-e579-42f1-8eeb-81760f621eee",
-            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
-            "name": "ca6deaeb-459d-4d1a-9daf-e454ff76a6f0",
-            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/ca6deaeb-459d-4d1a-9daf-e454ff76a6f0&periodStart=2026-01-01&periodEnd=2026-12-31",
-            "method": "GET",
-            "sortNum": 210000,
-            "created": "2025-05-10T23:28:58.183Z",
-            "modified": "2025-05-14T20:41:52.644Z",
-            "headers": [],
-            "params": [
-                {
-                    "name": "subject",
-                    "value": "Patient/ca6deaeb-459d-4d1a-9daf-e454ff76a6f0",
-                    "isPath": false
-                },
-                {
-                    "name": "periodStart",
-                    "value": "2026-01-01",
-                    "isPath": false
-                },
-                {
-                    "name": "periodEnd",
-                    "value": "2026-12-31",
-                    "isPath": false
-                }
-            ],
-            "tests": [
-                {
-                    "type": "res-body",
-                    "custom": "",
-                    "action": "notcontains",
-                    "value": "OperationOutcome"
-                }
-            ]
-        },
-        {
             "_id": "b0435420-3202-4a60-99fd-b85b340f0a73",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
             "name": "5ef4acf3-4b42-41fd-8793-7d1a9342865a",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/5ef4acf3-4b42-41fd-8793-7d1a9342865a&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 220000,
+            "sortNum": 410000,
             "created": "2025-05-13T00:18:49.931Z",
-            "modified": "2025-05-14T20:42:13.411Z",
+            "modified": "2025-05-21T02:47:08.584Z",
             "headers": [],
             "params": [
                 {
@@ -1063,18 +1173,39 @@
                     "action": "notcontains",
                     "value": "OperationOutcome"
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "860beee7-741e-4ab4-a5e8-71e9f06c350a",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
             "name": "45b1ce40-0f49-4559-8c3b-5c2a8070b0a7",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/45b1ce40-0f49-4559-8c3b-5c2a8070b0a7&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 230000,
+            "sortNum": 420000,
             "created": "2025-05-13T00:19:57.798Z",
-            "modified": "2025-05-14T20:42:31.312Z",
+            "modified": "2025-05-21T02:48:24.356Z",
             "headers": [],
             "params": [
                 {
@@ -1100,18 +1231,39 @@
                     "action": "notcontains",
                     "value": "OperationOutcome"
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "d98dd69f-6904-480b-9d6b-5ff0c250c3bf",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
             "name": "736b5472-4a6f-4278-80d3-373d1c78c4c5",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/736b5472-4a6f-4278-80d3-373d1c78c4c5&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 240000,
+            "sortNum": 430000,
             "created": "2025-05-13T00:22:39.228Z",
-            "modified": "2025-05-19T00:19:23.571Z",
+            "modified": "2025-05-21T02:49:48.583Z",
             "headers": [],
             "params": [
                 {
@@ -1143,27 +1295,17 @@
                     {
                         "script": [
                             "let json = tc.response.json;",
-                            "",
-                            "// Ensure group[0] exists",
-                            "tc.test(\"Group[0] exists\", Array.isArray(json.group) && json.group.length > 0);",
-                            "",
-                            "// Helper to get population count by code",
                             "function getPopCount(code) {",
-                            "    let population = json.group[0]?.population || [];",
-                            "    let match = population.find(p =>",
+                            "    let pop = json.group[0]?.population.find(p =>",
                             "        p.code?.coding?.some(c => c.code === code)",
                             "    );",
-                            "    return match?.count;",
+                            "    return pop?.count;",
                             "}",
-                            "",
-                            "// Expected values",
                             "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
                             "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
-                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
                             "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
                             "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
-                            "",
-                            "// Check measureScore",
                             "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
                         ]
                     }
@@ -1173,13 +1315,13 @@
         {
             "_id": "ec0758cd-84df-4723-8004-e66f2a045148",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
             "name": "7b34e64e-e7fe-402c-9a26-12da90662897",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/7b34e64e-e7fe-402c-9a26-12da90662897&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 250000,
+            "sortNum": 440000,
             "created": "2025-05-13T00:23:20.019Z",
-            "modified": "2025-05-16T15:49:34.171Z",
+            "modified": "2025-05-21T02:51:21.901Z",
             "headers": [],
             "params": [
                 {
@@ -1205,18 +1347,39 @@
                     "action": "notcontains",
                     "value": "OperationOutcome"
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "5888ee29-6395-4300-abf0-95beaadfb4fb",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
             "name": "80a53697-3fdb-4721-87aa-64462a6708dd",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/80a53697-3fdb-4721-87aa-64462a6708dd&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 260000,
+            "sortNum": 450000,
             "created": "2025-05-13T00:24:13.136Z",
-            "modified": "2025-05-14T20:43:18.915Z",
+            "modified": "2025-05-21T02:52:39.161Z",
             "headers": [],
             "params": [
                 {
@@ -1242,18 +1405,39 @@
                     "action": "notcontains",
                     "value": "OperationOutcome"
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "f6b1d526-afa5-400e-a7b8-27c2078a109a",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "b8f3ec9a-95f3-44f8-a1ff-360fb35ddf67",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
             "name": "d318f512-656e-43bf-a409-16b6e24462a9",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/d318f512-656e-43bf-a409-16b6e24462a9&periodStart=2026-01-01&periodEnd=2026-12-31",
             "method": "GET",
-            "sortNum": 270000,
+            "sortNum": 460000,
             "created": "2025-05-13T00:25:13.310Z",
-            "modified": "2025-05-14T20:43:36.278Z",
+            "modified": "2025-05-21T02:53:38.472Z",
             "headers": [],
             "params": [
                 {
@@ -1279,7 +1463,28 @@
                     "action": "notcontains",
                     "value": "OperationOutcome"
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "3a4d3aff-5d50-476a-bcc2-80048d45fbd7",
@@ -2381,13 +2586,13 @@
         {
             "_id": "4c161a92-db56-4816-ba86-cd15610f6ab3",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient a4a1ed63-89ff-4d27-8819-136873e13171",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "a4a1ed63-89ff-4d27-8819-136873e13171",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/a4a1ed63-89ff-4d27-8819-136873e13171&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 30000,
+            "sortNum": 520000,
             "created": "2025-05-16T01:03:22.317Z",
-            "modified": "2025-05-16T01:03:58.976Z",
+            "modified": "2025-05-21T03:17:17.368Z",
             "headers": [],
             "params": [
                 {
@@ -2405,18 +2610,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "d7583134-5ad0-4cc7-a7be-282819c1395e",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 260e1fc8-227f-4c16-bfc6-22625380a12c",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "260e1fc8-227f-4c16-bfc6-22625380a12c",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/260e1fc8-227f-4c16-bfc6-22625380a12c&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 40000,
+            "sortNum": 530000,
             "created": "2025-05-16T01:04:32.749Z",
-            "modified": "2025-05-16T01:06:17.030Z",
+            "modified": "2025-05-21T03:18:13.473Z",
             "headers": [],
             "params": [
                 {
@@ -2434,18 +2660,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "652e376d-6f25-42cb-8316-ae5e957c5537",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 88a2b45a-7866-445a-8242-91ec0ebb7646",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "88a2b45a-7866-445a-8242-91ec0ebb7646",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/88a2b45a-7866-445a-8242-91ec0ebb7646&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 50000,
+            "sortNum": 540000,
             "created": "2025-05-16T01:06:33.112Z",
-            "modified": "2025-05-16T01:07:00.490Z",
+            "modified": "2025-05-21T03:22:02.141Z",
             "headers": [],
             "params": [
                 {
@@ -2463,18 +2710,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "a8e7d1b5-8d28-4605-a079-e7186bb2a1fe",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 8c89947a-a52b-4a41-86a8-166b0560355b",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "8c89947a-a52b-4a41-86a8-166b0560355b",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/8c89947a-a52b-4a41-86a8-166b0560355b&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 60000,
+            "sortNum": 550000,
             "created": "2025-05-16T01:07:31.770Z",
-            "modified": "2025-05-16T01:08:02.436Z",
+            "modified": "2025-05-21T03:22:58.822Z",
             "headers": [],
             "params": [
                 {
@@ -2492,18 +2760,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "e8882771-0b14-4256-b5c5-9284b4a2e280",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient c1df0273-aad8-41a8-859c-edd204bb4f16",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "c1df0273-aad8-41a8-859c-edd204bb4f16",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/c1df0273-aad8-41a8-859c-edd204bb4f16&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 70000,
+            "sortNum": 560000,
             "created": "2025-05-16T01:08:28.084Z",
-            "modified": "2025-05-16T01:08:47.791Z",
+            "modified": "2025-05-21T03:24:08.263Z",
             "headers": [],
             "params": [
                 {
@@ -2521,18 +2810,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "352d9043-9f59-41ec-810a-9712c59f3a79",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 6d26d364-a06c-49e6-84df-280ec6b7a8a3",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "6d26d364-a06c-49e6-84df-280ec6b7a8a3",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/6d26d364-a06c-49e6-84df-280ec6b7a8a3&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 80000,
+            "sortNum": 570000,
             "created": "2025-05-16T01:09:14.400Z",
-            "modified": "2025-05-16T01:10:45.258Z",
+            "modified": "2025-05-21T03:24:54.394Z",
             "headers": [],
             "params": [
                 {
@@ -2550,18 +2860,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "d5656d77-b151-483b-b8c1-196357071aad",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient ff09cf1e-5b30-45c7-9cc6-d5daf48a3933",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "ff09cf1e-5b30-45c7-9cc6-d5daf48a3933",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/ff09cf1e-5b30-45c7-9cc6-d5daf48a3933&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 90000,
+            "sortNum": 580000,
             "created": "2025-05-16T01:11:04.169Z",
-            "modified": "2025-05-16T01:11:45.995Z",
+            "modified": "2025-05-21T03:26:36.562Z",
             "headers": [],
             "params": [
                 {
@@ -2579,18 +2910,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "39867a84-f088-45dd-a9f1-7c3fdc7424e1",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 6553adbf-2a30-4861-97e6-cca7d2274f01",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "6553adbf-2a30-4861-97e6-cca7d2274f01",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/6553adbf-2a30-4861-97e6-cca7d2274f01&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 100000,
+            "sortNum": 590000,
             "created": "2025-05-16T01:12:15.561Z",
-            "modified": "2025-05-16T01:12:37.085Z",
+            "modified": "2025-05-21T03:27:43.458Z",
             "headers": [],
             "params": [
                 {
@@ -2608,18 +2960,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "41d11f60-6ec6-4616-86f6-40577c8aa9c9",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient b98fcec4-23a5-41bd-82d8-bad2f50ffc9c",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "b98fcec4-23a5-41bd-82d8-bad2f50ffc9c",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/b98fcec4-23a5-41bd-82d8-bad2f50ffc9c&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 110000,
+            "sortNum": 600000,
             "created": "2025-05-16T01:12:54.902Z",
-            "modified": "2025-05-16T01:13:14.474Z",
+            "modified": "2025-05-21T03:29:57.114Z",
             "headers": [],
             "params": [
                 {
@@ -2637,18 +3010,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "44db97a9-8dc6-4f83-bd51-67315e1833ba",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 7ac9722f-8763-4380-a741-53ee4bb98819",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "7ac9722f-8763-4380-a741-53ee4bb98819",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/7ac9722f-8763-4380-a741-53ee4bb98819&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 120000,
+            "sortNum": 610000,
             "created": "2025-05-16T01:13:27.935Z",
-            "modified": "2025-05-16T01:13:49.385Z",
+            "modified": "2025-05-21T03:30:52.262Z",
             "headers": [],
             "params": [
                 {
@@ -2666,18 +3060,39 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "239f37bb-3d89-4030-804c-87332bd75b96",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 659f9c7b-5c1c-475f-bfcb-77c246fa7a28",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "659f9c7b-5c1c-475f-bfcb-77c246fa7a28",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/659f9c7b-5c1c-475f-bfcb-77c246fa7a28&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 130000,
+            "sortNum": 620000,
             "created": "2025-05-16T01:14:01.730Z",
-            "modified": "2025-05-16T01:14:23.935Z",
+            "modified": "2025-05-21T03:31:35.679Z",
             "headers": [],
             "params": [
                 {
@@ -2695,36 +3110,28 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
-        },
-        {
-            "_id": "38e0ede0-09c3-4f7d-8619-a028b97ea17b",
-            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient c84bf29f-80ac-4bf0-beeb-404ba96a3fa8",
-            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/c84bf29f-80ac-4bf0-beeb-404ba96a3fa8&periodStart=2026&periodEnd=2026",
-            "method": "GET",
-            "sortNum": 140000,
-            "created": "2025-05-16T01:15:13.861Z",
-            "modified": "2025-05-16T01:15:37.565Z",
-            "headers": [],
-            "params": [
-                {
-                    "name": "subject",
-                    "value": "Patient/c84bf29f-80ac-4bf0-beeb-404ba96a3fa8",
-                    "isPath": false
-                },
-                {
-                    "name": "periodStart",
-                    "value": "2026",
-                    "isPath": false
-                },
-                {
-                    "name": "periodEnd",
-                    "value": "2026",
-                    "isPath": false
-                }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "481cbdbe-7713-431d-abdf-ce5723ef0938",
@@ -2741,13 +3148,13 @@
         {
             "_id": "95420582-7156-42ee-8490-ce296ab4a141",
             "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
-            "containerId": "f9dd08b6-14cc-49d4-8790-1aadbdfec5dc",
-            "name": "CMS69-bmi patient 3ecce155-635d-47ec-b35d-d53126423a81",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "3ecce155-635d-47ec-b35d-d53126423a81",
             "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/3ecce155-635d-47ec-b35d-d53126423a81&periodStart=2026&periodEnd=2026",
             "method": "GET",
-            "sortNum": 150000,
+            "sortNum": 640000,
             "created": "2025-05-16T02:23:08.757Z",
-            "modified": "2025-05-16T02:23:40.655Z",
+            "modified": "2025-05-21T03:34:25.794Z",
             "headers": [],
             "params": [
                 {
@@ -2765,7 +3172,28 @@
                     "value": "2026",
                     "isPath": false
                 }
-            ]
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
         },
         {
             "_id": "f553116e-4254-4817-ae8e-92ab1e3809e9",
@@ -3400,6 +3828,1706 @@
                 "raw": "",
                 "form": [],
                 "binary": "../CMS69-bmi_0.3.000/resources/library-CMS69FHIRPCSBMIScreenAndFollowUp-0.3.001a.json"
+            }
+        },
+        {
+            "_id": "a9a601d1-3077-41e9-bd73-c8855ab4e0f3",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "7902e3dc-f3da-4cc2-9f2e-4a6c8cd33b88",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/7902e3dc-f3da-4cc2-9f2e-4a6c8cd33b88&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 650000,
+            "created": "2025-05-21T03:50:39.944Z",
+            "modified": "2025-05-21T03:52:43.069Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/7902e3dc-f3da-4cc2-9f2e-4a6c8cd33b88",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e48b6875-9ba7-4e12-a54f-e34a88b3af0f",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "a0aacdbc-4954-48af-aa88-361ea7e32736",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/a0aacdbc-4954-48af-aa88-361ea7e32736&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 660000,
+            "created": "2025-05-21T03:53:19.327Z",
+            "modified": "2025-05-21T03:54:48.923Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/a0aacdbc-4954-48af-aa88-361ea7e32736",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9a32ff93-0446-4ed3-aa97-2e97f068c314",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "8835a50b-0a0f-4e2f-94fa-7c180cd7f905",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/8835a50b-0a0f-4e2f-94fa-7c180cd7f905&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 670000,
+            "created": "2025-05-21T03:55:53.485Z",
+            "modified": "2025-05-21T03:56:44.642Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/8835a50b-0a0f-4e2f-94fa-7c180cd7f905",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "21971217-1fcb-4397-a82c-c8c0ff7af65d",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "d3054ffa-e17b-4611-b7e0-4523fb0f9e1d",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/d3054ffa-e17b-4611-b7e0-4523fb0f9e1d&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 680000,
+            "created": "2025-05-21T03:57:56.897Z",
+            "modified": "2025-05-21T03:58:51.561Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/d3054ffa-e17b-4611-b7e0-4523fb0f9e1d",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "12045804-1528-4541-98f5-1924de0226d4",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "f5ae6269-d09b-47f8-a519-f1a8a81549fc",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/f5ae6269-d09b-47f8-a519-f1a8a81549fc&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 690000,
+            "created": "2025-05-21T03:59:41.004Z",
+            "modified": "2025-05-21T04:00:34.290Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/f5ae6269-d09b-47f8-a519-f1a8a81549fc",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "6a18ad5f-ffc2-4e95-99ba-97be3569258d",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "27849d59-3cef-40bf-8338-a6ec7c0bcf81",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/27849d59-3cef-40bf-8338-a6ec7c0bcf81&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 700000,
+            "created": "2025-05-21T04:01:09.635Z",
+            "modified": "2025-05-21T04:02:03.077Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/27849d59-3cef-40bf-8338-a6ec7c0bcf81",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "93c17cc2-72ee-4425-8f86-41a4a4bfd3b5",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "dda79f3f-4c4f-454a-bae2-9751a0114e91",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/dda79f3f-4c4f-454a-bae2-9751a0114e91&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 710000,
+            "created": "2025-05-21T04:02:46.527Z",
+            "modified": "2025-05-21T04:04:04.889Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/dda79f3f-4c4f-454a-bae2-9751a0114e91",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "24efaa3a-be21-45e7-9ded-5cea522f546d",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "42e6b4d6-defc-4ec5-894f-e3333e3039a3",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/42e6b4d6-defc-4ec5-894f-e3333e3039a3&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 720000,
+            "created": "2025-05-21T04:05:26.067Z",
+            "modified": "2025-05-21T04:06:26.433Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/42e6b4d6-defc-4ec5-894f-e3333e3039a3",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "574e048d-ad93-4e71-8c88-06a43ab17324",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "405d4940-7ab2-4d26-b55f-3c27e07eba33",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/405d4940-7ab2-4d26-b55f-3c27e07eba33&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 730000,
+            "created": "2025-05-21T04:06:54.325Z",
+            "modified": "2025-05-21T04:08:08.730Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/405d4940-7ab2-4d26-b55f-3c27e07eba33",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "0de47250-c100-4ab7-8bec-638a98085362",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "050201c2-c2c4-46e6-8288-a34f99caebdc",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/050201c2-c2c4-46e6-8288-a34f99caebdc&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 740000,
+            "created": "2025-05-21T04:08:31.437Z",
+            "modified": "2025-05-21T04:10:09.031Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/050201c2-c2c4-46e6-8288-a34f99caebdc",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9d99d195-6860-4964-a4c7-97aa49993c2e",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "353cb8b7-96ac-4b51-9a0d-60cd64e6d854",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/353cb8b7-96ac-4b51-9a0d-60cd64e6d854&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 750000,
+            "created": "2025-05-21T04:08:36.964Z",
+            "modified": "2025-05-21T04:11:57.669Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/353cb8b7-96ac-4b51-9a0d-60cd64e6d854",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f2c34f9e-d990-4e95-a168-8e6cdf3c5194",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "03f01144-2230-42ab-b81f-594e1c2baa62",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/03f01144-2230-42ab-b81f-594e1c2baa62&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 760000,
+            "created": "2025-05-21T04:12:38.384Z",
+            "modified": "2025-05-21T04:13:35.567Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/03f01144-2230-42ab-b81f-594e1c2baa62",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "11649036-0631-45c1-ad3e-889b1c51ae51",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "2a976bc2-493b-421f-842e-36d31463f261",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/2a976bc2-493b-421f-842e-36d31463f261&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 770000,
+            "created": "2025-05-21T04:13:59.261Z",
+            "modified": "2025-05-21T04:14:51.378Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/2a976bc2-493b-421f-842e-36d31463f261",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f713608a-1098-4fb6-86f9-34709d6ee96b",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "953ef59d-4c39-40ef-8067-87b5ecf84727",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/953ef59d-4c39-40ef-8067-87b5ecf84727&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 780000,
+            "created": "2025-05-21T04:15:40.810Z",
+            "modified": "2025-05-21T04:16:32.710Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/953ef59d-4c39-40ef-8067-87b5ecf84727",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "bd99ce86-fec3-41cc-af69-70dd95ce169e",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "ddfb765a-a3fb-467f-a9d9-ac6faf4cea9a",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/ddfb765a-a3fb-467f-a9d9-ac6faf4cea9a&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 790000,
+            "created": "2025-05-21T04:17:00.617Z",
+            "modified": "2025-05-21T04:17:45.140Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/ddfb765a-a3fb-467f-a9d9-ac6faf4cea9a",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "4df04d4d-b781-43d3-b5bf-11d3652a3df7",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "09e4ff5a-fe3b-4c89-a36e-68f64c7e489c",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/09e4ff5a-fe3b-4c89-a36e-68f64c7e489c&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 800000,
+            "created": "2025-05-21T04:18:08.007Z",
+            "modified": "2025-05-21T04:19:12.022Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/09e4ff5a-fe3b-4c89-a36e-68f64c7e489c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "b4666544-4c47-41cc-b79b-c51b93b2a7b7",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "1ba2fc33-1a1b-416b-bb3c-79ba5d0d3359",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/01ba2fc33-1a1b-416b-bb3c-79ba5d0d3359&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 810000,
+            "created": "2025-05-21T04:20:12.695Z",
+            "modified": "2025-05-21T04:21:22.169Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/01ba2fc33-1a1b-416b-bb3c-79ba5d0d3359",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "8099c87d-2a71-41c6-a2d0-edda44b8d2e0",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "6f0c3642-5efc-4923-ac24-9f5e9d1831d6",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/6f0c3642-5efc-4923-ac24-9f5e9d1831d6&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 820000,
+            "created": "2025-05-21T04:26:56.829Z",
+            "modified": "2025-05-21T04:28:38.402Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/6f0c3642-5efc-4923-ac24-9f5e9d1831d6",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "344f915a-571b-4266-9161-8f0eb7e250f5",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "463dd868-997d-472f-962c-96383fd2a5c4",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/463dd868-997d-472f-962c-96383fd2a5c4&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 830000,
+            "created": "2025-05-21T04:29:04.183Z",
+            "modified": "2025-05-21T04:29:51.183Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/463dd868-997d-472f-962c-96383fd2a5c4",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f1dc2175-db78-4c31-98ed-c6680b623078",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "461fdfab-fcc1-4630-9dae-2ba3a6ab0c25",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/461fdfab-fcc1-4630-9dae-2ba3a6ab0c25&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 840000,
+            "created": "2025-05-21T04:30:14.771Z",
+            "modified": "2025-05-21T04:30:30.727Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/461fdfab-fcc1-4630-9dae-2ba3a6ab0c25",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "5a9edc14-7106-4c69-aa71-2d5bdd8ac14e",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "d4d064be-d55a-47b5-9bfd-993afebd95a5",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/d4d064be-d55a-47b5-9bfd-993afebd95a5&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 850000,
+            "created": "2025-05-21T04:33:43.548Z",
+            "modified": "2025-05-21T04:34:01.735Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/d4d064be-d55a-47b5-9bfd-993afebd95a5",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "faf01517-82aa-459b-9cc6-f936bd24c963",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "a327cf96-81c4-46ff-9619-6fd9981bb90c",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/a327cf96-81c4-46ff-9619-6fd9981bb90c&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 860000,
+            "created": "2025-05-21T04:34:54.475Z",
+            "modified": "2025-05-21T04:35:39.656Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/a327cf96-81c4-46ff-9619-6fd9981bb90c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 1\", getPopCount(\"denominator-exception\") === 1);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "1bbc2cda-77e1-4440-be79-4833f378ab03",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "9d92be1d-6fc8-40f2-99a0-4be9ce1f244b",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/9d92be1d-6fc8-40f2-99a0-4be9ce1f244b&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 870000,
+            "created": "2025-05-21T04:36:27.106Z",
+            "modified": "2025-05-21T04:37:09.238Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/9d92be1d-6fc8-40f2-99a0-4be9ce1f244b",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "11ee7d76-ebd6-4068-80c0-2c5af4c5bd34",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "1c607e84-c7c2-4dae-bf63-a75d7a9cfd38",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/1c607e84-c7c2-4dae-bf63-a75d7a9cfd38&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 880000,
+            "created": "2025-05-21T04:37:45.176Z",
+            "modified": "2025-05-21T04:38:30.825Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/1c607e84-c7c2-4dae-bf63-a75d7a9cfd38",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "6c127085-6bd1-4050-a26c-d95775cbe02b",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "097cbc7a-d22e-4395-9fcf-fd1f904f7c92",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/097cbc7a-d22e-4395-9fcf-fd1f904f7c92&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 890000,
+            "created": "2025-05-21T04:38:52.059Z",
+            "modified": "2025-05-21T04:39:41.011Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/097cbc7a-d22e-4395-9fcf-fd1f904f7c92",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "d6bde074-f52c-4cdc-99b2-13c9e7c9a299",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "823e94a5-e1a7-4d2a-b289-3133f0b1772c",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/823e94a5-e1a7-4d2a-b289-3133f0b1772c&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 900000,
+            "created": "2025-05-21T04:40:55.936Z",
+            "modified": "2025-05-21T04:41:43.510Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/823e94a5-e1a7-4d2a-b289-3133f0b1772c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "67aea7b5-4945-47be-bab6-5a61d777c46c",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "c3caf126-12a2-473f-8f51-1c7828d63d16",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/c3caf126-12a2-473f-8f51-1c7828d63d16&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 910000,
+            "created": "2025-05-21T04:42:04.479Z",
+            "modified": "2025-05-21T04:42:41.064Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/c3caf126-12a2-473f-8f51-1c7828d63d16",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "112f7913-2ff7-4b35-9403-66be96004bc2",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "8e130410-9710-45f3-ac56-e69dee0755d9",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/8e130410-9710-45f3-ac56-e69dee0755d9&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 920000,
+            "created": "2025-05-21T04:43:15.335Z",
+            "modified": "2025-05-21T04:44:10.828Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/8e130410-9710-45f3-ac56-e69dee0755d9",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 0.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "4e49fb19-6489-4ebf-9f80-9f18fed58cac",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "1102009b-6f05-4bab-9fd1-191e81cf50e8",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/1102009b-6f05-4bab-9fd1-191e81cf50e8&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 930000,
+            "created": "2025-05-21T04:44:33.252Z",
+            "modified": "2025-05-21T04:45:34.647Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/1102009b-6f05-4bab-9fd1-191e81cf50e8",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f393cce5-8b5c-4c96-8d61-a0479ea58915",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "6092a810-f9e0-4975-9582-37bbb06e8e56",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/6092a810-f9e0-4975-9582-37bbb06e8e56&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 940000,
+            "created": "2025-05-21T04:46:24.540Z",
+            "modified": "2025-05-21T04:47:29.906Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/6092a810-f9e0-4975-9582-37bbb06e8e56",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "908047d0-10c3-453a-85bf-1481c42030a8",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "1e23fb8f-e27b-4553-a62a-f66edeb4528a",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/1e23fb8f-e27b-4553-a62a-f66edeb4528a&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 950000,
+            "created": "2025-05-21T04:47:51.091Z",
+            "modified": "2025-05-21T04:48:33.672Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/1e23fb8f-e27b-4553-a62a-f66edeb4528a",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "d9495f77-d96d-4a73-9c1d-85f6776ba670",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "8e38b797-4dec-437d-8bf0-6f0fc78f8ea7",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 960000,
+            "created": "2025-05-21T04:56:38.787Z",
+            "modified": "2025-05-21T04:56:53.369Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score = 1.0\", json.group[0]?.measureScore?.value == 1.0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "1f27bff0-9149-4f1d-9027-3558f5c41cae",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "cd81ff3a-3d2b-472e-bf0f-f951aee7d2c4",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/cd81ff3a-3d2b-472e-bf0f-f951aee7d2c4&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 970000,
+            "created": "2025-05-21T04:57:54.963Z",
+            "modified": "2025-05-21T04:59:14.682Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/cd81ff3a-3d2b-472e-bf0f-f951aee7d2c4",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "3fe6c2c4-7783-4775-82f2-9e58bf1f1789",
+            "colId": "fd0a0e98-bc8b-4629-8391-f7a823eda21e",
+            "containerId": "dccced57-db04-4d61-bd2e-a2f8382791c3",
+            "name": "57858042-c2aa-49f4-b401-1f1fd9ab289a",
+            "url": "Measure/CMS69FHIRPCSBMIScreenAndFollowUp/$evaluate-measure?subject=Patient/57858042-c2aa-49f4-b401-1f1fd9ab289a&periodStart=2026&periodEnd=2026",
+            "method": "GET",
+            "sortNum": 980000,
+            "created": "2025-05-21T05:02:18.654Z",
+            "modified": "2025-05-21T05:03:00.160Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/57858042-c2aa-49f4-b401-1f1fd9ab289a",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026",
+                    "isPath": false
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Denominator Exception = 0\", getPopCount(\"denominator-exception\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
             }
         }
     ],
