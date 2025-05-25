@@ -43,3 +43,4 @@ puppeteer_cache/
 **/test-case-eval-report.csv
 cache/terminology/
 test-case-eval-fqm.*
+/input-cache/validator_cli.jar
