@@ -122,7 +122,7 @@
         "expectedSupplyDuration": {
           "value": 90,
           "system": "http://unitsofmeasure.org",
-          "code": "days"
+          "code": "d"
         }
       }
     },
