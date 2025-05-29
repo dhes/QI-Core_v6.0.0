@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
-const TEST_CASES_DIR = path.join(__dirname, "CMS130-colon_0.3.000", "test-cases");
-const OUTPUT_FILE = path.join(__dirname, "thunder-tests", "collections", "tc_col_cms-colon0.3.000.json");
+const TEST_CASES_DIR = path.join(__dirname, "..", "test-cases");
+const OUTPUT_FILE = path.join(__dirname, "..","..", "thunder-tests", "collections", "tc_col_cms-colon0.3.000.json");
 
 const MEASURE_ID = "CMS130FHIRColorectalCancerScreening";
 const MEASURE_URL = `https://madie.cms.gov/Measure/${MEASURE_ID}`;
