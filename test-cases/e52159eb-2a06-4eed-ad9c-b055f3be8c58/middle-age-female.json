@@ -1,0 +1,113 @@
+{
+  "resourceType": "Bundle",
+  "id": "e52159eb-2a06-4eed-ad9c-b055f3be8c58",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://hopena.info/fhir/Patient/31e74b61-9d29-4825-811f-a27415bf55e6",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "31e74b61-9d29-4825-811f-a27415bf55e6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2028-9",
+                  "display": "Asian"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Asian"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Hispanic or Latino"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://clinic.hopena.info",
+            "value": "999999995"
+          }
+        ],
+        "name": [
+          {
+            "family": "Bertha",
+            "given": ["Betty"]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1977-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/31e74b61-9d29-4825-811f-a27415bf55e6"
+      }
+    },
+    {
+      "fullUrl": "http://hopena.info/Encounter/93cef636-15f3-47ef-8b37-2e51abf05db6",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "93cef636-15f3-47ef-8b37-2e51abf05db6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99213",
+                "display": "Office or other outpatient visit for the evaluation and management of an established patient"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/31e74b61-9d29-4825-811f-a27415bf55e6"
+        },
+        "period": {
+          "start": "2026-12-31T08:01:00.000+00:00",
+          "end": "2026-12-31T08:15:00.000+00:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/93cef636-15f3-47ef-8b37-2e51abf05db6"
+      }
+    }
+  ]
+}

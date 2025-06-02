@@ -24,12 +24,12 @@
             "_id": "8f3bfc20-fafb-42aa-b2e2-64fe72610b86",
             "colId": "3fbb74ca-df26-4525-a32b-f163c6e4d82a",
             "containerId": "409eb4d6-3413-4439-aebe-e06ae8aad0ae",
-            "name": "GET Measure/$care-gaps bmi & pap - expect no gaps",
-            "url": "Measure/$care-gaps?periodStart=2026-01-01&periodEnd=2026-12-31&subject=Patient/5d34e56e-f4f1-4817-b7e4-e4c57f811300&measureId=CMS69FHIRPCSBMIScreenAndFollowUp&measureId=CMS124FHIRCervicalCancerScreening&status=open-gap",
+            "name": "GET Measure/$care-gaps five measure palliative care",
+            "url": "Measure/$care-gaps?periodStart=2026-01-01&periodEnd=2026-12-31&subject=Patient/5d34e56e-f4f1-4817-b7e4-e4c57f811300&measureId=CMS69FHIRPCSBMIScreenAndFollowUp&measureId=CMS124FHIRCervicalCancerScreening&measureId=CMS131FHIRDiabetesEyeExam&measureId=CMS125FHIRBreastCancerScreening&measureId=CMS130FHIRColorectalCancerScreening&status=open-gap",
             "method": "GET",
             "sortNum": 10000,
             "created": "2025-05-04T00:38:11.319Z",
-            "modified": "2025-05-04T00:49:30.134Z",
+            "modified": "2025-05-30T23:14:31.569Z",
             "headers": [],
             "params": [
                 {
@@ -55,6 +55,21 @@
                 {
                     "name": "measureId",
                     "value": "CMS124FHIRCervicalCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS131FHIRDiabetesEyeExam",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS125FHIRBreastCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS130FHIRColorectalCancerScreening",
                     "isPath": false
                 },
                 {
@@ -131,16 +146,179 @@
             "colId": "3fbb74ca-df26-4525-a32b-f163c6e4d82a",
             "containerId": "caabff69-cb9d-4752-b0fb-0e4ef02c43e9",
             "name": "misc",
-            "url": "Library?url=https://madie.cms.gov/Library/CumulativeMedicationDuration",
+            "url": "Encounter/93cef636-15f3-47ef-8b37-2e51abf05db6/_history",
             "method": "GET",
             "sortNum": 40000,
             "created": "2025-05-10T17:24:47.158Z",
-            "modified": "2025-05-28T03:52:31.598Z",
+            "modified": "2025-06-02T19:02:04.078Z",
+            "headers": []
+        },
+        {
+            "_id": "797e066c-e660-4023-b1b0-4ef456987c1f",
+            "colId": "3fbb74ca-df26-4525-a32b-f163c6e4d82a",
+            "containerId": "409eb4d6-3413-4439-aebe-e06ae8aad0ae",
+            "name": "GET Measure/$care-gaps five measure expect issues",
+            "url": "Measure/$care-gaps?periodStart=2026-01-01&periodEnd=2026-12-31&subject=Patient/03f01144-2230-42ab-b81f-594e1c2baa62&measureId=CMS69FHIRPCSBMIScreenAndFollowUp&measureId=CMS124FHIRCervicalCancerScreening&measureId=CMS131FHIRDiabetesEyeExam&measureId=CMS125FHIRBreastCancerScreening&measureId=CMS130FHIRColorectalCancerScreening&status=open-gap",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-05-30T23:19:15.444Z",
+            "modified": "2025-05-30T23:39:09.963Z",
             "headers": [],
             "params": [
                 {
-                    "name": "url",
-                    "value": "https://madie.cms.gov/Library/CumulativeMedicationDuration",
+                    "name": "periodStart",
+                    "value": "2026-01-01",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31",
+                    "isPath": false
+                },
+                {
+                    "name": "subject",
+                    "value": "Patient/03f01144-2230-42ab-b81f-594e1c2baa62",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS69FHIRPCSBMIScreenAndFollowUp",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS124FHIRCervicalCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS131FHIRDiabetesEyeExam",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS125FHIRBreastCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS130FHIRColorectalCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "status",
+                    "value": "open-gap",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "6f0ad337-11b3-44ea-8392-215129cc0e66",
+            "colId": "3fbb74ca-df26-4525-a32b-f163c6e4d82a",
+            "containerId": "caabff69-cb9d-4752-b0fb-0e4ef02c43e9",
+            "name": "POST first Care Gaps test case",
+            "url": "",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2025-06-02T01:47:59.931Z",
+            "modified": "2025-06-02T01:48:20.330Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../test-cases/e52159eb-2a06-4eed-ad9c-b055f3be8c58/middle-age-female.json"
+            }
+        },
+        {
+            "_id": "ad614a08-7ea9-485e-8c69-6254547a87e9",
+            "colId": "3fbb74ca-df26-4525-a32b-f163c6e4d82a",
+            "containerId": "409eb4d6-3413-4439-aebe-e06ae8aad0ae",
+            "name": "GET Measure/$care-gaps new test case",
+            "url": "Measure/$care-gaps?periodStart=2026-01-01&periodEnd=2026-12-31&subject=Patient/31e74b61-9d29-4825-811f-a27415bf55e6&measureId=CMS69FHIRPCSBMIScreenAndFollowUp&measureId=CMS124FHIRCervicalCancerScreening&measureId=CMS125FHIRBreastCancerScreening&measureId=CMS130FHIRColorectalCancerScreening&measureId=CMS131FHIRDiabetesEyeExam&status=open-gap&nonDocument=true",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2025-06-02T01:48:55.333Z",
+            "modified": "2025-06-02T19:10:42.665Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31",
+                    "isPath": false
+                },
+                {
+                    "name": "subject",
+                    "value": "Patient/31e74b61-9d29-4825-811f-a27415bf55e6",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS69FHIRPCSBMIScreenAndFollowUp",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS124FHIRCervicalCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS125FHIRBreastCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS130FHIRColorectalCancerScreening",
+                    "isPath": false
+                },
+                {
+                    "name": "measureId",
+                    "value": "CMS131FHIRDiabetesEyeExam",
+                    "isPath": false
+                },
+                {
+                    "name": "status",
+                    "value": "open-gap",
+                    "isPath": false
+                },
+                {
+                    "name": "nonDocument",
+                    "value": "true",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "d7831e03-64cb-4bec-ae0e-7abc3c4175ec",
+            "colId": "3fbb74ca-df26-4525-a32b-f163c6e4d82a",
+            "containerId": "caabff69-cb9d-4752-b0fb-0e4ef02c43e9",
+            "name": "GET first Care Gaps $evalute-measure colon vs first test case",
+            "url": "Measure/CMS130FHIRColorectalCancerScreening/$evaluate-measure?subject=Patient/31e74b61-9d29-4825-811f-a27415bf55e6&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2025-06-02T02:03:27.653Z",
+            "modified": "2025-06-02T02:05:26.044Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/31e74b61-9d29-4825-811f-a27415bf55e6",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
                     "isPath": false
                 }
             ]

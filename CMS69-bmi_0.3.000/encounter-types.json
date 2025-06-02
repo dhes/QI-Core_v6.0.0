@@ -1,0 +1,1190 @@
+{
+  "bundle": "test-cases/8c89947a-a52b-4a41-86a8-166b0560355b/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoMedicationBMIDeclined.json",
+  "encounterId": "f15f1ed4-2058-4476-8ec9-27957e900d93",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/a0aacdbc-4954-48af-aa88-361ea7e32736/CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndConditionEndsBeforeInterventionPerformed.json",
+  "encounterId": "569cd502-61fd-4400-a2ff-eb0a7d0a3d78",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/57858042-c2aa-49f4-b401-1f1fd9ab289a/CMS69FHIR-v0.3.000-DENEXPass-DischargeToHomeHospiceCareDuringMP.json",
+  "encounterId": "0a173323-bafa-426e-9d6e-d8f11c0bb87e",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/57858042-c2aa-49f4-b401-1f1fd9ab289a/CMS69FHIR-v0.3.000-DENEXPass-DischargeToHomeHospiceCareDuringMP.json",
+  "encounterId": "03d09a0b-08b5-4072-9a65-b3d14831b998",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "183452005",
+          "display": "Emergency hospital admission (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/1ba2fc33-1a1b-416b-bb3c-79ba5d0d3359/CMS69FHIR-v0.3.000-NUMERFail-HighBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json",
+  "encounterId": "2ac7e2ad-1ff6-4a96-b2ed-adbafbd7faaf",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/ddfb765a-a3fb-467f-a9d9-ac6faf4cea9a/CMS69FHIR-v0.3.000-NUMERFail-UnderweightEndsBeforeIntervention.json",
+  "encounterId": "b38fe589-d69c-4582-8f16-a5ff0ef988e7",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/6553adbf-2a30-4861-97e6-cca7d2274f01/CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForAboveNormalBMI.json",
+  "encounterId": "69414b8c-078b-46ff-9aa3-8aa785dc3606",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/c1df0273-aad8-41a8-859c-edd204bb4f16/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralForLowBMI.json",
+  "encounterId": "18b1a3af-7743-4e36-bc35-80e4fd2ab652",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/1b102c21-830a-41a5-ac27-9aa77ea5adfe/CMS69FHIR-v0.3.000-DENEXPass-HospicePerformedDuringMP.json",
+  "encounterId": "eed4261b-d39e-48c0-b55a-760fc787b456",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/7ac9722f-8763-4380-a741-53ee4bb98819/CMS69FHIR-v0.3.000-DENEXCEPPass-NotRequestedReferralForHighBMI.json",
+  "encounterId": "065df682-7661-4258-946b-da71978a9e42",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/097cbc7a-d22e-4395-9fcf-fd1f904f7c92/CMS69FHIR-v0.3.000-DENEXPass-HospiceProcedure.json",
+  "encounterId": "347d1db3-417b-48c9-b52c-cf67c0557cbd",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/6f03c77f-035f-4e3a-a8d9-57892dec4030/CMS69FHIR-v0.3.000-IPPFail-Encounter1DayB4MP.json",
+  "encounterId": "4a9ce496-caa8-4021-bfce-c588ad1fdb53",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/d4d064be-d55a-47b5-9bfd-993afebd95a5/CMS69FHIR-v0.3.000-DENEXFail-DischargeToHospiceFacilityAfterMP.json",
+  "encounterId": "394d67aa-2814-42ef-8dc1-53f8a88e4bdd",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/d4d064be-d55a-47b5-9bfd-993afebd95a5/CMS69FHIR-v0.3.000-DENEXFail-DischargeToHospiceFacilityAfterMP.json",
+  "encounterId": "c52ee4cd-0831-4ffa-a216-669a068f0f7d",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "183452005",
+          "display": "Emergency hospital admission (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/c84bf29f-80ac-4bf0-beeb-404ba96a3fa8/CMS69FHIR-v0.3.000-DENEXFail-DischargeToHomeHospiceAfterMP.json",
+  "encounterId": "35825c18-f004-42b3-9b67-1bc61f37cbf7",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/c84bf29f-80ac-4bf0-beeb-404ba96a3fa8/CMS69FHIR-v0.3.000-DENEXFail-DischargeToHomeHospiceAfterMP.json",
+  "encounterId": "b2460972-31a8-43ac-af8f-11eb0f1c375d",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "183452005",
+          "display": "Emergency hospital admission (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/050201c2-c2c4-46e6-8288-a34f99caebdc/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndIntervenionOrderedMedication.json",
+  "encounterId": "1f38639f-4631-4ec6-80b8-d8fcd7833257",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/405d4940-7ab2-4d26-b55f-3c27e07eba33/CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndConditionEndsBeforeInterventionPerformed.json",
+  "encounterId": "c075548d-f5d3-49c7-908a-ae9aa5e5d1a0",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/ff09cf1e-5b30-45c7-9cc6-d5daf48a3933/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNotPerformed.json",
+  "encounterId": "5db8bb86-2221-46f5-b069-d94a77bdb5d6",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/353cb8b7-96ac-4b51-9a0d-60cd64e6d854/CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareProcedureLastDayOfMP.json",
+  "encounterId": "7ce95ee9-bffc-4213-b626-826007eedd05",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/7902e3dc-f3da-4cc2-9f2e-4a6c8cd33b88/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformed.json",
+  "encounterId": "a65485f7-86ee-42c6-9632-8140d92efc6c",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/8e130410-9710-45f3-ac56-e69dee0755d9/CMS69FHIR-v0.3.000-DENOMPass-Patient18LastDayOfEncounter.json",
+  "encounterId": "50c02911-3477-43b4-9792-8040f1b9f685",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/d3054ffa-e17b-4611-b7e0-4523fb0f9e1d/CMS69FHIR-v0.3.000-NUMERFail-LowBMIAndInterventionOrderedFollowUpConditionEndsB4InterventionOrder.json",
+  "encounterId": "13a829f2-76bb-45e9-8ca4-bffba5e4e356",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/736b5472-4a6f-4278-80d3-373d1c78c4c5/CMS69FHIR-v0.3.000-DENEXPass-HospiceObservationAssessment.json",
+  "encounterId": "5b42b17c-c6e8-4321-9e4b-c5b027b50486",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/a327cf96-81c4-46ff-9619-6fd9981bb90c/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoBMI.json",
+  "encounterId": "3c5ee7ff-bbcd-41c5-9428-3fba555a8fb9",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/09e4ff5a-fe3b-4c89-a36e-68f64c7e489c/CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareProcedureFirstDayOfMP.json",
+  "encounterId": "71ec7141-4f5f-4819-8ceb-6b42c8b1affa",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/30561eea-67f0-487c-aff4-a2dea36cb0f9/CMS69FHIR-v0.3.000-IPFail-EncounterOneDayAfterMP.json",
+  "encounterId": "419c4e61-70fd-47c4-a160-bfc0e6a07157",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "103705002",
+          "display": "Patient status observation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/27849d59-3cef-40bf-8338-a6ec7c0bcf81/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedMedication.json",
+  "encounterId": "00e13bbe-06f3-4b9f-81c6-7e97d10d02ef",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/6092a810-f9e0-4975-9582-37bbb06e8e56/CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareEncounter.json",
+  "encounterId": "48ecac06-9e34-438d-b1a1-2c9220d897fa",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/6092a810-f9e0-4975-9582-37bbb06e8e56/CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareEncounter.json",
+  "encounterId": "f94d5db0-66e5-4dcf-8f75-45e047c1f865",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "305284002",
+          "display": "Admission by palliative care physician (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/1c607e84-c7c2-4dae-bf63-a75d7a9cfd38/CMS69FHIR-v0.3.000-NUMERFail-ObeseDxEndsBeforeIntervention.json",
+  "encounterId": "4b17e6a3-0038-498f-be93-1380977b08d3",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/659f9c7b-5c1c-475f-bfcb-77c246fa7a28/CMS69FHIR-v0.3.000-DENEXCEPPass-PatientReasonforNoBMI.json",
+  "encounterId": "4674aa56-eb2b-4628-98be-4bb964653b79",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/5d34e56e-f4f1-4817-b7e4-e4c57f811300/CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare.json",
+  "encounterId": "36ff8da8-2fc6-4b06-a60f-848782d47cfe",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/5d48c3b8-93e9-4e29-8c20-a002761d9e24/CMS69FHIR-v0.3.000-DENEXPass-ConditionPalliativeCare-67f7f25a181d33930444658e.json",
+  "encounterId": "d30ac943-c93e-431c-a87e-c4868896b4b6",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/9d92be1d-6fc8-40f2-99a0-4be9ce1f244b/CMS69FHIR-v0.3.000-NUMERPass-HighInterventionsPerformedDiagnosis.json",
+  "encounterId": "e25f7db4-fb6d-4f14-b436-8bed383d19fc",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/80a53697-3fdb-4721-87aa-64462a6708dd/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnset1YearAgo.json",
+  "encounterId": "7c548627-5743-4918-96b3-dc2d00da5939",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/6f0c3642-5efc-4923-ac24-9f5e9d1831d6/CMS69FHIR-v0.3.000-DENEXPass-DischargedToHomeFaciltyDuringMP.json",
+  "encounterId": "5107d41f-3b94-4433-86f7-72d0d89a5b2d",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/6f0c3642-5efc-4923-ac24-9f5e9d1831d6/CMS69FHIR-v0.3.000-DENEXPass-DischargedToHomeFaciltyDuringMP.json",
+  "encounterId": "eb8f0a14-129a-4b58-898f-bdd4166cdc62",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "183452005",
+          "display": "Emergency hospital admission (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/1e23fb8f-e27b-4553-a62a-f66edeb4528a/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformedCondition.json",
+  "encounterId": "8acad4b8-8ac8-4056-8002-46960a279454",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/88a2b45a-7866-445a-8242-91ec0ebb7646/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowUpPlanLowBMI.json",
+  "encounterId": "a02c3b38-3b80-4fba-b052-2c8f3b0eba9e",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/463dd868-997d-472f-962c-96383fd2a5c4/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionPerformedCondition.json",
+  "encounterId": "3a5412c5-ac87-4dbe-9709-76b01fde3a8d",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/b98fcec4-23a5-41bd-82d8-bad2f50ffc9c/CMS69FHIR-v0.3.000-DENEXCEPPass-NoFollowUpPlanMedicalReasonMedicationForBelowNormalBMI.json",
+  "encounterId": "ef99806c-f166-4e2a-aa46-d13f57ca31c8",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "78318003",
+          "display": "History and physical examination, annual for health maintenance (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/45b1ce40-0f49-4559-8c3b-5c2a8070b0a7/CMS69FHIR-v0.3.000-DENEXPass-HospiceEncounter.json",
+  "encounterId": "f2f626aa-d7c2-4b8c-8495-70bcb47bda67",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/45b1ce40-0f49-4559-8c3b-5c2a8070b0a7/CMS69FHIR-v0.3.000-DENEXPass-HospiceEncounter.json",
+  "encounterId": "aeb9cce5-09dd-4791-821d-162a6774fcb6",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "305336008",
+          "display": "Admission to hospice (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/8e38b797-4dec-437d-8bf0-6f0fc78f8ea7/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedFollowUp.json",
+  "encounterId": "518dfbff-ae73-4c44-ad97-159fe5cc7de3",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/1102009b-6f05-4bab-9fd1-191e81cf50e8/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionPerformed.json",
+  "encounterId": "dc1381db-c9b8-481c-99f9-b8567f163d13",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/dda79f3f-4c4f-454a-bae2-9751a0114e91/CMS69FHIR-v0.3.000-IPPFail-Patient17DayOfEncounter.json",
+  "encounterId": "6952b029-084f-4fa1-979d-5e14def2db59",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/42e6b4d6-defc-4ec5-894f-e3333e3039a3/CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt24pt9.json",
+  "encounterId": "0ffe40f5-f132-4f92-8b24-da64d7e7c1d1",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/f5ae6269-d09b-47f8-a519-f1a8a81549fc/CMS69FHIR-v0.3.000-NUMERPass-HighBMIDietaryRecommendations.json",
+  "encounterId": "a6d9fdc7-90e3-4254-b844-c158817d8604",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/0278fdf0-f067-46e8-aeb1-fb96dff3c947/CMS69FHIR-v0.3.000-DENEXCEPPass-HTN130DeclinedNonPharm.json",
+  "encounterId": "dbe8c09a-ae37-496c-bf5c-34aad18abc91",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "185465003",
+          "display": "Weekend visit (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/461fdfab-fcc1-4630-9dae-2ba3a6ab0c25/CMS69FHIR-v0.3.000-NUMERPass-NormalBMIAt18pt5.json",
+  "encounterId": "38d3c28f-7ffe-4ba0-98d9-b6a87ffaa50f",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/d318f512-656e-43bf-a409-16b6e24462a9/CMS69FHIR-v0.3.000-DENEXPass-PregnancyOnsetFirstDayOfMP.json",
+  "encounterId": "771cfbec-3ba7-4b4b-8c43-d4801aa9b98d",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/953ef59d-4c39-40ef-8067-87b5ecf84727/CMS69FHIR-v0.3.000-DENEXPass-HospiceOrder.json",
+  "encounterId": "e98effe6-7f99-493c-9b1e-65c9561d0570",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/03f01144-2230-42ab-b81f-594e1c2baa62/CMS69FHIR-v0.3.000-DENEXFail-PalliativeCareEncounterAfterMP.json",
+  "encounterId": "c1d4a6b3-e337-4d2b-83ab-2f819dd67a2d",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/03f01144-2230-42ab-b81f-594e1c2baa62/CMS69FHIR-v0.3.000-DENEXFail-PalliativeCareEncounterAfterMP.json",
+  "encounterId": "f52944a2-34d8-410c-a98a-a71eb76dd0cd",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "305284002",
+          "display": "Admission by palliative care physician (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/8835a50b-0a0f-4e2f-94fa-7c180cd7f905/CMS69FHIR-v0.3.000-NUMERPass-LowBMIAndInterventionOrderedCondition.json",
+  "encounterId": "372c7f53-15f6-49bd-845d-365c48f46f74",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/5ef4acf3-4b42-41fd-8793-7d1a9342865a/CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition.json",
+  "encounterId": "6aa8cff6-1ebd-47e5-9591-51ccdd4eca51",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/3ecce155-635d-47ec-b35d-d53126423a81/CMS69FHIR-v0.3.000-DENEXPass-PalliativeCareObservation.json",
+  "encounterId": "7f4a1751-8dcd-4503-844f-3a4b3628a904",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/296d38e4-d69b-481e-a8cf-f7eee8b9e5d7/CMS69FHIR-v0.3.000-IPPPass-Age18HasEnc.json",
+  "encounterId": "30e7fa19-5d74-416a-a615-d3a90390eed6",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "108224003",
+          "display": "Preventive patient evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/260e1fc8-227f-4c16-bfc6-22625380a12c/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoFollowupPlanHighBMI.json",
+  "encounterId": "1223184a-c7e1-45a6-b15f-11f09e3a82ad",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/cd81ff3a-3d2b-472e-bf0f-f951aee7d2c4/CMS69FHIR-v0.3.000-IPPFail-Enc1DayAfterMP.json",
+  "encounterId": "1e0d003c-d050-41c5-be7f-5a2460e11f6c",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/c3caf126-12a2-473f-8f51-1c7828d63d16/CMS69FHIR-v0.3.000-NUMERPass-HighBMIAndInterventionOrderedReferral.json",
+  "encounterId": "7689a981-3a43-4bdc-a2ee-42b5523a0288",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/1f16120b-56c9-4d72-8dd4-01d8a0175d77/CMS69FHIR-v0.3.000-DENEXCEPPass-ElevatedDeclineFU.json",
+  "encounterId": "5111116c-651b-4089-8a86-3d3d87f221b5",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "406547006",
+          "display": "Urgent follow-up (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/2a976bc2-493b-421f-842e-36d31463f261/CMS69FHIR-v0.3.000-DENOMPass-Patient18DayOfEncounter.json",
+  "encounterId": "5a0b8c9a-c7c5-4ac8-9153-941c7d17fe7a",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/a4a1ed63-89ff-4d27-8819-136873e13171/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonMedicationForLowBMI.json",
+  "encounterId": "c52836b8-60e7-4414-bb5a-e082ccf5e91b",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/823e94a5-e1a7-4d2a-b289-3133f0b1772c/CMS69FHIR-v0.3.000-IPPFail-VirtualEncounter.json",
+  "encounterId": "24487b45-4664-417f-ad1f-36f5dea60987",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/ca6deaeb-459d-4d1a-9daf-e454ff76a6f0/CMS69FHIR-v0.3.000-DENEXPass-HospiceCondition-67f6d67ebdc50b65bdb89c70.json",
+  "encounterId": "444017f1-e142-4091-9348-afd874c1ba66",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/7b34e64e-e7fe-402c-9a26-12da90662897/CMS69FHIR-v0.3.000-DENEXPass-InpatientEncounterDischargedToHospiceFacility.json",
+  "encounterId": "81edfbcf-4f91-46c1-9090-711abbf2343b",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/7b34e64e-e7fe-402c-9a26-12da90662897/CMS69FHIR-v0.3.000-DENEXPass-InpatientEncounterDischargedToHospiceFacility.json",
+  "encounterId": "a7848230-2dcd-4b42-8d5d-86ddb69bcd6d",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "183452005",
+          "display": "Emergency hospital admission (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
+{
+  "bundle": "test-cases/6d26d364-a06c-49e6-84df-280ec6b7a8a3/CMS69FHIR-v0.3.000-DENEXCEPPass-MedicalReasonNoReferralHighBMI.json",
+  "encounterId": "fd970887-8535-440c-9665-32330e9265d0",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ]
+}
