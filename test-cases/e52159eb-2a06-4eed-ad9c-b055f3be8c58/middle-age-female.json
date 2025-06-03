@@ -108,6 +108,46 @@
         "method": "PUT",
         "url": "Encounter/93cef636-15f3-47ef-8b37-2e51abf05db6"
       }
+    },
+    {
+      "fullUrl": "http://hopena.info/Encounter/501748c7-d4c9-4fde-89bf-46ed676a945a",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "501748c7-d4c9-4fde-89bf-46ed676a945a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99213",
+                "display": "Office or other outpatient visit for the evaluation and management of an established patient"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/31e74b61-9d29-4825-811f-a27415bf55e6"
+        },
+        "period": {
+          "start": "2026-06-30T08:01:00+00:00",
+          "end": "2026-06-30T08:15:00+00:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/501748c7-d4c9-4fde-89bf-46ed676a945a"
+      }
     }
   ]
 }
