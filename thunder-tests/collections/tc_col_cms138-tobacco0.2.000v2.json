@@ -1102,7 +1102,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2025-06-02T23:13:06.911Z",
-            "modified": "2025-06-02T23:56:25.476Z",
+            "modified": "2025-06-03T00:15:50.696Z",
             "headers": [],
             "params": [
                 {
@@ -1147,7 +1147,7 @@
                             "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
                             "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
                             "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
-                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);) == 1);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
                             "",
                             "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
                             "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
@@ -2686,7 +2686,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2025-06-02T23:13:06.915Z",
-            "modified": "2025-06-03T00:09:19.381Z",
+            "modified": "2025-06-03T15:29:35.795Z",
             "headers": [],
             "params": [
                 {
@@ -2743,7 +2743,7 @@
                             "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
                             "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
                             "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
-                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
                         ]
                     }
                 ]
@@ -2758,7 +2758,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2025-06-02T23:13:06.915Z",
-            "modified": "2025-06-02T23:13:06.915Z",
+            "modified": "2025-06-03T15:32:35.383Z",
             "headers": [],
             "params": [
                 {
@@ -2803,17 +2803,19 @@
                             "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
                             "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
                             "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
-                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
                             "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
                             "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
                             "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
                             "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
-                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
                             "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
                             "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
                             "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
                             "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
-                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
                         ]
                     }
                 ]
