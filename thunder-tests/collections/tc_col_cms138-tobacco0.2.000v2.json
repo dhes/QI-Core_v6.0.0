@@ -1,0 +1,3266 @@
+{
+    "_id": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+    "colName": "CMS138-tobacco_0.2.000_v2",
+    "created": "2025-06-02T23:13:06.907Z",
+    "sortNum": 108750,
+    "folders": [
+        {
+            "_id": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "$evaluate-measure",
+            "containerId": "",
+            "created": "2025-06-02T23:13:06.907Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "526671a9-b356-4830-82b1-9b80fcfafeca",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "007fe881-a18d-418f-8ddf-0ee94fc9a10a",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/007fe881-a18d-418f-8ddf-0ee94fc9a10a&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.908Z",
+            "modified": "2025-06-02T23:50:13.391Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/007fe881-a18d-418f-8ddf-0ee94fc9a10a",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "b09710d6-da94-4d8a-8419-a491e258da34",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "0230f0f5-4d54-4cf0-b33e-606a02061b31",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/0230f0f5-4d54-4cf0-b33e-606a02061b31&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.908Z",
+            "modified": "2025-06-02T23:49:54.552Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/0230f0f5-4d54-4cf0-b33e-606a02061b31",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "02490853-713a-4025-95a0-d83dbbdea8b2",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "0d221636-5f14-4074-9337-eb4b0868fb3e",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/0d221636-5f14-4074-9337-eb4b0868fb3e&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.908Z",
+            "modified": "2025-06-02T23:49:48.318Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/0d221636-5f14-4074-9337-eb4b0868fb3e",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "1b182355-eeb1-4804-aab8-c62187ad6b1f",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "13cf64e7-b52f-48b9-a78a-3b0ff592c29b",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/13cf64e7-b52f-48b9-a78a-3b0ff592c29b&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.908Z",
+            "modified": "2025-06-02T23:49:25.125Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/13cf64e7-b52f-48b9-a78a-3b0ff592c29b",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "edc9a408-a241-4b6f-9988-65845e2ce461",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "1a070602-c572-4581-b438-989aaa417e64",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/1a070602-c572-4581-b438-989aaa417e64&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.909Z",
+            "modified": "2025-06-02T23:40:37.542Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/1a070602-c572-4581-b438-989aaa417e64",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score = 0\", getMeasureScore(1) == 0);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e1d2e13d-2ca2-4349-ab59-43f8e43e5ac0",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "2412ad6a-fce0-4ad0-b200-737e443e5278",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/2412ad6a-fce0-4ad0-b200-737e443e5278&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.909Z",
+            "modified": "2025-06-02T23:40:50.685Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/2412ad6a-fce0-4ad0-b200-737e443e5278",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 1\", getPopCount(1, \"numerator\") === 1);",
+                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 1\", getPopCount(2, \"numerator\") === 1);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "dc24c875-0fcb-4ca6-9aea-7b68e140ca19",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "2c51f593-14ee-4e51-81b1-41748abfa92c",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/2c51f593-14ee-4e51-81b1-41748abfa92c&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.909Z",
+            "modified": "2025-06-02T23:41:39.755Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/2c51f593-14ee-4e51-81b1-41748abfa92c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 1\", getPopCount(1, \"numerator\") === 1);",
+                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 1\", getPopCount(2, \"numerator\") === 1);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c10bb5ac-b481-43b9-af30-d45eb76f600a",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "42d0d0e3-236c-414b-bea9-88591bc5db70",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/42d0d0e3-236c-414b-bea9-88591bc5db70&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.910Z",
+            "modified": "2025-06-02T23:48:40.034Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/42d0d0e3-236c-414b-bea9-88591bc5db70",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "60d5afa0-dd15-4b3b-9fe0-6660d0b344d5",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "4adf2e8c-0370-461c-be27-7b00efffff32",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/4adf2e8c-0370-461c-be27-7b00efffff32&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.910Z",
+            "modified": "2025-06-02T23:51:27.115Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/4adf2e8c-0370-461c-be27-7b00efffff32",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(1) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e349ca52-0bdb-4b87-9545-52e0cfe3778d",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "4cf51b29-8cce-434d-8fa9-66d73208bc65",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/4cf51b29-8cce-434d-8fa9-66d73208bc65&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.910Z",
+            "modified": "2025-06-02T23:52:04.139Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/4cf51b29-8cce-434d-8fa9-66d73208bc65",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "66cacb52-9613-42bb-abf7-556493aaf3c5",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "4da83054-dee8-485e-b6c7-da5d45f21722",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/4da83054-dee8-485e-b6c7-da5d45f21722&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.911Z",
+            "modified": "2025-06-02T23:52:40.602Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/4da83054-dee8-485e-b6c7-da5d45f21722",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "46b0173e-9da8-4b03-9697-d657729d8421",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "4e4e6417-2724-4dd2-8b94-1e8a8b0c0eb5",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/4e4e6417-2724-4dd2-8b94-1e8a8b0c0eb5&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.911Z",
+            "modified": "2025-06-02T23:53:30.876Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/4e4e6417-2724-4dd2-8b94-1e8a8b0c0eb5",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "87789642-e793-471d-a60c-ee338881f1a1",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "6074ad7e-a5ae-41f1-9bfd-ca04b4e15f8f",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/6074ad7e-a5ae-41f1-9bfd-ca04b4e15f8f&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.911Z",
+            "modified": "2025-06-02T23:54:22.420Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/6074ad7e-a5ae-41f1-9bfd-ca04b4e15f8f",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "0d734cab-f261-4d77-a0b1-49187d51c58f",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "6410550a-c928-415b-b8bc-aa1284ca6933",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/6410550a-c928-415b-b8bc-aa1284ca6933&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.911Z",
+            "modified": "2025-06-02T23:55:11.656Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/6410550a-c928-415b-b8bc-aa1284ca6933",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "ec63f2cc-c9fb-4b0c-94a0-d48ae506d9cd",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "72c8b10f-fffd-411f-bf81-c7d0608ad314",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/72c8b10f-fffd-411f-bf81-c7d0608ad314&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.911Z",
+            "modified": "2025-06-02T23:55:51.761Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/72c8b10f-fffd-411f-bf81-c7d0608ad314",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 1\", getPopCount(1, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(1) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "b5705e81-dc5f-4d05-9636-4ba37ec32109",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "732f736b-a720-4368-8d77-4b12a5a5ca03",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/732f736b-a720-4368-8d77-4b12a5a5ca03&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.911Z",
+            "modified": "2025-06-02T23:56:25.476Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/732f736b-a720-4368-8d77-4b12a5a5ca03",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c345e481-bc17-4fda-8bbd-9cc7756cb9c1",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "73d69a14-7e70-4c9f-89e3-62da4a370fd3",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/73d69a14-7e70-4c9f-89e3-62da4a370fd3&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.912Z",
+            "modified": "2025-06-02T23:57:02.494Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/73d69a14-7e70-4c9f-89e3-62da4a370fd3",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "30118e32-b479-44bf-832d-97c35d676d1d",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "76e371e4-0363-4fad-9573-a06ada971eef",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/76e371e4-0363-4fad-9573-a06ada971eef&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.912Z",
+            "modified": "2025-06-02T23:57:38.940Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/76e371e4-0363-4fad-9573-a06ada971eef",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "d2985b64-36f5-4aa5-8907-8ab1f17c9682",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "7c310440-9998-4c89-9e1d-91bff809d537",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/7c310440-9998-4c89-9e1d-91bff809d537&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.912Z",
+            "modified": "2025-06-02T23:58:07.632Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/7c310440-9998-4c89-9e1d-91bff809d537",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 1\", getPopCount(1, \"numerator\") === 1);",
+                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 1\", getPopCount(2, \"numerator\") === 1);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9ce8d277-af41-4dd4-9dcf-3b5b0bd02127",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "828caebe-4bd7-4579-85c6-d6340a9f3240",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/828caebe-4bd7-4579-85c6-d6340a9f3240&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.912Z",
+            "modified": "2025-06-02T23:58:39.029Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/828caebe-4bd7-4579-85c6-d6340a9f3240",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 1\", getPopCount(1, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "82cd477d-61d6-4ba7-9ed0-b5fc16c5d1c2",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "83eadcba-f90b-48d9-ad77-7a1832afae78",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/83eadcba-f90b-48d9-ad77-7a1832afae78&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.912Z",
+            "modified": "2025-06-02T23:58:59.722Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/83eadcba-f90b-48d9-ad77-7a1832afae78",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 1\", getPopCount(1, \"numerator\") === 1);",
+                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 1\", getPopCount(2, \"numerator\") === 1);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f4a2529f-24fc-477f-976d-053d2814c5be",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "877e7485-e644-4ed7-ab59-4621a9ade7c1",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/877e7485-e644-4ed7-ab59-4621a9ade7c1&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.912Z",
+            "modified": "2025-06-02T23:59:36.580Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/877e7485-e644-4ed7-ab59-4621a9ade7c1",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "df392a04-bafc-4726-abcb-d55507d38760",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "9516c78a-228f-43d5-bed4-ffb1e37853a7",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/9516c78a-228f-43d5-bed4-ffb1e37853a7&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.913Z",
+            "modified": "2025-06-03T00:00:06.190Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/9516c78a-228f-43d5-bed4-ffb1e37853a7",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9927c610-789c-456e-8c83-6cfb19b30d71",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "9dd6e1c5-59f4-4576-82c3-289904e3284f",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/9dd6e1c5-59f4-4576-82c3-289904e3284f&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.913Z",
+            "modified": "2025-06-03T00:00:24.670Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/9dd6e1c5-59f4-4576-82c3-289904e3284f",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);;",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 1\", getPopCount(2, \"numerator\") === 1);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "851f4c4a-5ce4-47b4-ab44-509399e5a446",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "9fba5feb-b77c-496f-981f-6d062f3c1d7c",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/9fba5feb-b77c-496f-981f-6d062f3c1d7c&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.913Z",
+            "modified": "2025-06-03T00:01:04.310Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/9fba5feb-b77c-496f-981f-6d062f3c1d7c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 1\", getPopCount(1, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "1bc0818b-c679-4508-904a-3403b55feac4",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "9fcf1018-bacd-44e3-af16-8d715af253a2",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/9fcf1018-bacd-44e3-af16-8d715af253a2&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.913Z",
+            "modified": "2025-06-03T00:02:24.013Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/9fcf1018-bacd-44e3-af16-8d715af253a2",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score = 0\", getMeasureScore(1) == 0);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "118cb496-8e1f-40e0-8b1e-50b23c37cc02",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "a0a8fd4f-bfd4-4669-aaef-f66ae5af5eda",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/a0a8fd4f-bfd4-4669-aaef-f66ae5af5eda&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.913Z",
+            "modified": "2025-06-03T00:03:00.301Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/a0a8fd4f-bfd4-4669-aaef-f66ae5af5eda",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "0b9aa5b7-9010-45ca-bd2e-73b7e68889fe",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "ab8310c0-bcc3-4197-8ec6-beeb23f0b0b5",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/ab8310c0-bcc3-4197-8ec6-beeb23f0b0b5&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.913Z",
+            "modified": "2025-06-03T00:03:33.033Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/ab8310c0-bcc3-4197-8ec6-beeb23f0b0b5",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 1\", getPopCount(1, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "a81d84cd-d927-4cb8-b608-353758b9fe9b",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "b1ec669b-7942-4c05-bee7-30ed73912537",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/b1ec669b-7942-4c05-bee7-30ed73912537&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.913Z",
+            "modified": "2025-06-03T00:04:20.117Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/b1ec669b-7942-4c05-bee7-30ed73912537",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "374381f7-e05f-4e32-9008-4f8209561ce3",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "baba5342-649a-41f7-bb48-68e76dac1b82",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/baba5342-649a-41f7-bb48-68e76dac1b82&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.914Z",
+            "modified": "2025-06-03T00:04:33.058Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/baba5342-649a-41f7-bb48-68e76dac1b82",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 1\", getPopCount(1, \"numerator\") === 1);",
+                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 1\", getPopCount(2, \"numerator\") === 1);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "06957c86-1a6b-4483-b2c6-a93355b65f17",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "bac2713c-8165-40ce-8180-fb5d44a10f7f",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/bac2713c-8165-40ce-8180-fb5d44a10f7f&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.914Z",
+            "modified": "2025-06-03T00:05:26.924Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/bac2713c-8165-40ce-8180-fb5d44a10f7f",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "1676da69-23cb-48fd-9724-7e11342f0e7a",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "bf5f6b32-8ffc-42fa-b847-21a871ad16bd",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/bf5f6b32-8ffc-42fa-b847-21a871ad16bd&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.914Z",
+            "modified": "2025-06-03T00:06:02.903Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/bf5f6b32-8ffc-42fa-b847-21a871ad16bd",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e00d277d-b052-423c-a47e-eb25b07f807f",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "bf7e475b-f251-4930-a394-a19e2a08e846",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/bf7e475b-f251-4930-a394-a19e2a08e846&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.914Z",
+            "modified": "2025-06-03T00:06:22.685Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/bf7e475b-f251-4930-a394-a19e2a08e846",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 1\", getPopCount(1, \"numerator\") === 1);",
+                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 1\", getPopCount(2, \"numerator\") === 1);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "0e1631bb-9389-4221-900b-bb11e2c68cee",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "c56fda5f-6cd9-4057-aaef-5c843a8241f1",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/c56fda5f-6cd9-4057-aaef-5c843a8241f1&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.914Z",
+            "modified": "2025-06-03T00:07:02.437Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/c56fda5f-6cd9-4057-aaef-5c843a8241f1",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 1\", getPopCount(1, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "5ff6fa8a-aa08-4821-907c-4f9553009bfe",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "c764b0d7-3e29-4c57-a89e-de672eac6469",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/c764b0d7-3e29-4c57-a89e-de672eac6469&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.914Z",
+            "modified": "2025-06-03T00:07:36.847Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/c764b0d7-3e29-4c57-a89e-de672eac6469",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "ee567d39-41a6-46af-80b7-40e8d80b873d",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "cc4625b4-93a4-47e3-8693-7cd9cc01174b",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/cc4625b4-93a4-47e3-8693-7cd9cc01174b&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.914Z",
+            "modified": "2025-06-03T00:08:11.183Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/cc4625b4-93a4-47e3-8693-7cd9cc01174b",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score = 0\", getMeasureScore(1) == 0);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "64ca6fef-d7ef-4823-9465-9995038c1aab",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "cefc66eb-f4e0-4e78-b86b-18f7dbfb2dbd",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/cefc66eb-f4e0-4e78-b86b-18f7dbfb2dbd&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.915Z",
+            "modified": "2025-06-03T00:08:41.950Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/cefc66eb-f4e0-4e78-b86b-18f7dbfb2dbd",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 1\", getPopCount(0, \"numerator\") === 1);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score = 0\", getMeasureScore(1) == 0);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "6d4928e5-c63d-4bef-a43d-321d903cf2e8",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "d7c6ac3f-09f8-46d5-8231-8b32554fef9c",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/d7c6ac3f-09f8-46d5-8231-8b32554fef9c&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.915Z",
+            "modified": "2025-06-03T00:09:19.381Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/d7c6ac3f-09f8-46d5-8231-8b32554fef9c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9777655c-eb8d-4c7f-9134-de9a7c7a2685",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "e3422e20-4e31-4c24-a72b-3c1e1f47de95",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/e3422e20-4e31-4c24-a72b-3c1e1f47de95&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.915Z",
+            "modified": "2025-06-02T23:13:06.915Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/e3422e20-4e31-4c24-a72b-3c1e1f47de95",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 1\", getMeasureScore(0) == 1);",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score = 1\", getMeasureScore(1) == 1);",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 1\", getMeasureScore(2) == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "bf8b874e-e322-45b3-92d9-af5765b038a1",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "e383c9a2-7b5e-4ab6-b2e2-642a2304d6e2",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/e383c9a2-7b5e-4ab6-b2e2-642a2304d6e2&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.915Z",
+            "modified": "2025-06-03T00:10:48.781Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/e383c9a2-7b5e-4ab6-b2e2-642a2304d6e2",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 1\", getPopCount(1, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "45c807d1-d8af-4fb9-aaca-3cff9f7481e1",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "eb9e68a6-6598-4881-84a3-16128e0dfad1",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/eb9e68a6-6598-4881-84a3-16128e0dfad1&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.915Z",
+            "modified": "2025-06-03T00:11:23.642Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/eb9e68a6-6598-4881-84a3-16128e0dfad1",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e50b8823-2b97-4de3-a6b5-6112a694a9a5",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "ed2fe491-3eb7-424a-bf95-5d44b6102cec",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/ed2fe491-3eb7-424a-bf95-5d44b6102cec&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.915Z",
+            "modified": "2025-06-03T00:12:02.161Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/ed2fe491-3eb7-424a-bf95-5d44b6102cec",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 1\", getPopCount(0, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 1\", getPopCount(1, \"denominator\") === 1);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 1\", getPopCount(1, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 1\", getPopCount(2, \"denominator-exclusion\") === 1);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "cc3454e9-5e0e-426f-970f-18516fec5bd3",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "f63bc56a-9c2f-46da-94f0-44cc12db4a3b",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/f63bc56a-9c2f-46da-94f0-44cc12db4a3b&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.916Z",
+            "modified": "2025-06-03T00:12:42.165Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/f63bc56a-9c2f-46da-94f0-44cc12db4a3b",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "a442cada-91a8-444f-8313-9be29b88189f",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "f8243613-c002-4c8a-a778-78e1b4f02ae6",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/f8243613-c002-4c8a-a778-78e1b4f02ae6&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.916Z",
+            "modified": "2025-06-03T00:13:10.191Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/f8243613-c002-4c8a-a778-78e1b4f02ae6",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 0\", getPopCount(0, \"initial-population\") === 0);",
+                            "tc.test(\"Group 0 - denominator = 0\", getPopCount(0, \"denominator\") === 0);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score is absent\", getMeasureScore(0) === undefined);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 0\", getPopCount(1, \"initial-population\") === 0);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 0\", getPopCount(2, \"initial-population\") === 0);",
+                            "tc.test(\"Group 2 - denominator = 0\", getPopCount(2, \"denominator\") === 0);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score is absent\", getMeasureScore(2) === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "0baea928-57cb-49ab-ba03-775c653af50c",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "3b8b34e5-258a-46ae-bac3-00346e65bb59",
+            "name": "fb5b6d6f-fbe8-415b-a101-9d8990fa511e",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/$evaluate-measure?subject=Patient/fb5b6d6f-fbe8-415b-a101-9d8990fa511e&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-02T23:13:06.916Z",
+            "modified": "2025-06-03T00:13:42.958Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/fb5b6d6f-fbe8-415b-a101-9d8990fa511e",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(groupIndex, code) {",
+                            "    let pop = json.group?.[groupIndex]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "function getMeasureScore(groupIndex) {",
+                            "    return json.group?.[groupIndex]?.measureScore?.value;",
+                            "}",
+                            "tc.test(\"Group 0 - initial-population = 1\", getPopCount(0, \"initial-population\") === 1);",
+                            "tc.test(\"Group 0 - denominator = 1\", getPopCount(0, \"denominator\") === 1);",
+                            "tc.test(\"Group 0 - denominator-exclusion = 0\", getPopCount(0, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 0 - numerator = 0\", getPopCount(0, \"numerator\") === 0);",
+                            "tc.test(\"Group 0 - Measure Score = 0\", getMeasureScore(0) == 0);",
+                            "",
+                            "tc.test(\"Group 1 - initial-population = 1\", getPopCount(1, \"initial-population\") === 1);",
+                            "tc.test(\"Group 1 - denominator = 0\", getPopCount(1, \"denominator\") === 0);",
+                            "tc.test(\"Group 1 - denominator-exclusion = 0\", getPopCount(1, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 1 - numerator = 0\", getPopCount(1, \"numerator\") === 0);",
+                            "tc.test(\"Group 1 - Measure Score is absent\", getMeasureScore(1) === undefined);",
+                            "",
+                            "tc.test(\"Group 2 - initial-population = 1\", getPopCount(2, \"initial-population\") === 1);",
+                            "tc.test(\"Group 2 - denominator = 1\", getPopCount(2, \"denominator\") === 1);",
+                            "tc.test(\"Group 2 - denominator-exclusion = 0\", getPopCount(2, \"denominator-exclusion\") === 0);",
+                            "tc.test(\"Group 2 - numerator = 0\", getPopCount(2, \"numerator\") === 0);",
+                            "tc.test(\"Group 2 - Measure Score = 0\", getMeasureScore(2) == 0);"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    }
+}
