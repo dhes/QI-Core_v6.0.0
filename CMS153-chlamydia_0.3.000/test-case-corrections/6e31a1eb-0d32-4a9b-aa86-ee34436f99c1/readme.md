@@ -1,0 +1,3 @@
+This test case had a non-sensical bounds period in its MedicationRequest. That's the opinionated version. More important is that the end of the boundperiod was exactly the first millisecond of the MeasurementPeriod. Since the MeasurementPeriod had a precision of days, the effect was a comparison of Interval[Whatever,@2026-01-01T00:00:00.000] overlaps Interval[@2026-01-01, @2026-12-31] which forces an indeterminant comparison of @2026-01-01T00:00:00.000 to @2026-01-01, which return null. 
+
+Depo-Provera is not typically given as a one-time thing. Even if given only once, its effect lasts three months. 

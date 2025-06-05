@@ -346,3 +346,34 @@
 ✅ f46ac4a7-66fd-49f6-a097-5712dcd97a18/CMS139FHIR-v0.4.000-IPPass-CareServicesDurMP.json
 ✅ f5c7d552-39f7-4fa2-a4c6-967afba6a4b0/CMS139FHIR-v0.4.000-IPPass-PatientAge65.json
 📊 26/26 succeeded, 0 failed
+
+🚀 DEPLOY TEST BUNDLES @ 2025-06-04T00:19:24.267Z
+✅ 070ea94d-3bc2-4174-92b0-2c640c785928/CMS153FHIR-v0.3.000-NumPass-ChlamydiaScreenDurMP.json
+✅ 1705efe6-4216-4263-9e26-07d7a334801c/CMS153FHIR-v0.3.000-IPPass-PregnancyTestDurMP.json
+✅ 195e897b-ff4f-4af6-b0d4-77d353b9e556/CMS153FHIR-v0.3.000-IPPass-PatientHasHIV.json
+✅ 359e76b8-dac9-4636-b35f-3f5d2705b016/CMS153FHIR-v0.3.000-IPPass-STDTestDurMP.json
+✅ 381d357f-6a0e-495e-bc74-ac5719465903/CMS153FHIR-v0.3.000-DENEXFail-Meds7DayAfterPregnancyTestDurMP.json
+✅ 46f23b1f-64c6-4591-80af-da2e9127a4bc/CMS153FHIR-v0.3.000-IPPass-ContraceptiveMedsOrderedDurMP.json
+✅ 5b849ee7-8451-4807-a7a7-574f61e39244/CMS153FHIR-v0.3.000-IPFail-HIVAfterMP.json
+✅ 5e5374d9-3830-47dd-bbf4-dbc8960c4870/CMS153FHIR-v0.3.000-DENEXPass-HospiceEncOverlapsMP.json
+✅ 6e31a1eb-0d32-4a9b-aa86-ee34436f99c1/CMS153FHIR-v0.3.000-IPPass-ContraceptiveMedsDurMP.json
+✅ 7a50fe6a-2be1-4258-846a-5523aafc57d4/CMS153FHIR-v0.3.000-IPPass-Obs4SexualActivityDurMP.json
+✅ 7a7a14ea-f8bb-41a5-807e-572d65f27c8a/CMS153FHIR-v0.3.000-DENEXPass-Meds1DayAfterPregnancyTestDurMP.json
+✅ 82795350-bf53-4258-a8d8-bba24fb8876b/CMS153FHIR-v0.3.000-IPFail-STDProcIndicatorAfterMP.json
+✅ 840339a3-d0c2-4fa8-8f80-cfdd57f48868/CMS153FHIR-v0.3.000-DENEXPass-HospiceObsIsYes.json
+✅ a71bb001-0754-42a1-803a-8acc88645b31/CMS153FHIR-v0.3.000-IPPass-LabTestDurMP.json
+✅ a9058aec-b114-48e6-8f29-fe7b812b7d82/CMS153FHIR-v0.3.000-DENEXFail-XRay7DayAfterPregnancyTestDurMP.json
+✅ c0225f3d-ea64-4bb4-873b-b28ebc10050a/CMS153FHIR-v0.3.000-DENEXPass-HospiceDiscDurMP.json
+✅ c2d7a953-9bfb-40fc-b115-6f02538de344/CMS153FHIR-v0.3.000-IPPass-PapTestDuringMP.json
+✅ cb173b52-1985-4890-9480-6e7d3939fa6b/CMS153FHIR-v0.3.000-NumFail-ChlamydiaScreenAfterMP.json
+✅ cbfbbda7-b17f-48d3-bdad-4c862cf246ae/CMS153FHIR-v0.3.000-IPPass-STDProcIndicatorDurMP.json
+✅ dc0d63ab-8b3a-4f90-ab19-0c4c18d398a8/CMS153FHIR-v0.3.000-DENEXPass-HospiceDischargeToHomeDuringMP.json
+✅ dda878bb-eb46-4562-a455-862009c0f7ce/CMS153FHIR-v0.3.000-DENEXPass-HospiceCondOverlapsMP.json
+✅ e0a4d4df-4602-4941-b5a1-608edd096bce/CMS153FHIR-v0.3.000-IPFail-PapTestAfterMP.json
+✅ e5000998-0111-4c5c-8d77-5047de6914b8/CMS153FHIR-v0.3.000-IPPass-DiagnosticStudyDurMP.json
+✅ e9707b1a-9e34-4aa5-8063-005f650528be/CMS153FHIR-v0.3.000-IPPass-PatienthasSyphilis.json
+✅ ec8a19c5-8fd1-40e9-974b-98fbccd921b8/CMS153FHIR-v0.3.000-DENEXPass-HospiceProcDurMP.json
+✅ f1523b01-1859-4e82-b8ee-3ff7b01bd74b/CMS153FHIR-v0.3.000-IPPass-QualEncwComplofPregnancy.json
+✅ f3ae4586-e560-4795-8ef0-91e94342aa60/CMS153FHIR-v0.3.000-DENEXPass-XRay1DayAfterPregnancyTestDurMP.json
+✅ f6a69563-6b05-4dcb-87e6-dd3bdd25f597/CMS153FHIR-v0.3.000-DENEXPass-HospiceServiceReqDurMP.json
+📊 28/28 succeeded, 0 failed

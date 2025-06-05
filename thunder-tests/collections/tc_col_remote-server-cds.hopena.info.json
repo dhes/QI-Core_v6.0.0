@@ -1,0 +1,39 @@
+{
+    "_id": "8376eaf9-c6a2-4c20-b54b-6f90c4587aeb",
+    "colName": "remote server cds.hopena.info",
+    "created": "2025-06-03T21:31:39.821Z",
+    "sortNum": 120000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5309cad0-f10a-406b-8ebd-33b6f5161ccd",
+            "colId": "8376eaf9-c6a2-4c20-b54b-6f90c4587aeb",
+            "containerId": "",
+            "name": "misc",
+            "url": "Patient/heslinga-dan/$everything",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-03T21:33:27.703Z",
+            "modified": "2025-06-03T21:39:07.411Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "PrincipiaNaturalis",
+                "password": "DeMotuCorporum5*"
+            }
+        },
+        "options": {
+            "baseUrl": "https://cds.hopena.info/fhir/"
+        }
+    }
+}

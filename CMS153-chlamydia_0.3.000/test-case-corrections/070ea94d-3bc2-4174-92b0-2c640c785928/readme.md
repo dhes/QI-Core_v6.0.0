@@ -1,0 +1,1 @@
+I changed the dateTime precision on this resource but that cause of the test case failure was in the CQL, so I think it had no effect. 
