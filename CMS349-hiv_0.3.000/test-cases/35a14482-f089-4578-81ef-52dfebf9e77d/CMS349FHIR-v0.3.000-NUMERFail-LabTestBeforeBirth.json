@@ -94,8 +94,8 @@
         "reference": "Patient/35a14482-f089-4578-81ef-52dfebf9e77d"
       },
       "period": {
-        "start": "2026-10-24T08:00:00.000+00:00",
-        "end": "2026-10-24T08:15:00.000+00:00"
+        "start": "2026-10-24T08:00:00+00:00",
+        "end": "2026-10-24T08:15:00+00:00"
       }
     },
     "request": {
@@ -128,7 +128,7 @@
       "subject": {
         "reference": "Patient/35a14482-f089-4578-81ef-52dfebf9e77d"
       },
-      "effectiveDateTime": "1993-10-24T08:00:00.000+00:00",
+      "effectiveDateTime": "1993-10-24T08:00:00+00:00",
       "valueBoolean": true
     },
     "request": {

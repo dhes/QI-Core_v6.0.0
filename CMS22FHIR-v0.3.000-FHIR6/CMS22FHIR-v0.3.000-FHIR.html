@@ -1,0 +1,4781 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #ffffff;;
+            margin: 0px;
+            padding: 10px;
+            height: 100%;
+            font-size: 1em;
+        }
+
+        p, li {
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+        }
+
+        td {
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        tr {
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        table.colstu td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #fff5e6;
+        }
+
+        table.colsd td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #efefef;
+        }
+
+        table.colsn td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #e6ffe6;
+        }
+
+        table.colse td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #e6e6e6;
+        }
+
+        table.colsi td {
+            border: 1px grey solid;
+            border-spacing: 0;
+            padding: 5px;
+            border-collapse: collapse;
+            background-color: #ffffe6;
+        }
+
+        table.list td {
+            border-top: 1px silver solid;
+            border-spacing: 0;
+        }
+
+        table.bare td {
+            border-spacing: 0;
+        }
+
+        ul.dict li {
+            font-size: 11px;
+            line-height: 1.2em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+        }
+
+        table.dict td {
+            padding: 3px 7px 2px 7px;
+            font-size: 11px;
+            line-height: 1.2em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        table.dict p {
+            font-size: 11px;
+        }
+
+        table {
+            margin-bottom: 10px;
+            border-collapse: collapse;
+        }
+
+        table.codes td {
+            border: 1px solid silver;
+            padding: 3px 7px 2px 7px;
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        table.grid {
+            margin-bottom: 10px;
+            border: 1px black solid;
+            margin-right: auto;
+
+        }
+
+        table.grid th {
+            border: 1px solid silver;
+            padding: 3px 7px 2px 7px;
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: bold;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        table.grid td {
+            border: 1px solid silver;
+            padding: 3px 7px 2px 7px;
+            font-size: 12px;
+            line-height: 1.4em;
+            font-family: verdana;
+            font-weight: normal;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding: 0 0 0 25px;
+        }
+
+        .dense li {
+            margin: 0 0 0 0;
+        }
+
+        li {
+            margin: 0 0 5px 0;
+        }
+
+        h1 {
+            font-size: 16px;
+            margin: 0 0 4px 0;
+            font-family: verdana;
+            border-bottom: 1px solid #7e7e7e;
+            padding-bottom: 2px;
+        }
+
+        h2 {
+            font-family: verdana;
+            line-height: 1.2em;
+            font-size: 14px;
+            margin: 0 0 3px 0;
+            margin-top: 15px;
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 2px;
+        }
+
+        h3 {
+            font-family: verdana;
+            line-height: 1.2em;
+            font-size: 12px;
+            margin: 0 0 3px 0;
+            margin-top: 10px;
+        }
+
+        h4 {
+            font-family: verdana;
+            line-height: 1.2em;
+            font-size: 11px;
+            margin: 0 0 3px 0;
+            margin-top: 10px;
+        }
+
+        div.sidebar h2 {
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 2px;
+            padding-top: 0px;
+            margin-top: 0px;
+            font-weight: normal;
+            margin-left: 8px;
+            margin-bottom: 0px;
+            font-size: 12px;
+        }
+
+        div.sidebar p {
+            padding-bottom: 0px;
+            padding-top: 10px;
+            font-weight: normal;
+            margin-left: 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        div.sidebar ul {
+            list-style: none;
+            padding: 0px;
+            margin-left: 6px;
+            font-size: 11px;
+            line-height: 2.125em;
+        }
+
+        div.sidebar li {
+            margin: 0px 0px 0px 6px;
+            padding: 0px;
+            font-size: 11px;
+            line-height: 2.125em;
+        }
+
+        a {
+            color: #428bca;
+            text-decoration: none;
+        }
+
+        a.xmltag :visited {
+            color: Navy;
+        }
+
+        a.xmltag :hover {
+            color: Blue;
+        }
+
+        pre {
+            display: block;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        pre a {
+            color: darkgreen;
+            text-decoration: none;
+            border: 0;
+
+        }
+
+        /* PrismJS 1.21.0
+        https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+autohotkey+autoit+bash+basic+batch+bbcode+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cil+clojure+cmake+coffeescript+concurnas+csp+crystal+css-extras+cypher+d+dart+dax+dhall+diff+django+dns-zone-file+docker+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+firestore-security-rules+flow+fortran+ftl+gml+gcode+gdscript+gedcom+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+http+hpkp+hsts+ichigojam+icon+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keyman+kotlin+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+lolcode+lua+makefile+markdown+markup-templating+matlab+mel+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nginx+nim+nix+nsis+objectivec+ocaml+opencl+oz+parigp+parser+pascal+pascaligo+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+q+qml+qore+r+racket+jsx+tsx+reason+regex+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+stan+iecst+stylus+swift+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+turtle+twig+typescript+typoscript+unrealscript+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+wiki+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=keep-markup */
+        /**
+         * prism.js default theme for JavaScript, CSS and HTML
+         * Based on dabblet (http://dabblet.com)
+         * @author Lea Verou
+         */
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: black;
+            background: none;
+            text-shadow: 0 1px white;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.95em;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+        code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+        code[class*="language-"]::selection, code[class*="language-"] ::selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        @media print {
+            code[class*="language-"],
+            pre[class*="language-"] {
+                text-shadow: none;
+            }
+        }
+
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+        }
+
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+            background: #f5f2f0;
+        }
+
+        /* Inline code */
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+        /*
+  ===============================
+  Liquid Narrative Styling Start
+  ===============================
+  */
+
+        .narrative-table {
+            border: 1pt inset rgb(0, 0, 0);
+            line-height: 10pt;
+            border-collapse: separate;
+            -webkit-border-horizontal-spacing: 2px;
+            -webkit-border-vertical-spacing: 2px;
+        }
+
+        .narrative-table>tbody {
+            display: table-row-group;
+            vertical-align: middle;
+        }
+
+        .narrative-table>tbody>tr {
+            display: table-row;
+            background-color: lightgray;
+            vertical-align: inherit;
+        }
+
+        .narrative-table>tbody>tr>th {
+            padding: 5px;
+        }
+
+        .section-header {
+            background-color: #656565;
+            color: whitesmoke;
+            vertical-align: inherit;
+        }
+
+        .row-header {
+            background-color: #656565;
+            color: whitesmoke;
+            vertical-align: inherit;
+        }
+
+        .tab-one {
+            padding-left: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .row-header {
+                min-width: 138px;
+                max-width: 138px;
+            }
+
+            .content-container {
+                max-width: 576px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .row-header {
+                min-width: 181px;
+                max-width: 181px;
+            }
+
+            .content-container {
+                max-width: 745px;
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .row-header {
+                min-width: 213px;
+                max-width: 213px;
+            }
+
+            .content-container {
+                max-width: 873px;
+            }
+        }
+
+        /*
+        ===============================
+        Liquid Narrative Styling End
+        ===============================
+        */
+    </style>
+</head>
+<body>
+<div xmlns="http://www.w3.org/1999/xhtml" class="col-12">
+  <table class="narrative-table">
+    <tbody>
+<tr>
+
+<th colspan="2" scope="row" class="row-header">Knowledge Artifact Metadata</th>
+
+</tr>
+
+<tr>
+
+<th scope="row" class="row-header">Name (machine-readable)</th>
+
+<td class="content-container">CMS22FHIRPCSBPScreeningFollowUp</td>
+</tr>
+
+
+<tr>
+
+<th scope="row" class="row-header">Title (human-readable)</th>
+
+<td class="content-container">Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up DocumentedFHIR</td>
+</tr>
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Status</th>
+
+<td class="content-container">draft</td>
+</tr>
+
+
+<tr>
+
+<th scope="row" class="row-header">Experimental</th>
+
+<td class="content-container">false</td>
+</tr>
+
+
+<tr>
+
+<th scope="row" class="row-header">Description</th>
+
+<td class="content-container">Percentage of patient visits for patients aged 18 years and older seen during the measurement period who were screened for high blood pressure AND a recommended follow-up plan is documented, as indicated, if blood pressure is elevated or hypertensive</td>
+</tr>
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Clinical Usage</th>
+
+<td class="content-container">This eCQM is an episode-based measure. An episode is defined as each eligible encounter for patients aged 18 years and older during the measurement period. This measure should be reported for every visit. The measure requires that blood pressure measurements (i.e., diastolic and systolic) be obtained during each visit in order to determine the blood pressure reading used to evaluate if an intervention is needed. 
+
+Both the systolic and diastolic blood pressure measurements are required for inclusion. If there are multiple blood pressures obtained during a patient visit, only the last, or most recent, pressure measurement will be used to evaluate the measure requirements.
+
+The intent of this measure is to screen patients for high blood pressure and provide recommended follow-up as indicated. The documented follow-up plan must be related to the current blood pressure reading as indicated, example: &quot;Patient referred to primary care provider for BP management.&quot;
+
+Telehealth encounters are not eligible for this measure because the measure requires a clinical action that cannot be conducted via telehealth.  
+
+This FHIR-based measure has been derived from the QDM-based measure: CMS22v12.  
+Please refer to the HL7 QI-Core Implementation Guide (https://hl7.org/fhir/us/qicore/STU6/index.html) for more information on QI-Core and mapping recommendations from QDM to QI-Core 6 (https://hl7.org/fhir/us/qicore/STU6/qdm-to-qicore.html).</td>
+</tr>
+
+
+<tr>
+
+<th scope="row" class="row-header">Approval Date</th>
+
+<td class="content-container">2023-08-30</td>
+</tr>
+
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Effective Period</th>
+
+<td class="content-container">2026-01-01..2026-12-31</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Measure Developer</th>
+
+<td class="content-container">American Institutes for Research (AIR)</td>
+</tr>
+
+
+
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Measure Steward</th>
+
+<td class="content-container">American Institutes for Research (AIR)</td>
+</tr>
+
+
+
+
+
+
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Copyright</th>
+
+<td class="content-container">This electronic clinical quality measure (Measure) and related data specifications are owned and stewarded by the Centers for Medicare &amp; Medicaid Services (CMS). CMS contracted (Contract # 75FCMC18D0027/ Task Order #: 75FCMC24F0144) with the American Institutes for Research (AIR) to develop this electronic measure. AIR is not responsible for any use of the Measure. AIR makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and AIR has no liability to anyone who relies on such measures or specifications.
+
+Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. AIR disclaims all liability for use or accuracy of any third-party codes contained in the specifications.
+
+CPT(R) contained in the Measure specifications is copyright 2004-2024 American Medical Association. LOINC(R) is copyright 2004-2024 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2024 International Health Terminology Standards Development Organisation. ICD-10 is copyright 2024 World Health Organization. All Rights Reserved.</td>
+</tr>
+
+
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - Appleton, S. L., Neo, C., Hill, C. L., Douglas, K. A., &amp; Adams, R. J. (2013). Untreated hypertension: prevalence and patient factors and beliefs associated with under-treatment in a population sample. Journal of Human Hypertension, 27, 453-462. https://doi.org/10.1038/jhh.2012.62
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - Garrison, G. M. &amp; Oberhelman, S. (2013). Screening for hypertension annually compared with current practice. Annals of Family Medicine, 11 (2), 116-121. doi:10.1370/afm.1467
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - Greenland, P., Alpert, J. S., Beller, G. A., Benjamin, E. J., Budoff, M. J., Fayad, Z. A., Foster, E., Hlatky, M. A., Hodgson, J. M., Kushner, F. G., Lauer, M. S., Shaw, L. J., Smith, S. C., Jr, Taylor, A. J., Weintraub, W. S., Wenger, N. K., Jacobs, A. K., Smith, S. C., Jr, Anderson, J. L., Albert, N., … American Heart Association (2010). 2010 ACCF/AHA guideline for assessment of cardiovascular risk in asymptomatic adults: a report of the American College of Cardiology Foundation/American Heart Association Task Force on Practice Guidelines. Journal of the American College of Cardiology, 56(25), e50–e103. https://doi.org/10.1016/j.jacc.2010.09.001
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - Luehr, D., Woolley, T., Burke, R., Dohmen, F., Hayes, R., Johnson, M...., Schoenleber, M. (2012). Hypertension diagnosis and treatment; Institute for Clinical Systems Improvement health care guideline. Updated November, 2012
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - Reeves, L., Robinson, K., McClelland, T., Adedoyin, C., Broeseker, A., and Adunlin, G. (2020). “Pharmacist Interventions in the Management of Blood Pressure Control and Adherence to Antihypertensive Medications: A Systematic Review of Randomized Controlled Trials.” Journal of Pharmacy Practice. Available at https://doi.org/10.1177/0897190020903573. Accessed October 5, 2020
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - U.S. Department of Health and Human Services, National Institutes of Health, National Heart, Lung, and Blood Institute &amp; National High Blood Pressure Education Program (2003). The Seventh Report of the Joint National Committee on the Prevention, Detection, Evaluation, and Treatment of High Blood Pressure (JNC-7). NIH Publication No. 03-5233
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - U.S. Preventive Services Task Force (USPSTF) (2007). Screening for high blood pressure: U.S. Preventive Services Task Force reaffirmation recommendation statement. Annals of Internal Medicine; 147(11):783-6
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - Whelton, P.K., Carey, R.M., Aronow, W.S., Casey, D.E., Collins, K., Dennison Himmelfarb, C., Depalma, S.M., Gidding, S., Jamerson, K.A., Jones, D.W., MacLaughlin, E.J, Muntener, P., Ovbiaggele, B., Smith, S.C., Spencer, C.C., Stafford, R.S., Taler, S.J., Thomas, R.J., Williams, K. A., Williamson, J.D., Wright, J.T., (2018). 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults: A Report of the American College of Cardiology/American Heart Association Task Force on Clinical Practice Guidelines. Hypertension, 71(6), e13-e115. doi.org/10.1161/HYP.0000000000000065
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+<th scope="row" class="row-header">Citation</th>
+
+  
+  
+  <td class="content-container">
+    
+    
+    <em>Citation</em>: CITATION - Winter, K. H., Tuttle, L. A. &amp; Viera, A.J. (2013). Hypertension. Primary Care Clinics in Office Practice, 40, 179-194. doi:10.1016/j.pop.2012.11.008
+
+    
+    
+    
+    
+  </td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+<tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Metadata</th>
+
+</tr>
+
+  
+<tr>
+
+<th scope="row" class="row-header">Short Name Identifier</th>
+
+<td class="content-container">CMS22FHIR</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Version Independent Identifier</th>
+
+<td class="content-container">urn:uuid:1b17d846-cbe0-49fa-b503-518addf19fb0</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Version Specific Identifier</th>
+
+<td class="content-container">urn:uuid:0f35d826-1989-4d91-80ea-439ffc7f43e9</td>
+</tr>
+
+
+
+  
+    
+    
+<tr>
+
+<th scope="row" class="row-header">Publisher (CMS) Identifier</th>
+
+<td class="content-container">22FHIR</td>
+</tr>
+
+  
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Version Number</th>
+
+<td class="content-container">Draft based on 0.3.000</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+<th scope="row" class="row-header">Rationale</th>
+
+<td class="content-container">Hypertension is a prevalent condition that affects approximately 66.9 million people in the United States. It is estimated that about 20-40% of the adult population has hypertension; the majority of people over age 65 have a hypertension diagnosis (Appleton et al., 2013 and Luehr et al., 2012). Winter (2013) noted that 1 in 3 American adults have hypertension and the lifetime risk of developing hypertension is 90%. The African American population or non-Hispanic Blacks, the elderly, diabetics and those with chronic kidney disease are at increased risk of stroke, myocardial infarction and renal disease. Non-Hispanic Blacks have the highest prevalence at 38.6% (Winter et al., 2013). Hypertension is a major risk factor for ischemic heart disease, left ventricular hypertrophy, renal failure, stroke and dementia (Luehr et al., 2012). Prevention of hypertension and the treatment of established hypertension are complementary approaches to reducing cardiovascular disease risk in the population, but prevention of hypertension provides the optimal means of reducing risk and avoiding harmful consequences. Periodic blood pressure (BP) screening can identify individuals who develop elevated BP over time. More frequent BP screening may be particularly important for individuals with elevated atherosclerotic cardiovascular disease (ASCVD) risk (Whelton et al., 2018).  
+
+Hypertension is the most common reason for adult office visits other than pregnancy. Garrison (2013) stated that in 2007, 42 million ambulatory visits were attributed to hypertension (Garrison &amp; Oberhelman, 2013). It also has the highest utilization of prescription drugs. Numerous resources and treatment options are available, yet only about 40-50% of the hypertensive patients have their blood pressure under control (&lt;140/90) (Appleton et al., 2013 and Luehr et al., 2012). In addition to medication non-compliance, poor outcomes are also attributed to poor adherence to lifestyle changes such as a low-sodium diet, weight loss, increased exercise and limiting alcohol intake. Many adults find it difficult to continue medications and lifestyle changes when they are asymptomatic. Symptoms of elevated blood pressure usually do not occur until secondary problems arise such as with vascular diseases (myocardial infarction, stroke, heart failure and renal insufficiency) (Luehr et al., 2012).
+
+Appropriate follow-up after blood pressure measurement is a pivotal component in preventing the progression of hypertension and the development of heart disease. Detection of marginally or fully elevated blood pressure by a specialty clinician warrants referral to a provider familiar with the management of hypertension and prehypertension. 
+
+The American College of Cardiology/American Heart Association (ACC/AHA) 2017 Guidelines provide updated recommendations for ASCVD risk. For additional information please refer to the 2017 ACC/AHA guidelines: https://www.acc.org/latest-in-cardiology/ten-points-to-remember/2017/11/09/11/41/2017-guideline-for-high-blood-pressure-in-adults.
+
+Lifestyle modifications have demonstrated effectiveness in lowering blood pressure (U.S. Department of Health and Human Services, 2003). The synergistic effect of several lifestyle modifications results in greater benefits than a single modification alone. Baseline diagnostic/laboratory testing establishes if a co-existing underlying condition is the etiology of hypertension and evaluates if end organ damage from hypertension has already occurred. Landmark trials such as the Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial (ALLHAT) have repeatedly proven the efficacy of pharmacologic therapy to control blood pressure and reduce the complications of hypertension. A review of 35 studies found that the pharmacist-led interventions involved medication counseling and patient education. Twenty-nine of the 35 studies showed statistically significant improvement in BP levels of the intervention groups at follow-up (Reeves et al., 2020). Follow-up intervals based on blood pressure control have been established by the 2017 ACC/AHA guideline and the United States Preventive Services Task Force (Whelton et al., 2018; USPSTF, 2021).</td>
+</tr>
+
+
+<tr>
+
+<th scope="row" class="row-header">Clinical Recommendation Statement</th>
+
+<td class="content-container">The U.S. Preventive Services Task Force (USPSTF, 2021) recommends screening for high blood pressure in adults aged 18 years and older. This is a grade A recommendation.</td>
+</tr>
+
+
+
+
+  
+    
+<tr>
+
+<th scope="row" class="row-header">Supplemental Data Guidance</th>
+
+<td class="content-container">For every patient evaluated by this measure also identify payer, race, ethnicity and sex; SDE Ethnicity 
+ SDE Payer 
+ SDE Race 
+ SDE Sex 
+ </td>
+</tr>
+
+  
+
+
+
+
+
+
+  
+    
+    <tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Population Criteria (ID: Group_1)</th>
+
+</tr>
+  
+  
+    
+<tr>
+
+<th scope="row" class="row-header">Summary</th>
+
+<td class="content-container">Percentage of patient visits for patients aged 18 years and older seen during the measurement period who were screened for high blood pressure AND a recommended follow-up plan is documented, as indicated, if blood pressure is elevated or hypertensive</td>
+</tr>
+
+  
+  
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Initial Population</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: InitialPopulation_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">All patient visits for patients aged 18 years and older at the beginning of the measurement period</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-initial-population">Initial Population</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Denominator</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: Denominator_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Equals Initial Population</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-denominator">Denominator</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Denominator Exclusion</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: DenominatorExclusion_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Patient has an active diagnosis of hypertension</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-denominator-exclusions">Denominator Exclusions</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Numerator</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: Numerator_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Patient visits where patients were screened for high blood pressure AND have a recommended follow-up plan documented, as indicated, if the blood pressure is elevated or hypertensive</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-numerator">Numerator</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      
+        
+<th scope="row" class="row-header">Denominator Exception</th>
+
+      
+      <td class="content-container">
+        
+        <em>ID</em>: DenominatorException_1
+        <br/>
+        
+        
+          <em>Description</em>:
+          <p style="white-space: pre-line" class="tab-one">Documentation of medical reason(s) for not screening for high blood pressure (e.g., patient is in an urgent or emergent medical situation where time is of the essence and to delay treatment would jeopardize the patient's health status).
+
+Documentation of patient reason(s) for not screening for blood pressure measurements or for not ordering an appropriate follow-up intervention if patient BP is elevated or hypertensive (e.g., patient refuses).</p>
+        
+        
+          
+            
+            <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-denominator-exceptions">Denominator Exceptions</a> 
+          
+        
+      </td>
+    </tr>
+  
+
+  
+  
+  
+<tr>
+
+<th scope="row" class="row-header">Population Basis</th>
+
+<td class="content-container">Encounter</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Scoring</th>
+
+<td class="content-container">[http://terminology.hl7.org/CodeSystem/measure-scoring#proportion: 'Proportion']</td>
+</tr>
+
+
+
+
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Type</th>
+
+<td class="content-container">[http://terminology.hl7.org/CodeSystem/measure-type#process: 'Process']</td>
+</tr>
+
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Rate Aggregation</th>
+
+<td class="content-container">None</td>
+</tr>
+
+
+
+  
+<tr>
+
+<th scope="row" class="row-header">Improvement Notation</th>
+
+<td class="content-container">[http://terminology.hl7.org/CodeSystem/measure-improvement-notation#decrease: 'increase']</td>
+</tr>
+
+
+
+
+  <tr>
+
+<th colspan="2" scope="row" class="row-header">Supplemental Data Elements</th>
+
+</tr>
+
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-ethnicity
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Ethnicity
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-sde-ethnicity">SDE Ethnicity</a> 
+      
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-payer
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Payer
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-sde-payer">SDE Payer</a> 
+      
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-race
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Race
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-sde-race">SDE Race</a> 
+      
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Supplemental Data Element</th>
+
+  <td class="content-container">
+    
+      <em>ID</em>: sde-sex
+      
+      <br/>
+      
+    
+    
+      
+        
+          <em>Usage Code</em>: [http://terminology.hl7.org/CodeSystem/measure-data-usage#supplemental-data]
+        
+        <br/>
+      
+    
+    
+      <em>Description</em>: SDE Sex
+    
+    
+      
+        <br/>
+        
+        <em>Logic Definition</em>: <a href="#cms22fhirpcsbpscreeningfollowup-sde-sex">SDE Sex</a> 
+      
+    
+  </td>
+</tr>
+
+
+<tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Logic</th>
+
+</tr>
+
+<tr>
+
+<th scope="row" class="row-header">Primary Library</th>
+
+<td class="content-container">https://madie.cms.gov/Library/CMS22FHIRPCSBPScreeningFollowUp</td>
+</tr>
+
+
+
+
+  
+  
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Library SDE
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: https://madie.cms.gov/Library/SupplementalDataElements|5.1.000
+    <br/>
+    <em>Canonical URL</em>: <tt>https://madie.cms.gov/Library/SupplementalDataElements|5.1.000</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Library FHIRHelpers
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: https://madie.cms.gov/Library/FHIRHelpers|4.4.000
+    <br/>
+    <em>Canonical URL</em>: <tt>https://madie.cms.gov/Library/FHIRHelpers|4.4.000</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Library QICoreCommon
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: https://madie.cms.gov/Library/QICoreCommon|4.0.000
+    <br/>
+    <em>Canonical URL</em>: <tt>https://madie.cms.gov/Library/QICoreCommon|4.0.000</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Code system SNOMEDCT
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://snomed.info/sct
+    <br/>
+    <em>Canonical URL</em>: <tt>http://snomed.info/sct</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Code system ActCode
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://terminology.hl7.org/CodeSystem/v3-ActCode
+    <br/>
+    <em>Canonical URL</em>: <tt>http://terminology.hl7.org/CodeSystem/v3-ActCode</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Code system LOINC
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://loinc.org
+    <br/>
+    <em>Canonical URL</em>: <tt>http://loinc.org</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Code system ConditionClinicalStatusCodes
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://terminology.hl7.org/CodeSystem/condition-clinical
+    <br/>
+    <em>Canonical URL</em>: <tt>http://terminology.hl7.org/CodeSystem/condition-clinical</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Encounter to Screen for Blood Pressure
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1920
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1920</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Follow Up Within 6 Months
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.125
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.125</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Lifestyle Recommendation
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Weight Reduction Recommended
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Dietary Recommendations
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Recommendation to Increase Physical Activity
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Referral or Counseling for Alcohol Consumption
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Referral to Primary Care or Alternate Provider
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Finding of Elevated Blood Pressure or Hypertension
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.514
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.514</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Follow Up Within 4 Weeks
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Laboratory Tests for Hypertension
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Pharmacologic Therapy for Hypertension
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Payer Type
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Diagnosis of Hypertension
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.263
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.263</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Patient Declined
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1582
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1582</tt>
+    
+  </td>
+</tr>
+
+<tr>
+  
+  
+  
+  
+  
+<th scope="row" class="row-header">Dependency</th>
+
+  
+  <td class="content-container">
+    
+    <em>Description</em>: Value set Medical Reason
+    
+    <br/>
+    
+    
+    
+    
+    
+    
+    <em>Resource</em>: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007
+    <br/>
+    <em>Canonical URL</em>: <tt>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007</tt>
+    
+  </td>
+</tr>
+
+
+  
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Male (finding)
+        <br/>
+      
+      <em>Code</em>: 248153007
+      <br/>
+      <em>System</em>: <tt>http://snomed.info/sct</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Female (finding)
+        <br/>
+      
+      <em>Code</em>: 248152002
+      <br/>
+      <em>System</em>: <tt>http://snomed.info/sct</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: virtual
+        <br/>
+      
+      <em>Code</em>: VR
+      <br/>
+      <em>System</em>: <tt>http://terminology.hl7.org/CodeSystem/v3-ActCode</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Systolic blood pressure
+        <br/>
+      
+      <em>Code</em>: 8480-6
+      <br/>
+      <em>System</em>: <tt>http://loinc.org</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Diastolic blood pressure
+        <br/>
+      
+      <em>Code</em>: 8462-4
+      <br/>
+      <em>System</em>: <tt>http://loinc.org</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: EKG 12 channel panel
+        <br/>
+      
+      <em>Code</em>: 34534-8
+      <br/>
+      <em>System</em>: <tt>http://loinc.org</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: EKG study
+        <br/>
+      
+      <em>Code</em>: 11524-6
+      <br/>
+      <em>System</em>: <tt>http://loinc.org</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Active
+        <br/>
+      
+      <em>Code</em>: active
+      <br/>
+      <em>System</em>: <tt>http://terminology.hl7.org/CodeSystem/condition-clinical</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Recurrence
+        <br/>
+      
+      <em>Code</em>: recurrence
+      <br/>
+      <em>System</em>: <tt>http://terminology.hl7.org/CodeSystem/condition-clinical</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Relapse
+        <br/>
+      
+      <em>Code</em>: relapse
+      <br/>
+      <em>System</em>: <tt>http://terminology.hl7.org/CodeSystem/condition-clinical</tt>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="row" class="row-header">Direct Reference Code</th>
+    <td class="content-container">
+      
+        <em>Display</em>: Blood pressure panel with all children optional
+        <br/>
+      
+      <em>Code</em>: 85354-9
+      <br/>
+      <em>System</em>: <tt>http://loinc.org</tt>
+    </td>
+  </tr>
+
+  
+  
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: Measurement Period
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: in
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: 1
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Period
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: Numerator
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: *
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: Denominator
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: *
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: Initial Population
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: *
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: Denominator Exclusions
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: *
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: Denominator Exceptions
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: *
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: SDE Sex
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: 1
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Coding
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: SDE Payer
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: *
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: SDE Ethnicity
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: 1
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+<tr>
+  
+<th scope="row" class="row-header">Parameter</th>
+
+  <td class="content-container">
+    
+    <em>Name</em>: SDE Race
+    
+    
+    <br/>
+    
+    
+    <em>Use</em>: out
+    
+    
+    <br/>
+    
+    
+    <em>Min Cardinality</em>: 0
+    
+    
+    <br/>
+    
+    
+    <em>Max Cardinality</em>: 1
+    
+    
+    <br/>
+    
+    
+    <em>Type</em>: Resource
+    
+  </td>
+</tr>
+
+  
+  
+  <tr>
+    <th colspan="2" scope="row" class="section-header"><a name="effective-data-requirements"> </a>Measure Logic Data Requirements</th>
+  </tr>
+  
+  
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Patient
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: extension, url, birthDate, birthDate.value
+    <br/>
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Encounter
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period, status, status.value, class
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1920
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: effective, status, status.value, component
+    <br/>
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code(s)</em>: 
+    
+      
+      http://loinc.org#34534-8: 'EKG 12 channel panel'
+      
+    
+    </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code(s)</em>: 
+    
+      
+      http://loinc.org#11524-6: 'EKG study'
+      
+    
+    </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.125
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, authoredOn, authoredOn.value, intent, intent.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, reasonCode, intent, intent.value, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: MedicationRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: medication, authoredOn, authoredOn.value, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: medication</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: MedicationRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: medication.reference.value, authoredOn, authoredOn.value, status, status.value
+    <br/>
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Medication
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: id.value, code
+    <br/>
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Coverage
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: type, period
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: type</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Condition
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.263
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, issued, issued.value, extension
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code(s)</em>: 
+    
+      
+      http://loinc.org#85354-9: 'Blood pressure panel with all children optional'
+      
+    
+    </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, issued, issued.value, extension
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code(s)</em>: 
+    
+      
+      http://loinc.org#8480-6: 'Systolic blood pressure'
+      
+    
+    </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, issued, issued.value, extension
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code(s)</em>: 
+    
+      
+      http://loinc.org#8462-4: 'Diastolic blood pressure'
+      
+    
+    </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code(s)</em>: 
+    
+      
+      http://loinc.org#34534-8: 'EKG 12 channel panel'
+      
+    
+    </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+  
+    <span class="tab-one"><em>Code(s)</em>: 
+    
+      
+      http://loinc.org#11524-6: 'EKG study'
+      
+    
+    </span>
+    <br/>
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.125
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: ServiceRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: code, extension, authoredOn, authoredOn.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: code</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: MedicationRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested
+    <br/>        
+  
+   
+   
+    <em>Must Support Elements</em>: medication, status, status.value
+    <br/>
+   
+  
+    <em>Code Filter(s)</em>: 
+    <br/>
+  
+  
+    <span class="tab-one"><em>Path</em>: medication</span>
+    <br/>
+  
+  
+  
+    <span class="tab-one"><em>ValueSet</em>:</span> http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577
+    <br/> 
+  
+  
+  
+   
+  </td>
+</tr>
+
+  
+  <tr>
+
+<th colspan="2" scope="row" class="row-header">Measure Logic Definitions</th>
+
+</tr>
+  
+          
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-sex"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Sex&quot;:
+  case
+    when Patient.sex = '248153007' then &quot;Male (finding)&quot;
+    when Patient.sex = '248152002' then &quot;Female (finding)&quot;
+    else null
+  end</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-sde-sex"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Sex&quot;:
+  SDE.&quot;SDE Sex&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-qualifying-encounter-during-measurement-period"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Qualifying Encounter during Measurement Period&quot;:
+  [Encounter: &quot;Encounter to Screen for Blood Pressure&quot;] ValidEncounter
+    where ValidEncounter.period ends during day of &quot;Measurement Period&quot;
+      and ValidEncounter.status ~ 'finished'
+      and ValidEncounter.class !~ &quot;virtual&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-normal-blood-pressure-reading"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Normal Blood Pressure Reading&quot;:
+  &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+    let EncounterLastBP: Last([USCoreBloodPressureProfile] BloodPressure
+        where BloodPressure.effective.toInterval() ends during day of QualifyingEncounter.period
+          and BloodPressure.status in { 'final', 'amended', 'corrected' }
+        sort by start of effective.toInterval()
+    )
+    where ( singleton from ( EncounterLastBP.component C
+          where C.code ~ &quot;Systolic blood pressure&quot;
+      )
+    ).value in Interval[1 'mm[Hg]', 120 'mm[Hg]' )
+      and ( singleton from ( EncounterLastBP.component C
+            where C.code ~ &quot;Diastolic blood pressure&quot;
+        )
+      ).value in Interval[1 'mm[Hg]', 80 'mm[Hg]' )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-elevated-blood-pressure-reading-sbp-120-to-129-and-dbp-less-than-80"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Elevated Blood Pressure Reading SBP 120 to 129 AND DBP less than 80&quot;:
+  &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+    let EncounterLastBP: Last([USCoreBloodPressureProfile] BloodPressure
+        where BloodPressure.effective.toInterval() ends during day of QualifyingEncounter.period
+          and BloodPressure.status in { 'final', 'amended', 'corrected' }
+        sort by start of effective.toInterval()
+    )
+    where ( ( singleton from ( EncounterLastBP.component C
+            where C.code ~ &quot;Systolic blood pressure&quot;
+        )
+      ).value in Interval[120 'mm[Hg]', 129 'mm[Hg]']
+        and ( singleton from ( EncounterLastBP.component C
+              where C.code ~ &quot;Diastolic blood pressure&quot;
+          )
+        ).value in Interval[1 'mm[Hg]', 80 'mm[Hg]' )
+    )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-follow-up-with-rescreen-within-6-months"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Follow up with Rescreen Within 6 Months&quot;:
+  [ServiceRequest: &quot;Follow Up Within 6 Months&quot;] FollowUp
+    where FollowUp.intent ~ 'order'</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-nonpharmacological-interventions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;NonPharmacological Interventions&quot;:
+  ( [ServiceRequest: &quot;Lifestyle Recommendation&quot;]
+    union [ServiceRequest: &quot;Weight Reduction Recommended&quot;]
+    union [ServiceRequest: &quot;Dietary Recommendations&quot;]
+    union [ServiceRequest: &quot;Recommendation to Increase Physical Activity&quot;]
+    union [ServiceRequest: &quot;Referral or Counseling for Alcohol Consumption&quot;] ) NonPharmaInterventions
+    where NonPharmaInterventions.intent ~ 'order'</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-referral-to-alternate-or-primary-healthcare-professional-for-hypertensive-reading"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Referral to Alternate or Primary Healthcare Professional for Hypertensive Reading&quot;:
+  [ServiceRequest: &quot;Referral to Primary Care or Alternate Provider&quot;] Referral
+    where Referral.reasonCode in &quot;Finding of Elevated Blood Pressure or Hypertension&quot;
+      and Referral.intent ~ 'order'</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-elevated-blood-pressure-reading-sbp-120-to-129-and-dbp-less-than-80-and-interventions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Elevated Blood Pressure Reading SBP 120 to 129 AND DBP less than 80 and Interventions&quot;:
+  ( &quot;Encounter with Elevated Blood Pressure Reading SBP 120 to 129 AND DBP less than 80&quot; ElevatedEncounter
+      with &quot;Follow up with Rescreen Within 6 Months&quot; Twoto6MonthRescreen
+        such that Twoto6MonthRescreen.authoredOn during day of ElevatedEncounter.period
+      with &quot;NonPharmacological Interventions&quot; NonPharmInterventions
+        such that NonPharmInterventions.authoredOn during day of ElevatedEncounter.period
+  )
+    union ( &quot;Encounter with Elevated Blood Pressure Reading SBP 120 to 129 AND DBP less than 80&quot; ElevatedEncounter
+        with &quot;Referral to Alternate or Primary Healthcare Professional for Hypertensive Reading&quot; Referral
+          such that Referral.authoredOn during day of ElevatedEncounter.period
+    )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-hypertensive-reading-within-year-prior"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Hypertensive Reading Within Year Prior&quot;:
+  ( &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+      let EncounterLastBP: Last([USCoreBloodPressureProfile] BloodPressure
+          where BloodPressure.effective.toInterval() ends 1 year or less before or on start of QualifyingEncounter.period
+            and BloodPressure.status in { 'final', 'amended', 'corrected' }
+          sort by start of effective.toInterval()
+      )
+      where ( ( singleton from ( EncounterLastBP.component C
+              where C.code ~ &quot;Systolic blood pressure&quot;
+          )
+        ).value &gt; 0 'mm[Hg]'
+          and ( singleton from ( EncounterLastBP.component C
+                where C.code ~ &quot;Diastolic blood pressure&quot;
+            )
+          ).value &gt; 0 'mm[Hg]'
+          and ( ( singleton from ( EncounterLastBP.component C
+                  where C.code ~ &quot;Systolic blood pressure&quot;
+              )
+            ).value &gt;= 130 'mm[Hg]'
+              or ( singleton from ( EncounterLastBP.component C
+                    where C.code ~ &quot;Diastolic blood pressure&quot;
+                )
+              ).value &gt;= 80 'mm[Hg]'
+          )
+      )
+  )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-first-hypertensive-reading-sbp-greater-than-or-equal-to-130-or-dbp-greater-than-or-equal-to-80"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with First Hypertensive Reading SBP Greater than or Equal to 130 OR DBP Greater than or Equal to 80&quot;:
+  ( &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+      let EncounterLastBP: Last([USCoreBloodPressureProfile] BloodPressure
+          where BloodPressure.effective.toInterval() ends during day of QualifyingEncounter.period
+            and BloodPressure.status in { 'final', 'amended', 'corrected' }
+          sort by start of effective.toInterval()
+      )
+      where ( ( ( singleton from ( EncounterLastBP.component C
+                where C.code ~ &quot;Systolic blood pressure&quot;
+            )
+          ).value &gt; 0 'mm[Hg]'
+            and ( singleton from ( EncounterLastBP.component C
+                  where C.code ~ &quot;Diastolic blood pressure&quot;
+              )
+            ).value &gt; 0 'mm[Hg]'
+        )
+          and ( ( singleton from ( EncounterLastBP.component C
+                  where C.code ~ &quot;Systolic blood pressure&quot;
+              )
+            ).value &gt;= 130 'mm[Hg]'
+              or ( singleton from ( EncounterLastBP.component C
+                    where C.code ~ &quot;Diastolic blood pressure&quot;
+                )
+              ).value &gt;= 80 'mm[Hg]'
+          )
+      )
+  )
+    except &quot;Encounter with Hypertensive Reading Within Year Prior&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-first-hypertensive-reading-interventions-or-referral-to-alternate-professional"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;First Hypertensive Reading Interventions or Referral to Alternate Professional&quot;:
+  ( [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;] FourWeekRescreen
+      with &quot;NonPharmacological Interventions&quot; NonPharmInterventionsHTN
+        such that FourWeekRescreen.authoredOn during day of &quot;Measurement Period&quot;
+          and NonPharmInterventionsHTN.authoredOn during day of &quot;Measurement Period&quot;
+          and FourWeekRescreen.intent ~ 'order'
+  )
+    union ( &quot;Referral to Alternate or Primary Healthcare Professional for Hypertensive Reading&quot; )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-first-hypertensive-reading-sbp-greater-than-or-equal-to-130-or-dbp-greater-than-or-equal-to-80-and-interventions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with First Hypertensive Reading SBP Greater than or Equal to 130 OR DBP Greater than or Equal to 80 and Interventions&quot;:
+  &quot;Encounter with First Hypertensive Reading SBP Greater than or Equal to 130 OR DBP Greater than or Equal to 80&quot; FirstHTNEncounter
+    with &quot;First Hypertensive Reading Interventions or Referral to Alternate Professional&quot; FirstHTNIntervention
+      such that FirstHTNIntervention.authoredOn during day of FirstHTNEncounter.period</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-second-hypertensive-reading-sbp-130-to-139-or-dbp-80-to-89"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89&quot;:
+  ( ( &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+        let EncounterLastBP: Last([USCoreBloodPressureProfile] BloodPressure
+            where BloodPressure.effective.toInterval() ends during day of QualifyingEncounter.period
+              and BloodPressure.status in { 'final', 'amended', 'corrected' }
+            sort by start of effective.toInterval()
+        )
+        where ( ( ( singleton from ( EncounterLastBP.component C
+                  where C.code ~ &quot;Systolic blood pressure&quot;
+              )
+            ).value in Interval[130 'mm[Hg]', 139 'mm[Hg]']
+              or ( singleton from ( EncounterLastBP.component C
+                    where C.code ~ &quot;Diastolic blood pressure&quot;
+                )
+              ).value in Interval[80 'mm[Hg]', 89 'mm[Hg]']
+          )
+            and not ( ( singleton from ( EncounterLastBP.component C
+                    where C.code ~ &quot;Systolic blood pressure&quot;
+                )
+              ).value &gt;= 140 'mm[Hg]'
+                or ( singleton from ( EncounterLastBP.component C
+                      where C.code ~ &quot;Diastolic blood pressure&quot;
+                  )
+                ).value &gt;= 90 'mm[Hg]'
+            )
+        )
+    )
+      intersect &quot;Encounter with Hypertensive Reading Within Year Prior&quot;
+  )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-laboratory-test-or-ecg-for-hypertension"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Laboratory Test or ECG for Hypertension&quot;:
+  ( [ServiceRequest: &quot;12 lead EKG panel&quot;]
+    union [ServiceRequest: &quot;EKG study&quot;]
+    union [ServiceRequest: &quot;Laboratory Tests for Hypertension&quot;] ) EKGLab
+    where EKGLab.intent ~ 'order'</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-second-hypertensive-reading-sbp-130-to-139-or-dbp-80-to-89-and-interventions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89 and Interventions&quot;:
+  &quot;Follow up with Rescreen Within 6 Months&quot; Rescreen2to6
+    with &quot;Laboratory Test or ECG for Hypertension&quot; LabECGIntervention
+      such that Rescreen2to6.authoredOn during day of &quot;Measurement Period&quot;
+        and LabECGIntervention.authoredOn during day of &quot;Measurement Period&quot;
+    with &quot;NonPharmacological Interventions&quot; NonPharmSecondIntervention
+      such that NonPharmSecondIntervention.authoredOn during day of &quot;Measurement Period&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-second-hypertensive-reading-sbp-130-to-139-or-dbp-80-to-89-and-interventions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89 and Interventions&quot;:
+  ( &quot;Encounter with Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89&quot; SecondHTNEncounterReading
+      with &quot;Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89 and Interventions&quot; EncounterInterventions
+        such that EncounterInterventions.authoredOn during day of SecondHTNEncounterReading.period
+  )
+    union ( &quot;Encounter with Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89&quot; SecondHTNEncounterReading
+        with &quot;Referral to Alternate or Primary Healthcare Professional for Hypertensive Reading&quot; ReferralForHTN
+          such that ReferralForHTN.authoredOn during day of SecondHTNEncounterReading.period
+    )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-second-hypertensive-reading-sbp-greater-than-or-equal-to-140-or-dbp-greater-than-or-equal-to-90"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90&quot;:
+  ( ( &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+        let EncounterLastBP: Last([USCoreBloodPressureProfile] BloodPressure
+            where BloodPressure.effective.toInterval() ends during day of QualifyingEncounter.period
+              and BloodPressure.status in { 'final', 'amended', 'corrected' }
+            sort by start of effective.toInterval()
+        )
+        where ( ( singleton from ( EncounterLastBP.component C
+                where C.code ~ &quot;Systolic blood pressure&quot;
+            )
+          ).value &gt; 0 'mm[Hg]'
+            and ( singleton from ( EncounterLastBP.component C
+                  where C.code ~ &quot;Diastolic blood pressure&quot;
+              )
+            ).value &gt; 0 'mm[Hg]'
+            and ( ( singleton from ( EncounterLastBP.component C
+                    where C.code ~ &quot;Systolic blood pressure&quot;
+                )
+              ).value &gt;= 140 'mm[Hg]'
+                or ( singleton from ( EncounterLastBP.component C
+                      where C.code ~ &quot;Diastolic blood pressure&quot;
+                  )
+                ).value &gt;= 90 'mm[Hg]'
+            )
+        )
+    )
+      intersect &quot;Encounter with Hypertensive Reading Within Year Prior&quot;
+  )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-second-hypertensive-reading-sbp-greater-than-or-equal-to-140-or-dbp-greater-than-or-equal-to-90-interventions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90 Interventions&quot;:
+  ( [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;] WeeksRescreen
+      with &quot;Laboratory Test or ECG for Hypertension&quot; ECGLabTest
+        such that WeeksRescreen.authoredOn during day of &quot;Measurement Period&quot;
+          and ECGLabTest.authoredOn during day of &quot;Measurement Period&quot;
+          and WeeksRescreen.intent ~ 'order'
+          and ECGLabTest.intent ~ 'order'
+      with &quot;NonPharmacological Interventions&quot; HTNInterventions
+        such that HTNInterventions.authoredOn during day of &quot;Measurement Period&quot;
+      with [&quot;MedicationRequest&quot;: &quot;Pharmacologic Therapy for Hypertension&quot;] Medications
+        such that Medications.authoredOn during day of &quot;Measurement Period&quot;
+          and Medications.status ~ 'active'
+  )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-second-hypertensive-reading-sbp-greater-than-or-equal-to-140-or-dbp-greater-than-or-equal-to-90-and-interventions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90 and Interventions&quot;:
+  ( &quot;Encounter with Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90&quot; SecondHTNEncounterReading140Over90
+      with &quot;Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90 Interventions&quot; SecondHTN140Over90Interventions
+        such that SecondHTN140Over90Interventions.authoredOn during day of SecondHTNEncounterReading140Over90.period
+  )
+    union &quot;Encounter with Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90&quot; SecondHTNEncounterReading140Over90
+      with &quot;Referral to Alternate or Primary Healthcare Professional for Hypertensive Reading&quot; ReferralToProfessional
+        such that ReferralToProfessional.authoredOn during day of SecondHTNEncounterReading140Over90.period</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-numerator"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Numerator&quot;:
+  &quot;Encounter with Normal Blood Pressure Reading&quot;
+    union ( &quot;Encounter with Elevated Blood Pressure Reading SBP 120 to 129 AND DBP less than 80 and Interventions&quot; )
+    union ( &quot;Encounter with First Hypertensive Reading SBP Greater than or Equal to 130 OR DBP Greater than or Equal to 80 and Interventions&quot; )
+    union ( &quot;Encounter with Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89 and Interventions&quot; )
+    union ( &quot;Encounter with Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90 and Interventions&quot; )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-initial-population"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Initial Population&quot;:
+  &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+    where AgeInYearsAt(date from start of &quot;Measurement Period&quot;) &gt;= 18</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-denominator"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Denominator&quot;:
+  &quot;Initial Population&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-payer"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Payer&quot;:
+  [Coverage: type in &quot;Payer Type&quot;] Payer
+    return {
+      code: Payer.type,
+      period: Payer.period
+    }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-sde-payer"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Payer&quot;:
+  SDE.&quot;SDE Payer&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-ethnicity"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Ethnicity&quot;:
+  Patient.ethnicity E
+    return Tuple {
+      codes: { E.ombCategory } union E.detailed,
+      display: E.text
+    }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-sde-ethnicity"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Ethnicity&quot;:
+  SDE.&quot;SDE Ethnicity&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-denominator-exclusions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Denominator Exclusions&quot;:
+  &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+    with [ConditionProblemsHealthConcerns: &quot;Diagnosis of Hypertension&quot;] Hypertension
+      such that Hypertension.prevalenceInterval ( ) starts before or on day of QualifyingEncounter.period</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="supplementaldataelements-sde-race"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> SupplementalDataElements</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Race&quot;:
+  Patient.race R
+    return Tuple {
+      codes: R.ombCategory union R.detailed,
+      display: R.text
+    }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-sde-race"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;SDE Race&quot;:
+  SDE.&quot;SDE Race&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-medical-reason-for-not-obtaining-or-patient-declined-blood-pressure-measurement"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;:
+  &quot;Qualifying Encounter during Measurement Period&quot; QualifyingEncounter
+    with ( [ObservationCancelled: code ~ &quot;Blood pressure panel with all children optional&quot;]
+      union [ObservationCancelled: code ~ &quot;Systolic blood pressure&quot;]
+      union [ObservationCancelled: code ~ &quot;Diastolic blood pressure&quot;] ) NoBPScreen
+      such that NoBPScreen.issued during day of QualifyingEncounter.period
+        and ( NoBPScreen.notDoneReason in &quot;Patient Declined&quot;
+            or NoBPScreen.notDoneReason in &quot;Medical Reason&quot;
+        )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-nonpharmacological-intervention-not-ordered"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;NonPharmacological Intervention Not Ordered&quot;:
+  ( [ServiceNotRequested: &quot;Lifestyle Recommendation&quot;]
+    union [ServiceNotRequested: &quot;Weight Reduction Recommended&quot;]
+    union [ServiceNotRequested: &quot;Dietary Recommendations&quot;]
+    union [ServiceNotRequested: &quot;Recommendation to Increase Physical Activity&quot;]
+    union [ServiceNotRequested: &quot;Referral or Counseling for Alcohol Consumption&quot;] ) NonPharmIntervention
+    where NonPharmIntervention.reasonRefused in &quot;Patient Declined&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-laboratory-test-or-ecg-for-hypertension-not-ordered"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Laboratory Test or ECG for Hypertension Not Ordered&quot;:
+  ( [ServiceNotRequested: code = &quot;12 lead EKG panel&quot;]
+    union [ServiceNotRequested: code = &quot;EKG study&quot;]
+    union [ServiceNotRequested: &quot;Laboratory Tests for Hypertension&quot;] ) LabECGNotDone
+    where exists ( LabECGNotDone.extension E
+        where E.url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason'
+          and E.value as Concept in &quot;Patient Declined&quot;
+    )
+      and LabECGNotDone.reasonRefused in &quot;Patient Declined&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-second-hypertensive-reading-sbp-130-to-139-or-dbp-80-to-89-interventions-declined"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89 Interventions Declined&quot;:
+  ( ( [ServiceNotRequested: &quot;Referral to Primary Care or Alternate Provider&quot;]
+      union [ServiceNotRequested: &quot;Follow Up Within 6 Months&quot;] ) SecondHTNDeclinedReferralAndFollowUp
+      where SecondHTNDeclinedReferralAndFollowUp.reasonRefused in &quot;Patient Declined&quot;
+  )
+    union &quot;Laboratory Test or ECG for Hypertension Not Ordered&quot;
+    union &quot;NonPharmacological Intervention Not Ordered&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-second-hypertensive-reading-sbp-greater-than-or-equal-to-140-or-dbp-greater-than-or-equal-to-90-interventions-declined"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90 Interventions Declined&quot;:
+  ( ( ( [ServiceNotRequested: &quot;Referral to Primary Care or Alternate Provider&quot;]
+        union [ServiceNotRequested: &quot;Follow Up Within 4 Weeks&quot;] ) SecondHTN140Over90ReferralFollowUpNotDone
+        where SecondHTN140Over90ReferralFollowUpNotDone.reasonRefused in &quot;Patient Declined&quot;
+    )
+      union ( [MedicationNotRequested: &quot;Pharmacologic Therapy for Hypertension&quot;] MedicationRequestNotOrdered
+          where MedicationRequestNotOrdered.status = 'completed'
+      )
+      union &quot;Laboratory Test or ECG for Hypertension Not Ordered&quot;
+      union &quot;NonPharmacological Intervention Not Ordered&quot;
+  )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-encounter-with-order-for-hypertension-follow-up-declined-by-patient"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;:
+  ( ( &quot;Encounter with Elevated Blood Pressure Reading SBP 120 to 129 AND DBP less than 80&quot; ElevatedBPEncounter
+        with ( [ServiceNotRequested: &quot;Referral to Primary Care or Alternate Provider&quot;]
+          union [ServiceNotRequested: &quot;Follow Up Within 6 Months&quot;] ) ElevatedBPDeclinedInterventions
+          such that ElevatedBPDeclinedInterventions.authoredOn during day of ElevatedBPEncounter.period
+            and ElevatedBPDeclinedInterventions.reasonRefused in &quot;Patient Declined&quot;
+    )
+      union ( &quot;Encounter with Elevated Blood Pressure Reading SBP 120 to 129 AND DBP less than 80&quot; ElevatedBPEncounter
+          with &quot;NonPharmacological Intervention Not Ordered&quot; NotOrdered
+            such that NotOrdered.authoredOn during day of ElevatedBPEncounter.period
+      )
+      union ( &quot;Encounter with First Hypertensive Reading SBP Greater than or Equal to 130 OR DBP Greater than or Equal to 80&quot; FirstHTNEncounter
+          with ( [ServiceNotRequested: &quot;Follow Up Within 4 Weeks&quot;]
+            union [ServiceNotRequested: &quot;Referral to Primary Care or Alternate Provider&quot;] ) FirstHTNDeclinedInterventions
+            such that FirstHTNDeclinedInterventions.authoredOn during day of FirstHTNEncounter.period
+              and FirstHTNDeclinedInterventions.reasonRefused in &quot;Patient Declined&quot;
+      )
+      union ( &quot;Encounter with First Hypertensive Reading SBP Greater than or Equal to 130 OR DBP Greater than or Equal to 80&quot; FirstHTNEncounter
+          with &quot;NonPharmacological Intervention Not Ordered&quot; NoNonPharm
+            such that NoNonPharm.authoredOn during day of FirstHTNEncounter.period
+      )
+      union ( &quot;Encounter with Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89&quot; SecondHTNEncounter
+          with &quot;Second Hypertensive Reading SBP 130 to 139 OR DBP 80 to 89 Interventions Declined&quot; SecondHTNDeclinedInterventions
+            such that SecondHTNDeclinedInterventions.authoredOn during day of SecondHTNEncounter.period
+      )
+      union ( &quot;Encounter with Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90&quot; SecondHTN140Over90Encounter
+          with &quot;Second Hypertensive Reading SBP Greater than or Equal to 140 OR DBP Greater than or Equal to 90 Interventions Declined&quot; SecondHTN140Over90DeclinedInterventions
+            such that SecondHTN140Over90DeclinedInterventions.authoredOn during day of SecondHTN140Over90Encounter.period
+      )
+  )</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="cms22fhirpcsbpscreeningfollowup-denominator-exceptions"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> CMS22FHIRPCSBPScreeningFollowUp</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define &quot;Denominator Exceptions&quot;:
+  &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;
+    union &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="fhirhelpers-tostring"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> FHIRHelpers</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">define function ToString(value uri): value.value</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="fhirhelpers-tointerval"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> FHIRHelpers</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">/*
+@description: Converts the given [Period](https://hl7.org/fhir/datatypes.html#Period)
+value to a CQL DateTime Interval
+@comment: If the start value of the given period is unspecified, the starting
+boundary of the resulting interval will be open (meaning the start of the interval
+is unknown, as opposed to interpreted as the beginning of time).
+*/
+define function ToInterval(period FHIR.Period):
+    if period is null then
+        null
+    else
+        if period.&quot;start&quot; is null then
+            Interval(period.&quot;start&quot;.value, period.&quot;end&quot;.value]
+        else
+            Interval[period.&quot;start&quot;.value, period.&quot;end&quot;.value]</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="fhirhelpers-toconcept"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> FHIRHelpers</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">/*
+@description: Converts the given FHIR [CodeableConcept](https://hl7.org/fhir/datatypes.html#CodeableConcept) value to a CQL Concept.
+*/
+define function ToConcept(concept FHIR.CodeableConcept):
+    if concept is null then
+        null
+    else
+        System.Concept {
+            codes: concept.coding C return ToCode(C),
+            display: concept.text.value
+        }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="fhirhelpers-tocode"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> FHIRHelpers</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">/*
+@description: Converts the given FHIR [Coding](https://hl7.org/fhir/datatypes.html#Coding) value to a CQL Code.
+*/
+define function ToCode(coding FHIR.Coding):
+    if coding is null then
+        null
+    else
+        System.Code {
+          code: coding.code.value,
+          system: coding.system.value,
+          version: coding.version.value,
+          display: coding.display.value
+        }</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="qicorecommon-prevalenceinterval"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> QICoreCommon</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">/*
+@description: Returns an interval representing the normalized prevalence period of a given Condition.
+@comment: Uses the ToInterval and ToAbatementInterval functions to determine the widest potential interval from
+onset to abatement as specified in the given Condition. If the condition is active, or has an abatement date the resulting 
+interval will have a closed ending boundary. Otherwise, the resulting interval will have an open ending boundary.
+*/
+define fluent function prevalenceInterval(condition Choice&lt;&quot;ConditionEncounterDiagnosis&quot;, &quot;ConditionProblemsHealthConcerns&quot;&gt;):
+if condition.clinicalStatus ~ &quot;active&quot;
+  or condition.clinicalStatus ~ &quot;recurrence&quot;
+  or condition.clinicalStatus ~ &quot;relapse&quot; then
+  Interval[start of condition.onset.toInterval(), end of condition.abatementInterval()]
+else
+    (end of condition.abatementInterval()) abatementDate
+    return if abatementDate is null then
+      Interval[start of condition.onset.toInterval(), abatementDate)
+    else
+      Interval[start of condition.onset.toInterval(), abatementDate]</code></pre>
+  </td>
+
+</tr>
+        
+<tr>
+  <th scope="row" rowspan="2" class="row-header">
+    
+      
+      <a name="qicorecommon-abatementinterval"> </a>
+    
+    Logic Definition
+  </th>
+
+  <td class="content-container"><em>Library Name:</em> QICoreCommon</td>
+
+</tr>
+<tr>
+
+  <td>
+    <pre style="border: none;" class="content-container highlight language-cql"><code class="language-cql">/*
+@description: Returns an interval representing the normalized abatement of a given Condition.
+@comment: If the abatement element of the Condition is represented as a DateTime, the result
+is an interval beginning and ending on that DateTime.
+If the abatement is represented as a Quantity, the quantity is expected to be a calendar-duration and is interpreted as the age of the patient. The
+result is an interval from the date the patient turned that age to immediately before one year later.
+If the abatement is represented as a Quantity Interval, the quantities are expected to be calendar-durations and are interpreted as an age range during
+which the abatement occurred. The result is an interval from the date the patient turned the starting age of the quantity interval, and ending immediately
+before one year later than the date the patient turned the ending age of the quantity interval.
+*/
+define fluent function abatementInterval(condition Choice&lt;&quot;ConditionEncounterDiagnosis&quot;, &quot;ConditionProblemsHealthConcerns&quot;&gt;):
+	if condition.abatement is DateTime then
+	  Interval[condition.abatement as DateTime, condition.abatement as DateTime]
+	else if condition.abatement is Quantity then
+		Interval[Patient.birthDate + (condition.abatement as Quantity),
+			Patient.birthDate + (condition.abatement as Quantity) + 1 year)
+	else if condition.abatement is Interval&lt;Quantity&gt; then
+	  Interval[Patient.birthDate + (condition.abatement.low as Quantity),
+		  Patient.birthDate + (condition.abatement.high as Quantity) + 1 year)
+	else if condition.abatement is Interval&lt;DateTime&gt; then
+	  Interval[condition.abatement.low, condition.abatement.high)
+	else null as Interval&lt;DateTime&gt;</code></pre>
+  </td>
+
+</tr>
+
+  
+
+<tr>
+  <th colspan="2" scope="row" class="row-header">Generated using version 0.4.7 of the sample-content-ig Liquid templates</th>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

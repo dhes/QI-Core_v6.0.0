@@ -10,11 +10,11 @@
             "colId": "8376eaf9-c6a2-4c20-b54b-6f90c4587aeb",
             "containerId": "",
             "name": "misc",
-            "url": "Patient/heslinga-dan/$everything",
+            "url": "Patient/heslinga-dan/_history",
             "method": "GET",
             "sortNum": 10000,
             "created": "2025-06-03T21:33:27.703Z",
-            "modified": "2025-06-03T21:39:07.411Z",
+            "modified": "2025-06-12T03:19:11.876Z",
             "headers": []
         }
     ],

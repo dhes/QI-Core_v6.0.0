@@ -91,8 +91,8 @@
         "reference": "Patient/df21795c-3269-4d4c-9173-0089d65a75d5"
       },
       "period": {
-        "start": "2026-02-06T08:00:00.000+00:00",
-        "end": "2026-02-06T08:15:00.000+00:00"
+        "start": "2026-02-06T08:00:00+00:00",
+        "end": "2026-02-06T08:15:00+00:00"
       }
     },
     "request": {
@@ -125,7 +125,7 @@
       "subject": {
         "reference": "Patient/df21795c-3269-4d4c-9173-0089d65a75d5"
       },
-      "effectiveDateTime": "2026-01-01T08:00:00.000+00:00",
+      "effectiveDateTime": "2026-01-01T08:00:00+00:00",
       "valueBoolean": true
     },
     "request": {

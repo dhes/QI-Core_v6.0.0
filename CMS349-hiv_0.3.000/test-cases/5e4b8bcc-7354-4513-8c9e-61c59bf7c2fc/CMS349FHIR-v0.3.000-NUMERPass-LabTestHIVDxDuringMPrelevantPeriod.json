@@ -124,8 +124,8 @@
       "subject": {
         "reference": "Patient/5e4b8bcc-7354-4513-8c9e-61c59bf7c2fc"
       },
-      "onsetDateTime": "2026-07-31T08:00:00.000+00:00",
-      "abatementDateTime": "2026-10-24T08:00:00.000+00:00"
+      "onsetDateTime": "2026-07-31T08:00:00+00:00",
+      "abatementDateTime": "2026-10-24T08:00:00+00:00"
     },
     "request": {
       "method": "PUT",
@@ -156,8 +156,8 @@
         "reference": "Patient/5e4b8bcc-7354-4513-8c9e-61c59bf7c2fc"
       },
       "period": {
-        "start": "2026-10-24T08:00:00.000+00:00",
-        "end": "2026-10-24T08:15:00.000+00:00"
+        "start": "2026-10-24T08:00:00+00:00",
+        "end": "2026-10-24T08:15:00+00:00"
       }
     },
     "request": {
@@ -191,8 +191,8 @@
         "reference": "Patient/5e4b8bcc-7354-4513-8c9e-61c59bf7c2fc"
       },
       "effectivePeriod": {
-        "start": "2025-07-31T08:00:00.000+00:00",
-        "end": "2025-07-31T08:15:00.000+00:00"
+        "start": "2025-07-31T08:00:00+00:00",
+        "end": "2025-07-31T08:15:00+00:00"
       },
       "valueBoolean": true
     },

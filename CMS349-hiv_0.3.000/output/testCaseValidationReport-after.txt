@@ -1,0 +1,38 @@
+🧪 VALIDATION RUN @ 2025-06-06T18:49:54.787Z
+✅ 010e7c7c-3767-4d0c-8b1d-935c1e451ad0/CMS349FHIR-v0.3.000-NUMERFail-NoLabTest.json
+✅ 050401cc-5f7b-432a-8194-11702adede21/CMS349FHIR-v0.3.000-IPPFail-EncOverlapsMPEnd.json
+✅ 0dd2c81f-19b8-495b-acdf-196a2207b376/CMS349FHIR-v0.3.000-IPPPass-Age65Jan1.json
+✅ 15d4c0f3-e862-4b06-9ed0-7a572b901aba/CMS349FHIR-v0.3.000-IPPPass-Patient65StartMP.json
+✅ 161e8e14-fea4-47c4-b752-b90e047697ea/CMS349FHIR-v0.3.000-IPPFail-InvalidEncounter.json
+✅ 18ad99cd-c0b1-48c9-ab0b-bb3ab66e1c18/CMS349FHIR-v0.3.000-IPPPass-Age65Jan1-67f828cb4efe7a06c9d3aa79.json
+✅ 198a8ffe-cd3f-45f7-931b-897796c67247/CMS349FHIR-v0.3.000-NUMERFail-LabTestTooOld.json
+✅ 1d082b9c-26b3-4f59-b7f9-6f206c594506/CMS349FHIR-v0.3.000-NUMERPass-LabTestHIVDxDuringMPrelevantDatetime.json
+❌ 1d47538d-c090-48eb-8d0b-0ed7e86ebbfd/CMS349FHIR-v0.3.000-DENEXFail-HIVDxInvalid.json has 1 orphaned references:
+   ➜ Organization/MEDICARE
+✅ 243bc4d8-841e-4760-a65b-13013bf5204c/CMS349FHIR-v0.3.000-IPPFail-EncOverlapsMPStart.json
+✅ 2f132a6c-2ec6-4553-9d90-d3e7dc19de26/CMS349FHIR-v0.3.000-IPPFail-PatientTooOld.json
+✅ 35a14482-f089-4578-81ef-52dfebf9e77d/CMS349FHIR-v0.3.000-NUMERFail-LabTestBeforeBirth.json
+✅ 40677ab0-38af-4fe1-8cc0-bcd41c14d37d/CMS349FHIR-v0.3.000-NUMERPass-LabTestHIVDxBeforeMP.json
+✅ 41abc473-f005-4664-aa67-773f9b2f77e7/CMS349FHIR-v0.3.000-IPPPass-Age15Jan1.json
+✅ 5e4b8bcc-7354-4513-8c9e-61c59bf7c2fc/CMS349FHIR-v0.3.000-NUMERPass-LabTestHIVDxDuringMPrelevantPeriod.json
+✅ 64e863bc-02b5-46cc-8c27-57df7cebfcaf/CMS349FHIR-v0.3.000-DENEXFail-HIVDxJan1duringMP.json
+✅ 720428de-44f9-48d8-86c9-262b6bd5fa46/CMS349FHIR-v0.3.000-DENEXFail-HIVDxStartsDuringMP.json
+✅ 74e4451c-12d0-4e5b-8f99-c9410766c3c4/CMS349FHIR-v0.3.000-IPPFail-Age65Dec31.json
+✅ 7b9a4d0a-7465-45ac-932a-0aca2de75a3c/CMS349FHIR-v0.3.000-IPPPass-Age64Dec31.json
+✅ 8a599e2b-f25b-4912-8369-cda93caaf351/CMS349FHIR-v0.3.000-IPPFail-TwoInvalidEncs.json
+✅ 8b1bcbaa-01df-486d-b243-9399e7515074/CMS349FHIR-v0.3.000-DENEXFail-TwoHIVDxBothInvalidTiming.json
+✅ 8bc5cedd-f265-49c4-be8e-d6a0a12b3752/CMS349FHIR-v0.3.000-NUMERPass-LabTestAge65relevantPeriod.json
+✅ 90346970-2f5c-43aa-81ab-30e4f5d74830/CMS349FHIR-v0.3.000-NUMERFail-LabTestTooYoung.json
+✅ 9b6c9156-c4b5-46a1-8d47-d2d4998f44d3/CMS349FHIR-v0.3.000-DENEXPass-HIVDxDec31BeforeMP.json
+✅ a05a0ed5-b57d-4ce6-adc8-b4b9ec0403ae/CMS349FHIR-v0.3.000-IPPFail-NoEncounter.json
+✅ af6febab-8963-49ea-86e4-72345024dc0b/CMS349FHIR-v0.3.000-DENEXFail-HIVDxJan2duringMP.json
+✅ b46e3e19-548e-481a-93a1-57973055ffad/CMS349FHIR-v0.3.000-DENEXPass-HIVDxDec31BeforeMP-67f92efcf409ded3e0f8f6e9.json
+✅ b8161404-686d-4ce4-b291-e7a02ffe7b7e/CMS349FHIR-v0.3.000-DENEXPass-HIVDxStartsBeforeMP.json
+✅ bd10b739-a303-497c-8b23-e673bee363f5/CMS349FHIR-v0.3.000-IPPPass-Age16EstVisit.json
+✅ df21795c-3269-4d4c-9173-0089d65a75d5/CMS349FHIR-v0.3.000-NUMERPass-LabTestAge65relevantDatetime.json
+✅ e2c3ca6d-c054-4245-b59c-12f83919cfaa/CMS349FHIR-v0.3.000-NUMERFail-LabTestAfterMP.json
+✅ e48db8cc-afd4-47ea-846c-ee4f3794e5ea/CMS349FHIR-v0.3.000-IPPFail-AgeUnder15.json
+✅ e98529d7-5196-4523-bbc9-cbf48b5525d1/CMS349FHIR-v0.3.000-DENEXFail-NoHIVDiag.json
+✅ f24d0ae4-0daf-4f7e-85c8-679360f29219/CMS349FHIR-v0.3.000-NUMERFail-TwoLabBothInvalidTiming.json
+✅ f5a4440e-ff86-4d9a-807c-26dc21daad46/CMS349FHIR-v0.3.000-NUMERFail-LabTestInvalid.json
+✅ ffb7a0c4-fcef-46ff-9593-f3cebe574e21/CMS349FHIR-v0.3.000-NUMERPass-LabTestHIVDxDuringMPrelevantDatetime-67f92a3ce69d08908599429e.json

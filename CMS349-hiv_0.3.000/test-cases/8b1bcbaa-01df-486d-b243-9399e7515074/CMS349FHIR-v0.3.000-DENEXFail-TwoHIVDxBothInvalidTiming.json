@@ -99,7 +99,7 @@
       "subject": {
         "reference": "Patient/8b1bcbaa-01df-486d-b243-9399e7515074"
       },
-      "recordedDate": "2013-10-24T08:00:00.000+00:00"
+      "recordedDate": "2013-10-24T08:00:00+00:00"
     },
     "request": {
       "method": "PUT",
@@ -138,7 +138,7 @@
       "subject": {
         "reference": "Patient/8b1bcbaa-01df-486d-b243-9399e7515074"
       },
-      "onsetDateTime": "2026-05-10T08:00:00.000+00:00"
+      "onsetDateTime": "2026-05-10T08:00:00+00:00"
     },
     "request": {
       "method": "PUT",
@@ -169,8 +169,8 @@
         "reference": "Patient/8b1bcbaa-01df-486d-b243-9399e7515074"
       },
       "period": {
-        "start": "2026-10-24T08:00:00.000+00:00",
-        "end": "2026-10-24T08:30:00.000+00:00"
+        "start": "2026-10-24T08:00:00+00:00",
+        "end": "2026-10-24T08:30:00+00:00"
       }
     },
     "request": {

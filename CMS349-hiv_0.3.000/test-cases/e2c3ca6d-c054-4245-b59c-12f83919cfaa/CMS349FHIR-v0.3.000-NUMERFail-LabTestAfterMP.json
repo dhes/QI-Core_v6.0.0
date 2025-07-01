@@ -99,7 +99,7 @@
       "subject": {
         "reference": "Patient/e2c3ca6d-c054-4245-b59c-12f83919cfaa"
       },
-      "onsetDateTime": "2026-04-06T08:00:00.000+00:00"
+      "onsetDateTime": "2026-04-06T08:00:00+00:00"
     },
     "request": {
       "method": "PUT",
@@ -130,8 +130,8 @@
         "reference": "Patient/e2c3ca6d-c054-4245-b59c-12f83919cfaa"
       },
       "period": {
-        "start": "2026-10-24T08:00:00.000+00:00",
-        "end": "2026-10-24T08:15:00.000+00:00"
+        "start": "2026-10-24T08:00:00+00:00",
+        "end": "2026-10-24T08:15:00+00:00"
       }
     },
     "request": {
@@ -164,7 +164,7 @@
       "subject": {
         "reference": "Patient/e2c3ca6d-c054-4245-b59c-12f83919cfaa"
       },
-      "effectiveDateTime": "2027-01-01T08:00:00.000+00:00",
+      "effectiveDateTime": "2027-01-01T08:00:00+00:00",
       "valueBoolean": true
     },
     "request": {

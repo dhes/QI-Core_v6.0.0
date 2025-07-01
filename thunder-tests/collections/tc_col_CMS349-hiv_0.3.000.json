@@ -1,0 +1,2080 @@
+{
+    "_id": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+    "colName": "CMS349-hiv_0.3.000",
+    "created": "2025-06-06T22:20:55.918Z",
+    "sortNum": 109843.8,
+    "folders": [
+        {
+            "_id": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "$evaluate-measure",
+            "containerId": "",
+            "created": "2025-06-06T22:20:55.918Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c3dc8c2f-fd19-4fae-99c6-15c24ef932de",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "010e7c7c-3767-4d0c-8b1d-935c1e451ad0",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/010e7c7c-3767-4d0c-8b1d-935c1e451ad0&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.919Z",
+            "modified": "2025-06-06T22:20:55.919Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/010e7c7c-3767-4d0c-8b1d-935c1e451ad0",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "dfd75b2d-5fc3-4561-8926-350a068b4534",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "050401cc-5f7b-432a-8194-11702adede21",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/050401cc-5f7b-432a-8194-11702adede21&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.919Z",
+            "modified": "2025-06-06T22:20:55.919Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/050401cc-5f7b-432a-8194-11702adede21",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "05d5c4ca-db7b-4c40-9d74-f54805440d29",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "0dd2c81f-19b8-495b-acdf-196a2207b376",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/0dd2c81f-19b8-495b-acdf-196a2207b376&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.919Z",
+            "modified": "2025-06-06T22:20:55.919Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/0dd2c81f-19b8-495b-acdf-196a2207b376",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "f118b9b0-4815-4425-875a-86338fc99a50",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "15d4c0f3-e862-4b06-9ed0-7a572b901aba",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/15d4c0f3-e862-4b06-9ed0-7a572b901aba&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.920Z",
+            "modified": "2025-06-06T22:20:55.920Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/15d4c0f3-e862-4b06-9ed0-7a572b901aba",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "3480fadb-1dd1-459f-aafb-571d44994116",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "161e8e14-fea4-47c4-b752-b90e047697ea",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/161e8e14-fea4-47c4-b752-b90e047697ea&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.920Z",
+            "modified": "2025-06-06T22:20:55.920Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/161e8e14-fea4-47c4-b752-b90e047697ea",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "ac9df7c7-33c7-4131-9fc9-6b3bae62f45e",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "18ad99cd-c0b1-48c9-ab0b-bb3ab66e1c18",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/18ad99cd-c0b1-48c9-ab0b-bb3ab66e1c18&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.920Z",
+            "modified": "2025-06-06T23:37:08.774Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/18ad99cd-c0b1-48c9-ab0b-bb3ab66e1c18",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7332046a-55ec-49ef-ae87-6da70a2b3f58",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "198a8ffe-cd3f-45f7-931b-897796c67247",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/198a8ffe-cd3f-45f7-931b-897796c67247&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.920Z",
+            "modified": "2025-06-06T23:37:22.875Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/198a8ffe-cd3f-45f7-931b-897796c67247",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "13c00033-8ec7-40e3-9bc1-ab4da17c61b1",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "1d082b9c-26b3-4f59-b7f9-6f206c594506",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/1d082b9c-26b3-4f59-b7f9-6f206c594506&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.921Z",
+            "modified": "2025-06-06T22:20:55.921Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/1d082b9c-26b3-4f59-b7f9-6f206c594506",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "56cecd65-2f41-466d-bb18-cc359c00b596",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "1d47538d-c090-48eb-8d0b-0ed7e86ebbfd",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/1d47538d-c090-48eb-8d0b-0ed7e86ebbfd&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.921Z",
+            "modified": "2025-06-06T23:38:07.509Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/1d47538d-c090-48eb-8d0b-0ed7e86ebbfd",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "3da67378-d6e7-4c5c-8c5e-2712c3c54d12",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "243bc4d8-841e-4760-a65b-13013bf5204c",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/243bc4d8-841e-4760-a65b-13013bf5204c&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.922Z",
+            "modified": "2025-06-06T23:38:27.339Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/243bc4d8-841e-4760-a65b-13013bf5204c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "d144f6cd-2d98-4cef-927b-6232f55a796e",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "2f132a6c-2ec6-4553-9d90-d3e7dc19de26",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/2f132a6c-2ec6-4553-9d90-d3e7dc19de26&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.922Z",
+            "modified": "2025-06-06T23:38:45.487Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/2f132a6c-2ec6-4553-9d90-d3e7dc19de26",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "10329d03-2639-45a2-88ce-7462ee9a1a7d",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "35a14482-f089-4578-81ef-52dfebf9e77d",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/35a14482-f089-4578-81ef-52dfebf9e77d&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.922Z",
+            "modified": "2025-06-06T23:39:01.702Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/35a14482-f089-4578-81ef-52dfebf9e77d",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c6660b82-5c03-4fa3-abb9-4de112bbf031",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "40677ab0-38af-4fe1-8cc0-bcd41c14d37d",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/40677ab0-38af-4fe1-8cc0-bcd41c14d37d&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.922Z",
+            "modified": "2025-06-06T22:20:55.922Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/40677ab0-38af-4fe1-8cc0-bcd41c14d37d",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "1369159b-8ec8-460d-99a8-93bf80861e36",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "41abc473-f005-4664-aa67-773f9b2f77e7",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/41abc473-f005-4664-aa67-773f9b2f77e7&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.922Z",
+            "modified": "2025-06-06T23:39:32.277Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/41abc473-f005-4664-aa67-773f9b2f77e7",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "18379b34-1432-450b-b7f4-823afd854a46",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "5e4b8bcc-7354-4513-8c9e-61c59bf7c2fc",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/5e4b8bcc-7354-4513-8c9e-61c59bf7c2fc&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.923Z",
+            "modified": "2025-06-06T22:20:55.923Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/5e4b8bcc-7354-4513-8c9e-61c59bf7c2fc",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "1b50f3c7-842e-4a17-8468-be5601b0f3ca",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "64e863bc-02b5-46cc-8c27-57df7cebfcaf",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/64e863bc-02b5-46cc-8c27-57df7cebfcaf&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.923Z",
+            "modified": "2025-06-06T23:39:54.509Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/64e863bc-02b5-46cc-8c27-57df7cebfcaf",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "8b57cc46-ec1a-476c-a05b-6917151ca9b0",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "720428de-44f9-48d8-86c9-262b6bd5fa46",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/720428de-44f9-48d8-86c9-262b6bd5fa46&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.923Z",
+            "modified": "2025-06-06T23:40:06.536Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/720428de-44f9-48d8-86c9-262b6bd5fa46",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "73094487-83b7-42f4-b60c-140687a0ef27",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "74e4451c-12d0-4e5b-8f99-c9410766c3c4",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.923Z",
+            "modified": "2025-06-06T23:40:19.389Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/74e4451c-12d0-4e5b-8f99-c9410766c3c4",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "54f079e3-c976-47fe-b87b-44fc8ec0c77a",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "7b9a4d0a-7465-45ac-932a-0aca2de75a3c",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/7b9a4d0a-7465-45ac-932a-0aca2de75a3c&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.923Z",
+            "modified": "2025-06-06T23:40:31.995Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/7b9a4d0a-7465-45ac-932a-0aca2de75a3c",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "160d8de1-47ba-47ee-82d3-3508c2887cf5",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "8a599e2b-f25b-4912-8369-cda93caaf351",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/8a599e2b-f25b-4912-8369-cda93caaf351&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.923Z",
+            "modified": "2025-06-06T23:40:42.910Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/8a599e2b-f25b-4912-8369-cda93caaf351",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "24e1ebf1-2b8a-45f9-8c65-11c299c4de36",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "8b1bcbaa-01df-486d-b243-9399e7515074",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/8b1bcbaa-01df-486d-b243-9399e7515074&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.924Z",
+            "modified": "2025-06-06T23:40:55.593Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/8b1bcbaa-01df-486d-b243-9399e7515074",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e7242dec-3846-4df5-b2e7-ab1a118b782a",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "8bc5cedd-f265-49c4-be8e-d6a0a12b3752",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/8bc5cedd-f265-49c4-be8e-d6a0a12b3752&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.924Z",
+            "modified": "2025-06-06T22:20:55.924Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/8bc5cedd-f265-49c4-be8e-d6a0a12b3752",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "be51cc3d-6c33-4f94-80c6-551c737bb7d4",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "90346970-2f5c-43aa-81ab-30e4f5d74830",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/90346970-2f5c-43aa-81ab-30e4f5d74830&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.924Z",
+            "modified": "2025-06-06T23:41:22.602Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/90346970-2f5c-43aa-81ab-30e4f5d74830",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "817aec64-e550-4ce0-861a-b4ece64d054c",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "9b6c9156-c4b5-46a1-8d47-d2d4998f44d3",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/9b6c9156-c4b5-46a1-8d47-d2d4998f44d3&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.924Z",
+            "modified": "2025-06-06T23:41:59.192Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/9b6c9156-c4b5-46a1-8d47-d2d4998f44d3",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c43bfee9-7d18-4be9-b823-955e4720b5c7",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "a05a0ed5-b57d-4ce6-adc8-b4b9ec0403ae",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/a05a0ed5-b57d-4ce6-adc8-b4b9ec0403ae&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.924Z",
+            "modified": "2025-06-06T23:42:09.847Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/a05a0ed5-b57d-4ce6-adc8-b4b9ec0403ae",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "5b342e69-f976-4804-8c84-8438e659d8fe",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "af6febab-8963-49ea-86e4-72345024dc0b",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/af6febab-8963-49ea-86e4-72345024dc0b&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.924Z",
+            "modified": "2025-06-06T23:42:22.141Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/af6febab-8963-49ea-86e4-72345024dc0b",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "74d27c48-5192-4175-ae81-1112aff8bcb0",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "b46e3e19-548e-481a-93a1-57973055ffad",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/b46e3e19-548e-481a-93a1-57973055ffad&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.924Z",
+            "modified": "2025-06-06T23:42:31.649Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/b46e3e19-548e-481a-93a1-57973055ffad",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "53a697a0-bf68-4a9e-b4e1-a802ab36ef5e",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "b8161404-686d-4ce4-b291-e7a02ffe7b7e",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/b8161404-686d-4ce4-b291-e7a02ffe7b7e&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.925Z",
+            "modified": "2025-06-06T23:42:48.445Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/b8161404-686d-4ce4-b291-e7a02ffe7b7e",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 1\", getPopCount(\"denominator-exclusion\") === 1);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "88e83197-fd1a-4f8e-af39-fd147003e5e8",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "bd10b739-a303-497c-8b23-e673bee363f5",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/bd10b739-a303-497c-8b23-e673bee363f5&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.925Z",
+            "modified": "2025-06-06T23:43:02.770Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/bd10b739-a303-497c-8b23-e673bee363f5",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "76fc0560-8f4b-46a7-9793-b78d196aea74",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "df21795c-3269-4d4c-9173-0089d65a75d5",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/df21795c-3269-4d4c-9173-0089d65a75d5&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.925Z",
+            "modified": "2025-06-06T22:20:55.925Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/df21795c-3269-4d4c-9173-0089d65a75d5",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "d0dd9676-3050-4b0a-9112-11b06dab7784",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "e2c3ca6d-c054-4245-b59c-12f83919cfaa",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/e2c3ca6d-c054-4245-b59c-12f83919cfaa&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.925Z",
+            "modified": "2025-06-06T23:43:25.252Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/e2c3ca6d-c054-4245-b59c-12f83919cfaa",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "3fede694-0a4a-4ebf-a033-b6d7ddf4b0d5",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "e48db8cc-afd4-47ea-846c-ee4f3794e5ea",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/e48db8cc-afd4-47ea-846c-ee4f3794e5ea&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.925Z",
+            "modified": "2025-06-06T23:43:35.495Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/e48db8cc-afd4-47ea-846c-ee4f3794e5ea",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 0\", getPopCount(\"initial-population\") === 0);",
+                            "tc.test(\"Denominator = 0\", getPopCount(\"denominator\") === 0);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score is absent\", json.group[0]?.measureScore === undefined);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "7522141f-3d12-4d17-93dc-a68c106cf5e4",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "e98529d7-5196-4523-bbc9-cbf48b5525d1",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/e98529d7-5196-4523-bbc9-cbf48b5525d1&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.926Z",
+            "modified": "2025-06-06T23:43:47.029Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/e98529d7-5196-4523-bbc9-cbf48b5525d1",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "0b627c9a-ed93-4105-b947-31e8e006b54c",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "f24d0ae4-0daf-4f7e-85c8-679360f29219",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/f24d0ae4-0daf-4f7e-85c8-679360f29219&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.926Z",
+            "modified": "2025-06-06T23:43:59.598Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/f24d0ae4-0daf-4f7e-85c8-679360f29219",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "02c9ecc1-32da-4695-ae11-4b5b31f37aa7",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "f5a4440e-ff86-4d9a-807c-26dc21daad46",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/f5a4440e-ff86-4d9a-807c-26dc21daad46&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.926Z",
+            "modified": "2025-06-06T23:44:09.969Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/f5a4440e-ff86-4d9a-807c-26dc21daad46",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 0\", getPopCount(\"numerator\") === 0);",
+                            "tc.test(\"Measure Score = 0\", json.group[0]?.measureScore?.value == 0);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e5dd4d56-a386-430b-a9b5-a1231781f848",
+            "colId": "6f7fd248-8f28-4b10-ba7d-e7c21050c9e5",
+            "containerId": "184b670b-d05c-4782-9b87-94f7debd6b45",
+            "name": "ffb7a0c4-fcef-46ff-9593-f3cebe574e21",
+            "url": "Measure/CMS349FHIRHIVScreening/$evaluate-measure?subject=Patient/ffb7a0c4-fcef-46ff-9593-f3cebe574e21&periodStart=2026-01-01T00:00:00&periodEnd=2026-12-31T23:59:59",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-06-06T22:20:55.926Z",
+            "modified": "2025-06-06T22:20:55.926Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "subject",
+                    "value": "Patient/ffb7a0c4-fcef-46ff-9593-f3cebe574e21",
+                    "isPath": false
+                },
+                {
+                    "name": "periodStart",
+                    "value": "2026-01-01T00:00:00",
+                    "isPath": false
+                },
+                {
+                    "name": "periodEnd",
+                    "value": "2026-12-31T23:59:59",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "notcontains",
+                    "value": "OperationOutcome"
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "function getPopCount(code) {",
+                            "    let pop = json.group[0]?.population.find(p =>",
+                            "        p.code?.coding?.some(c => c.code === code)",
+                            "    );",
+                            "    return pop?.count;",
+                            "}",
+                            "tc.test(\"Initial Population = 1\", getPopCount(\"initial-population\") === 1);",
+                            "tc.test(\"Denominator = 1\", getPopCount(\"denominator\") === 1);",
+                            "tc.test(\"Denominator Exclusion = 0\", getPopCount(\"denominator-exclusion\") === 0);",
+                            "tc.test(\"Numerator = 1\", getPopCount(\"numerator\") === 1);",
+                            "tc.test(\"Measure Score = 1\", json.group[0]?.measureScore?.value == 1);"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    }
+}

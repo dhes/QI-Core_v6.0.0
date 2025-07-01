@@ -99,7 +99,7 @@
       "subject": {
         "reference": "Patient/af6febab-8963-49ea-86e4-72345024dc0b"
       },
-      "onsetDateTime": "2026-01-02T08:00:00.000+00:00"
+      "onsetDateTime": "2026-01-02T08:00:00+00:00"
     },
     "request": {
       "method": "PUT",
@@ -130,8 +130,8 @@
         "reference": "Patient/af6febab-8963-49ea-86e4-72345024dc0b"
       },
       "period": {
-        "start": "2026-04-15T09:00:00.000+00:00",
-        "end": "2026-04-15T10:15:00.000+00:00"
+        "start": "2026-04-15T09:00:00+00:00",
+        "end": "2026-04-15T10:15:00+00:00"
       }
     },
     "request": {
