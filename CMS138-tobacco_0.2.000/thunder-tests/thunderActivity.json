@@ -1,0 +1,14 @@
+[
+    {
+        "_id": "4a2b9819-093e-4ac2-9014-287fcf664c2e",
+        "colId": "history",
+        "containerId": "",
+        "name": "http://localhost:8080/fhir/Patient",
+        "url": "http://localhost:8080/fhir/Library",
+        "method": "GET",
+        "sortNum": 0,
+        "created": "2025-08-10T01:22:01.767Z",
+        "modified": "2025-08-10T01:22:21.909Z",
+        "headers": []
+    }
+]

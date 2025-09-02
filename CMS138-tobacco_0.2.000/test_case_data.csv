@@ -1,0 +1,47 @@
+Patient_ID,Bundle_ID,ValueMarkdown
+007fe881-a18d-418f-8ddf-0ee94fc9a10a,DENEXFail-HospiceEncEndsB4MP,Hospice Encounter - For meeting 100% coverage
+0230f0f5-4d54-4cf0-b33e-606a02061b31,DEN1EXFail-HospiceBeforeMP,Patient 12 years old with Hospice care before MP
+0d221636-5f14-4074-9337-eb4b0868fb3e,DENEXPass-HospiceDischargeDuringMP,Hospice Discharge Disposition - For meeting 100% coverage
+13cf64e7-b52f-48b9-a78a-3b0ff592c29b,IPFail-Age11SeenForTwoVisitsDuringMP,Patient 11 years old seen for two visits during MP
+1a070602-c572-4581-b438-989aaa417e64,Age12SeenFor2VScreenedForTDuringMP,Patient 12 years old seen for two visits who were screened for tobacco use during MP
+2412ad6a-fce0-4ad0-b200-737e443e5278,NUM2Pass-RecievedTobaccoCessation6MonthsPriorMP,Patient 12 years old seen for two visits who were screened for tobacco use and identified as a tobacco user and received tobacco cessation intervention 6 months prior to MP
+2c51f593-14ee-4e51-81b1-41748abfa92c,NUM3Pass-ScreenedForTobaccoAndCessationDuringMP,"Patient 12 years old seen for two visits who were screened for tobacco use and received tobacco cessation intervention and identified as tobacco user during MP
+"
+42d0d0e3-236c-414b-bea9-88591bc5db70,IPFail-Age11Edge,Patient 11 years 11 months and 30 days years old with two visits 
+4adf2e8c-0370-461c-be27-7b00efffff32,IPFail-Age12SeenForOneVisitsDuringMP,Patient 12 years old seen for one visit during MP
+4cf51b29-8cce-434d-8fa9-66d73208bc65,IPFail-Age12SeenForTwoVisitsAfterMP,Patient 12 years old seen for two visits after MP
+4da83054-dee8-485e-b6c7-da5d45f21722,IPFail-SeenForOnePreventativeVisitBeforeMP,Patient 12 seen for one preventative visit before MP
+4e4e6417-2724-4dd2-8b94-1e8a8b0c0eb5,IncorrectStatusForObservation,Patient 12 years old with two visits and incorrect Observation status of #completed.
+6074ad7e-a5ae-41f1-9bfd-ca04b4e15f8f,NUM3Fail-TobaccoUserMissingValue,Patient 12 years old with missing code value for Observation retrieve
+6410550a-c928-415b-b8bc-aa1284ca6933,ObservationBeforeMP,Patient 12 years old with Observation before MP
+72c8b10f-fffd-411f-bf81-c7d0608ad314,Age12SeenForTVScreenedForTAndTUWithHDuringMP,Patient 12 years old seen for two visits who were screened for tobacco use and identified as a tobacco user with hospice care during MP
+732f736b-a720-4368-8d77-4b12a5a5ca03,IPFail-Age12SeenForThreePreventativeVisitsBeforeMP,Patient age 12 seen for three preventative visits before MP 
+73d69a14-7e70-4c9f-89e3-62da4a370fd3,DEN1EXPass-Age12SeenForTwoVisitsWithHospiceDuringMP,Patient 12 years old seen for two visits with hospice care during MP
+76e371e4-0363-4fad-9573-a06ada971eef,DEN1EXPass-Age12SeenForOnePreventativeVisitsWithHospiceDuringMP,Patient 12 years old seen for one preventative visit with hospice care during MP
+7c310440-9998-4c89-9e1d-91bff809d537,NUM2Pass-ReceivedTobaccoCessationCounselingDuringMP,Patient received tobacco cessation counseling during MP.
+828caebe-4bd7-4579-85c6-d6340a9f3240,DENEXPass-HospiceServiceRequestCompleted,Hospice Service Request - For meeting 100% coverage
+83eadcba-f90b-48d9-ad77-7a1832afae78,NUM2Pass-RecievedTobaccoCessationDuringMP,Patient 12 years old seen for two visits who were screened for tobacco use and identified as a tobacco user and received tobacco cessation intervention during MP
+877e7485-e644-4ed7-ab59-4621a9ade7c1,DENEXFail-InpatientEncNoHospiceDischarge,Hospice Inpatient Encounter - For meeting 100% coverage
+9516c78a-228f-43d5-bed4-ffb1e37853a7,IPPass-Age12SeenForOnePreventativeVisitDuringMP,Patient 12 years old seen for one preventative visit during MP
+9dd6e1c5-59f4-4576-82c3-289904e3284f,NUM1Pass-SeenForTwoVisitsTobaccoNonUser,Patient 12 non tobacco user seen for 2 visits during MP
+9fba5feb-b77c-496f-981f-6d062f3c1d7c,DENEX2Pass-DischargeToHomeInpatient,Encounter Inpatient Discharge To Home - For meeting 100% coverage
+9fcf1018-bacd-44e3-af16-8d715af253a2,NUM3Fail-MedicatioRequestIncorrectCodeDisplay,"Patient 12 years old with typo in Medication Request code of ""15"""
+a0a8fd4f-bfd4-4669-aaef-f66ae5af5eda,DENEXPass-HospiceObsValueIsYes,Hospice Observation - For meeting 100% coverage
+ab8310c0-bcc3-4197-8ec6-beeb23f0b0b5,DENEX2Pass-DischargeToHomeInpatient,Hospice Discharge Disposition - For meeting 100% coverage
+b1ec669b-7942-4c05-bee7-30ed73912537,IPPass-Age12SeenForTwoVisitsDuringMP,Patient 12 years old seen for two visits during MP
+baba5342-649a-41f7-bb48-68e76dac1b82,NUM2Pass-TobaccoAbuseCounseling,Tobacco Abuse Counseling (Condition) - For meeting 100% coverage
+bac2713c-8165-40ce-8180-fb5d44a10f7f,DENEXFail-HospiceServiceRequestDraft,Hospice Service Request - For meeting 100% coverage
+bf5f6b32-8ffc-42fa-b847-21a871ad16bd,DEN1EXFail-Age12SeenForOneVisitsWithHospiceDuringMP,Patient 12 years old seen for one visit with hospice care during MP - Doesn't meet IP
+bf7e475b-f251-4930-a394-a19e2a08e846,NUM2Pass-MedRequestRecievedTobaccoCessation6MonthsPriorMP,Medication Request - For meeting 100% coverage
+c56fda5f-6cd9-4057-aaef-5c843a8241f1,DENEX2Pass-DischargeToHomeInpatient,Hospice Condition - For meeting 100% coverage
+c764b0d7-3e29-4c57-a89e-de672eac6469,NUM1Fail-IncorrectObservationCategoryAndCodeForTobaccoNonUser,"Patient 12 seen for 2 visits with an incorrect observation category of ""laboratory"" for tobacco user and incorrect code '123' for tobacco non user"
+cc4625b4-93a4-47e3-8693-7cd9cc01174b,NUM2Fail-ProcedureIncorrectSnomedCode,Numerator for population 2 has incorrect SNOMED code 
+cefc66eb-f4e0-4e78-b86b-18f7dbfb2dbd,NUM2Fail-RecievedTobaccoCessation7MonthsPriorMP,Patient 12 years old seen for two visits who were screened for tobacco use only and received tobacco cessation intervention 7 months prior to MP
+d7c6ac3f-09f8-46d5-8231-8b32554fef9c,DEN1EXPass-SeenForOnePreventativeVisitDuringMP,Patient 12 years old seen for one preventative visit during MP - For meeting 100% coverage
+e3422e20-4e31-4c24-a72b-3c1e1f47de95,DENEXPass-HospiceDiagnosisStartsDuringMP,Hospice Condition - For meeting 100% coverage
+e383c9a2-7b5e-4ab6-b2e2-642a2304d6e2,DENEX2Pass-DischargeToHomeInpatient,Hospice Encounter - For meeting 100% coverage
+eb9e68a6-6598-4881-84a3-16128e0dfad1,IPFail-Age12SeenForTwoVisitsBeforeMP,Patient 12 years old seen for two visits before MP
+ed2fe491-3eb7-424a-bf95-5d44b6102cec,DENEX2Pass-DischargeToHomeInpatient,Hospice Observation - For meeting 100% coverage
+f63bc56a-9c2f-46da-94f0-44cc12db4a3b,IPPass-Age12Edge,Patient 12 years at the start of MP with two visits 
+f8243613-c002-4c8a-a778-78e1b4f02ae6,IPFail-Age12SeenForTwoPreventativeVisitsAfterMP,Patient 12 years old seen for two preventative visits after MP
+fb5b6d6f-fbe8-415b-a101-9d8990fa511e,DEN1EXFail-HospiceAfterMP,Patient 12 years old with Hospice Care after MP

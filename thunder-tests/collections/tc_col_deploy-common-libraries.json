@@ -16,35 +16,35 @@
             "name": "expunge/redeploy fhirhelper 4.4.000",
             "containerId": "",
             "created": "2025-06-28T01:05:50.684Z",
-            "sortNum": 20000
+            "sortNum": 2500
         },
         {
             "_id": "2649c4ce-c734-43cd-be97-ef881d330117",
             "name": "expunge/redeploy hospice 6.15.001",
             "containerId": "",
             "created": "2025-06-28T01:14:33.746Z",
-            "sortNum": 30000
+            "sortNum": 9062.5
         },
         {
             "_id": "3accf56f-f447-430b-9a6a-26a0f7bff73e",
             "name": "expunge/reinstall QICoreCommon 4.0.000",
             "containerId": "",
             "created": "2025-06-28T01:17:25.948Z",
-            "sortNum": 40000
+            "sortNum": 8125
         },
         {
             "_id": "99a0e724-0e7a-4c72-9f84-13d55fcbdbda",
             "name": "expunge/redeploy status 1.13.000",
             "containerId": "",
             "created": "2025-06-28T01:26:06.336Z",
-            "sortNum": 50000
+            "sortNum": 1250
         },
         {
             "_id": "6954dca8-743c-4f45-87ff-c6e98a468d26",
-            "name": "expunge/redeploy SED 5.1.000",
+            "name": "expunge/redeploy SDE 5.1.000",
             "containerId": "",
             "created": "2025-06-28T01:28:37.459Z",
-            "sortNum": 60000
+            "sortNum": 6250
         }
     ],
     "requests": [
@@ -109,7 +109,7 @@
             "name": "deploy qicorecommon 4.0.000",
             "url": "Library",
             "method": "POST",
-            "sortNum": 10000,
+            "sortNum": 27500,
             "created": "2025-06-20T21:07:06.649Z",
             "modified": "2025-06-20T21:07:35.972Z",
             "headers": [],

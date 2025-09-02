@@ -125,3 +125,5 @@ define "Stratification 2":
   AgeInYearsAt(date from 
     end of "Measurement Period"
   ) in Interval[52, 74]
+
+86MilesPressure)

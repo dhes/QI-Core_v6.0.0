@@ -1,0 +1,23 @@
+name: Validate and Deploy Clinical Logic
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm install
+      - name: Translate CQL to ELM
+        run: ./scripts/translate-cql.sh
+      - name: Run tests
+        run: ./scripts/run-tests.sh
+      - name: Compare PlanDefinition logic to Measure logic
+        run: ./scripts/compare-measure-vs-pd.sh
