@@ -31,6 +31,27 @@
             "containerId": "",
             "created": "2025-09-02T00:42:23.255Z",
             "sortNum": 40000
+        },
+        {
+            "_id": "29b6626e-c0ba-48c1-a166-195e7f828560",
+            "name": "hospice",
+            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
+            "created": "2025-09-08T01:27:01.143Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "deploy test just-turned-12",
+            "containerId": "f30bc19a-73f6-4a36-a60c-3c859bbecdb4",
+            "created": "2025-09-10T21:34:18.777Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "ae4c9f14-3a24-476f-aff5-ec18ca14f7d5",
+            "name": "realtime tests",
+            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
+            "created": "2025-09-14T02:31:31.952Z",
+            "sortNum": 70000
         }
     ],
     "requests": [
@@ -3279,11 +3300,11 @@
             "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
             "containerId": "f30bc19a-73f6-4a36-a60c-3c859bbecdb4",
             "name": "get main Measure",
-            "url": "Condition",
+            "url": "Measure/CMS138FHIRPreventiveTobaccoCessation/_history",
             "method": "GET",
             "sortNum": 10000,
             "created": "2025-06-03T15:34:52.779Z",
-            "modified": "2025-06-20T20:48:08.578Z",
+            "modified": "2025-09-06T01:13:29.528Z",
             "headers": []
         },
         {
@@ -3365,13 +3386,13 @@
             "method": "PUT",
             "sortNum": 20000,
             "created": "2025-06-03T15:34:52.779Z",
-            "modified": "2025-06-03T15:34:52.779Z",
+            "modified": "2025-09-06T01:19:41.785Z",
             "headers": [],
             "body": {
                 "type": "binary",
                 "raw": "",
                 "form": [],
-                "binary": "../CMS138-tobacco_0.2.000/resources/library-CMS138FHIRPreventiveTobaccoCessation-0.2.001.json"
+                "binary": "../CMS138-tobacco_0.2.000/resources/library-CMS138FHIRPreventiveTobaccoCessation-0.2.002.json"
             }
         },
         {
@@ -3383,13 +3404,13 @@
             "method": "PUT",
             "sortNum": 30000,
             "created": "2025-06-03T15:34:52.779Z",
-            "modified": "2025-06-03T15:34:52.779Z",
+            "modified": "2025-09-06T01:20:08.084Z",
             "headers": [],
             "body": {
                 "type": "binary",
                 "raw": "",
                 "form": [],
-                "binary": "../CMS138-tobacco_0.2.000/resources/measure-CMS138FHIRPreventiveTobaccoCessation-0.2.001.json"
+                "binary": "../CMS138-tobacco_0.2.000/resources/measure-CMS138FHIRPreventiveTobaccoCessation-0.2.002.json"
             }
         },
         {
@@ -4276,88 +4297,514 @@
             "_id": "3e4f7378-c2e4-4669-87ae-b107d4c3e5b0",
             "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
             "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
-            "name": "main library example",
-            "url": "Library/CMS138FHIRPreventiveTobaccoCessation/$evaluate?subject=Patient/2412ad6a-fce0-4ad0-b200-737e443e5278&periodStart=2026-01-01&periodEnd=2026-12-31",
-            "method": "GET",
+            "name": "0a82b597-2959-4b36-b922-a7025a6110eb",
+            "url": "Library/CMS138FHIRPreventiveTobaccoCessation/$evaluate",
+            "method": "POST",
             "sortNum": 220000,
             "created": "2025-09-02T00:42:41.937Z",
-            "modified": "2025-09-02T00:45:26.853Z",
+            "modified": "2025-09-09T03:24:16.954Z",
             "headers": [],
-            "params": [
-                {
-                    "name": "subject",
-                    "value": "Patient/2412ad6a-fce0-4ad0-b200-737e443e5278",
-                    "isPath": false
-                },
-                {
-                    "name": "periodStart",
-                    "value": "2026-01-01",
-                    "isPath": false
-                },
-                {
-                    "name": "periodEnd",
-                    "value": "2026-12-31",
-                    "isPath": false
-                }
-            ]
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/2412ad6a-fce0-4ad0-b200-737e443e5278\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2026-01-01T00:00:00\",\n              \"end\": \"2026-12-31T23:59:59\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            }
         },
         {
             "_id": "00580971-e3d6-4013-8a42-be1f09e4db1e",
             "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
-            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
-            "name": "hospice example (negative)",
-            "url": "Library/Hospice/$evaluate?subject=Patient/2412ad6a-fce0-4ad0-b200-737e443e5278&periodStart=2026-01-01&periodEnd=2026-12-31",
-            "method": "GET",
-            "sortNum": 230000,
+            "containerId": "29b6626e-c0ba-48c1-a166-195e7f828560",
+            "name": "2412ad6a-fce0-4ad0-b200-737e443e5278",
+            "url": "Library/Hospice/$evaluate",
+            "method": "POST",
+            "sortNum": 10000,
             "created": "2025-09-02T00:50:30.458Z",
-            "modified": "2025-09-02T00:50:45.727Z",
+            "modified": "2025-09-08T01:27:53.514Z",
             "headers": [],
-            "params": [
-                {
-                    "name": "subject",
-                    "value": "Patient/2412ad6a-fce0-4ad0-b200-737e443e5278",
-                    "isPath": false
-                },
-                {
-                    "name": "periodStart",
-                    "value": "2026-01-01",
-                    "isPath": false
-                },
-                {
-                    "name": "periodEnd",
-                    "value": "2026-12-31",
-                    "isPath": false
-                }
-            ]
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/2412ad6a-fce0-4ad0-b200-737e443e5278\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2026-01-01T00:00:00\",\n              \"end\": \"2026-12-31T23:59:59\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            }
         },
         {
             "_id": "5ebe2705-d312-4d45-8f99-47c99291030c",
             "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
-            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
-            "name": "hospice example (positive)",
-            "url": "Library/Hospice/$evaluate?subject=Patient/ed2fe491-3eb7-424a-bf95-5d44b6102cec&periodStart=2026-01-01&periodEnd=2026-12-31",
-            "method": "GET",
-            "sortNum": 240000,
+            "containerId": "29b6626e-c0ba-48c1-a166-195e7f828560",
+            "name": "ed2fe491-3eb7-424a-bf95-5d44b6102cec",
+            "url": "Library/Hospice/$evaluate",
+            "method": "POST",
+            "sortNum": 20000,
             "created": "2025-09-02T00:52:25.172Z",
-            "modified": "2025-09-02T00:54:07.837Z",
+            "modified": "2025-09-06T01:24:35.095Z",
             "headers": [],
-            "params": [
-                {
-                    "name": "subject",
-                    "value": "Patient/ed2fe491-3eb7-424a-bf95-5d44b6102cec",
-                    "isPath": false
-                },
-                {
-                    "name": "periodStart",
-                    "value": "2026-01-01",
-                    "isPath": false
-                },
-                {
-                    "name": "periodEnd",
-                    "value": "2026-12-31",
-                    "isPath": false
-                }
-            ]
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/ed2fe491-3eb7-424a-bf95-5d44b6102cec\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2026-01-01T00:00:00\",\n              \"end\": \"2026-12-31T23:59:59\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "2378cb5f-b053-4423-8796-70ede1a0484d",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
+            "name": "get Age and Age at start of MP from Age library",
+            "url": "Library/Age/$evaluate",
+            "method": "POST",
+            "sortNum": 260000,
+            "created": "2025-09-03T04:01:32.221Z",
+            "modified": "2025-09-03T05:11:02.515Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/ed2fe491-3eb7-424a-bf95-5d44b6102cec\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2026-01-01T00:00:00\",\n              \"end\": \"2026-12-31T23:59:59\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "8855d831-74be-4842-987c-d9ab20c8dd50",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
+            "name": "hospice example (positive) with \"Had Hospice Services\"",
+            "url": "Library/Hospice/$evaluate",
+            "method": "POST",
+            "sortNum": 250000,
+            "created": "2025-09-06T22:29:33.227Z",
+            "modified": "2025-09-06T22:31:10.227Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/ed2fe491-3eb7-424a-bf95-5d44b6102cec\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Has Hospice Services\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2026-01-01T00:00:00\",\n              \"end\": \"2026-12-31T23:59:59\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "68c4fd2b-0dd6-4de9-9ba2-41216ff87ee1",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
+            "name": "just-turned-12",
+            "url": "Library/CMS138FHIRPreventiveTobaccoCessation/$evaluate",
+            "method": "POST",
+            "sortNum": 260000,
+            "created": "2025-09-06T22:32:51.035Z",
+            "modified": "2025-09-12T02:14:50.132Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/just-turned-12\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2025-01-01T00:00:00-10:00\",\n              \"end\": \"2025-12-31T23:59:00-10:00\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "",
+                            "  // Helper function to get parameter value from Library/$evaluate response",
+                            "  function getParamValue(paramName) {",
+                            "      let param = json.parameter?.find(p => p.name === paramName);",
+                            "      if (param?.valueBoolean !== undefined) return param.valueBoolean ? 1 : 0;",
+                            "      if (param?.valueInteger !== undefined) return param.valueInteger;",
+                            "      return null;",
+                            "  }",
+                            "",
+                            "  // Expected values from your Parameters resource",
+                            "  const expected = {",
+                            "      \"Initial Population\": 0,",
+                            "      \"Denominator 1\": 0,  // Note: Fixed space in \"Denominator1 \"",
+                            "      \"Denominator 2\": 0,",
+                            "      \"Denominator 3\": 0,",
+                            "      \"Denominator Exclusion\": 1,",
+                            "      \"Numerator 1\": 0,",
+                            "      \"Numerator 2\": 0,",
+                            "      \"Numerator 3\": 0,",
+                            "      \"Patient Score 1\": null,",
+                            "      \"Patient Score 2\": null,",
+                            "      \"Patient Score 3\": null",
+                            "  };",
+                            "",
+                            "  // Run tests comparing actual vs expected",
+                            "  tc.test(\"Initial Population matches expected\", getParamValue(\"Initial Population\") === expected[\"Initial Population\"]);",
+                            "  tc.test(\"Denominator 1 matches expected\", getParamValue(\"Denominator 1\") === expected[\"Denominator 1\"]);",
+                            "  tc.test(\"Denominator 2 matches expected\", getParamValue(\"Denominator 2\") === expected[\"Denominator 2\"]);",
+                            "  tc.test(\"Denominator 3 matches expected\", getParamValue(\"Denominator 3\") === expected[\"Denominator 3\"]);",
+                            "  tc.test(\"Denominator Exclusion matches expected\", getParamValue(\"Denominator Exclusion\") === expected[\"Denominator Exclusion\"]);",
+                            "  tc.test(\"Numerator 1 matches expected\", getParamValue(\"Numerator 1\") === expected[\"Numerator 1\"]);",
+                            "  tc.test(\"Numerator 2 matches expected\", getParamValue(\"Numerator 2\") === expected[\"Numerator 2\"]);",
+                            "  tc.test(\"Numerator 3 matches expected\", getParamValue(\"Numerator 3\") === expected[\"Numerator 3\"]);",
+                            "  tc.test(\"Patient Score 1 matches expected\", getParamValue(\"Patient Score 1\") === expected[\"Patient Score 1\"]);",
+                            "  tc.test(\"Patient Score 2 matches expected\", getParamValue(\"Patient Score 2\") === expected[\"Patient Score 2\"]);",
+                            "  tc.test(\"Patient Score 3 matches expected\", getParamValue(\"Patient Score 3\") === expected[\"Patient Score 3\"]);",
+                            "",
+                            "",
+                            "  tc.test(\"All critical values match expected\", criticalTests.every(test => test === true));"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "362fdd43-a92b-4389-91fd-af6ebf68e130",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "29b6626e-c0ba-48c1-a166-195e7f828560",
+            "name": "007fe881-a18d-418f-8ddf-0ee94fc9a10a",
+            "url": "Library/Hospice/$evaluate",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-09-08T01:30:37.292Z",
+            "modified": "2025-09-08T01:31:22.378Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/007fe881-a18d-418f-8ddf-0ee94fc9a10a\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2026-01-01T00:00:00\",\n              \"end\": \"2026-12-31T23:59:59\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "5cabb41b-7224-426e-869b-059f411d992d",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "Patient just-turned-12",
+            "url": "Patient/just-turned-12",
+            "method": "PUT",
+            "sortNum": 57500,
+            "created": "2025-09-09T03:49:18.813Z",
+            "modified": "2025-09-09T03:50:25.025Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../CMS138-tobacco_0.2.000/test-cases/just-turned-12/Patient/just-turned-12.json"
+            }
+        },
+        {
+            "_id": "01b7c112-91e0-4807-abde-f881d0f337bc",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "Encounter 48c15e73-a1b6-4d5f-a80c-8098f9f03d3d",
+            "url": "Encounter/48c15e73-a1b6-4d5f-a80c-8098f9f03d3d",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2025-09-09T03:50:44.064Z",
+            "modified": "2025-09-09T03:56:39.583Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../CMS138-tobacco_0.2.000/test-cases/just-turned-12/Encounter/48c15e73-a1b6-4d5f-a80c-8098f9f03d3d.json"
+            }
+        },
+        {
+            "_id": "ad841783-5b9b-4f79-a3ca-a8ad84bb2bbc",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "Encounter 88d23cc0-f959-4b0c-92d8-423f42dba6eb",
+            "url": "Encounter/88d23cc0-f959-4b0c-92d8-423f42dba6eb",
+            "method": "PUT",
+            "sortNum": 58750,
+            "created": "2025-09-09T03:56:43.975Z",
+            "modified": "2025-09-09T03:57:25.031Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../CMS138-tobacco_0.2.000/test-cases/just-turned-12/Encounter/88d23cc0-f959-4b0c-92d8-423f42dba6eb.json"
+            }
+        },
+        {
+            "_id": "4e9c529b-9e72-44b5-9b22-61c40241a970",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "Encounter 1397e9bb-aef0-41bb-8e1b-da22c1c2d878",
+            "url": "Encounter/1397e9bb-aef0-41bb-8e1b-da22c1c2d878",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2025-09-09T03:57:30.454Z",
+            "modified": "2025-09-09T03:58:12.625Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../CMS138-tobacco_0.2.000/test-cases/just-turned-12/Encounter/1397e9bb-aef0-41bb-8e1b-da22c1c2d878.json"
+            }
+        },
+        {
+            "_id": "3c91f952-2336-44b6-920f-12d1bab8dff4",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "delete Patient just-turned-12",
+            "url": "Patient/just-turned-12",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2025-09-11T02:52:20.192Z",
+            "modified": "2025-09-11T03:29:46.742Z",
+            "headers": []
+        },
+        {
+            "_id": "65b031ff-2c4a-4471-8a6d-801b2cf811d4",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "delete Encounter 1397e9bb-aef0-41bb-8e1b-da22c1c2d878",
+            "url": "Encounter/1397e9bb-aef0-41bb-8e1b-da22c1c2d878",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2025-09-11T02:52:42.539Z",
+            "modified": "2025-09-11T03:27:47.568Z",
+            "headers": []
+        },
+        {
+            "_id": "b3832f5b-f3fc-4081-b3b6-f72c69aa281f",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "delete Encounter 88d23cc0-f959-4b0c-92d8-423f42dba6eb",
+            "url": "Encounter/88d23cc0-f959-4b0c-92d8-423f42dba6eb",
+            "method": "DELETE",
+            "sortNum": 55000,
+            "created": "2025-09-11T02:52:45.129Z",
+            "modified": "2025-09-11T03:25:48.935Z",
+            "headers": []
+        },
+        {
+            "_id": "087be3d1-859b-473a-b3fe-a5bd6b18d1ed",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "delete Encounter 48c15e73-a1b6-4d5f-a80c-8098f9f03d3d",
+            "url": "Encounter/48c15e73-a1b6-4d5f-a80c-8098f9f03d3d",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2025-09-11T02:52:51.695Z",
+            "modified": "2025-09-11T03:27:04.309Z",
+            "headers": []
+        },
+        {
+            "_id": "a745bba6-2fe5-4f5b-ab9d-df4d0a64099b",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "expunge Patient just-turned-12",
+            "url": "Patient/just-turned-12/$expunge",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2025-09-11T02:55:49.875Z",
+            "modified": "2025-09-11T03:31:38.196Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"limit\",\n      \"valueInteger\": 1000\n    },{\n      \"name\": \"expungeDeletedResources\",\n      \"valueBoolean\": true\n    },{\n      \"name\": \"expungePreviousVersions\",\n      \"valueBoolean\": true\n    }\n  ]\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "29f63953-60b8-485e-b8c1-8ca85d642c25",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "expunge Encounter 88d23cc0-f959-4b0c-92d8-423f42dba6eb",
+            "url": "Encounter/88d23cc0-f959-4b0c-92d8-423f42dba6eb/$expunge",
+            "method": "POST",
+            "sortNum": 57500,
+            "created": "2025-09-11T02:56:20.914Z",
+            "modified": "2025-09-11T03:25:10.130Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"limit\",\n      \"valueInteger\": 1000\n    },{\n      \"name\": \"expungeDeletedResources\",\n      \"valueBoolean\": true\n    },{\n      \"name\": \"expungePreviousVersions\",\n      \"valueBoolean\": true\n    }\n  ]\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "6b3c6627-f8ae-464a-a5c8-e876f03749f5",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "expunge Encounter 48c15e73-a1b6-4d5f-a80c-8098f9f03d3d",
+            "url": "Encounter/48c15e73-a1b6-4d5f-a80c-8098f9f03d3d/$expunge",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2025-09-11T02:57:06.416Z",
+            "modified": "2025-09-11T03:27:26.604Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"limit\",\n      \"valueInteger\": 1000\n    },{\n      \"name\": \"expungeDeletedResources\",\n      \"valueBoolean\": true\n    },{\n      \"name\": \"expungePreviousVersions\",\n      \"valueBoolean\": true\n    }\n  ]\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "e9b73477-e6c3-42a3-a364-64b465ee1336",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "d78d80f6-ded9-4b68-b860-e6aeb5655afc",
+            "name": "expunge Encounter 1397e9bb-aef0-41bb-8e1b-da22c1c2d878",
+            "url": "Encounter/1397e9bb-aef0-41bb-8e1b-da22c1c2d878/$expunge",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2025-09-11T02:57:35.394Z",
+            "modified": "2025-09-11T03:28:10.308Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"limit\",\n      \"valueInteger\": 1000\n    },{\n      \"name\": \"expungeDeletedResources\",\n      \"valueBoolean\": true\n    },{\n      \"name\": \"expungePreviousVersions\",\n      \"valueBoolean\": true\n    }\n  ]\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "6b6c607e-5be7-4dd2-9e39-050ef748ea64",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
+            "name": "main library example Copy",
+            "url": "Library/CMS138FHIRPreventiveTobaccoCessation/$evaluate",
+            "method": "POST",
+            "sortNum": 230000,
+            "created": "2025-09-11T22:58:28.301Z",
+            "modified": "2025-09-11T22:58:28.301Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/2412ad6a-fce0-4ad0-b200-737e443e5278\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"2026-01-01T00:00:00\",\n              \"end\": \"2026-12-31T23:59:59\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cbcf3277-277f-4594-80dc-e4d0cc881003",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "19dab7f6-fa84-4605-b20d-268e56ceee66",
+            "name": "just-turned-12 realtime",
+            "url": "Library/CMS138FHIRPreventiveTobaccoCessation/$evaluate",
+            "method": "POST",
+            "sortNum": 270000,
+            "created": "2025-09-12T02:11:52.375Z",
+            "modified": "2025-09-12T02:14:28.813Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/just-turned-12\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"1900-01-01T00:00:00-10:00\",\n              \"end\": \"1900-12-31T23:59:00-10:00\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "",
+                            "  // Helper function to get parameter value from Library/$evaluate response",
+                            "  function getParamValue(paramName) {",
+                            "      let param = json.parameter?.find(p => p.name === paramName);",
+                            "      if (param?.valueBoolean !== undefined) return param.valueBoolean ? 1 : 0;",
+                            "      if (param?.valueInteger !== undefined) return param.valueInteger;",
+                            "      return null;",
+                            "  }",
+                            "",
+                            "  // Expected values from your Parameters resource",
+                            "  const expected = {",
+                            "      \"Initial Population\": 1,",
+                            "      \"Denominator 1\": 1,  // Note: Fixed space in \"Denominator1 \"",
+                            "      \"Denominator 2\": 0,",
+                            "      \"Denominator 3\": 1,",
+                            "      \"Denominator Exclusion\": 1,",
+                            "      \"Numerator 1\": 0,",
+                            "      \"Numerator 2\": 0,",
+                            "      \"Numerator 3\": 0,",
+                            "      \"Patient Score 1\": null,",
+                            "      \"Patient Score 2\": null,",
+                            "      \"Patient Score 3\": null",
+                            "  };",
+                            "",
+                            "  // Run tests comparing actual vs expected",
+                            "  tc.test(\"Initial Population matches expected\", getParamValue(\"Initial Population\") === expected[\"Initial Population\"]);",
+                            "  tc.test(\"Denominator 1 matches expected\", getParamValue(\"Denominator 1\") === expected[\"Denominator 1\"]);",
+                            "  tc.test(\"Denominator 2 matches expected\", getParamValue(\"Denominator 2\") === expected[\"Denominator 2\"]);",
+                            "  tc.test(\"Denominator 3 matches expected\", getParamValue(\"Denominator 3\") === expected[\"Denominator 3\"]);",
+                            "  tc.test(\"Denominator Exclusion matches expected\", getParamValue(\"Denominator Exclusion\") === expected[\"Denominator Exclusion\"]);",
+                            "  tc.test(\"Numerator 1 matches expected\", getParamValue(\"Numerator 1\") === expected[\"Numerator 1\"]);",
+                            "  tc.test(\"Numerator 2 matches expected\", getParamValue(\"Numerator 2\") === expected[\"Numerator 2\"]);",
+                            "  tc.test(\"Numerator 3 matches expected\", getParamValue(\"Numerator 3\") === expected[\"Numerator 3\"]);",
+                            "  tc.test(\"Patient Score 1 matches expected\", getParamValue(\"Patient Score 1\") === expected[\"Patient Score 1\"]);",
+                            "  tc.test(\"Patient Score 2 matches expected\", getParamValue(\"Patient Score 2\") === expected[\"Patient Score 2\"]);",
+                            "  tc.test(\"Patient Score 3 matches expected\", getParamValue(\"Patient Score 3\") === expected[\"Patient Score 3\"]);",
+                            "",
+                            "",
+                            "  tc.test(\"All critical values match expected\", criticalTests.every(test => test === true));"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "8cda8931-0482-411e-b422-12f6c0e3cd8a",
+            "colId": "0de429fb-aeec-4543-8507-f6a0ef5f6ec6",
+            "containerId": "ae4c9f14-3a24-476f-aff5-ec18ca14f7d5",
+            "name": "Library/CMS138FHIRPreventiveTobaccoCessation/$evaluate",
+            "url": "Library/CMS138FHIRPreventiveTobaccoCessation/$evaluate",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2025-09-14T02:32:11.199Z",
+            "modified": "2025-09-14T02:34:33.168Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/0a82b597-2959-4b36-b922-a7025a6110eb\"\n    },\n    {\n      \"name\": \"parameters\",\n      \"resource\": {\n        \"resourceType\": \"Parameters\",\n        \"parameter\": [\n          {\n            \"name\": \"Measurement Period\",\n            \"valuePeriod\": {\n              \"start\": \"1900-01-01T00:00:00-10:00\",\n              \"end\": \"1900-12-31T23:59:00-10:00\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "let json = tc.response.json;",
+                            "",
+                            "// Test for patient existence",
+                            "function patientExists() {",
+                            "    let patientParam = json.parameter?.find(p => p.name === \"Patient\");",
+                            "    // Patient exists if it has actual data (not data-absent-reason)",
+                            "    return patientParam && !patientParam._valueBoolean?.extension?.some(ext =>",
+                            "        ext.url === \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\"",
+                            "    );",
+                            "}",
+                            "",
+                            "  tc.test(\"Patient exists on server\", patientExists());",
+                            "",
+                            "  // Helper function to get parameter value from Library/$evaluate response",
+                            "  function getParamValue(paramName) {",
+                            "      let param = json.parameter?.find(p => p.name === paramName);",
+                            "      if (param?.valueBoolean !== undefined) return param.valueBoolean ? 1 : 0;",
+                            "      if (param?.valueInteger !== undefined) return param.valueInteger;",
+                            "      return null;",
+                            "  }",
+                            "",
+                            "  // Expected values from your Parameters resource",
+                            "  const expected = {",
+                            "  \"Initial Population\": 1,",
+                            "  \"Denominator 1\": 1,",
+                            "  \"Denominator 2\": 1,",
+                            "  \"Denominator 3\": 1,",
+                            "  \"Denominator Exclusion\": 0,",
+                            "  \"Numerator 1\": 1,",
+                            "  \"Numerator 2\": 1,",
+                            "  \"Numerator 3\": 1,",
+                            "  \"Patient Score 1\": 1,",
+                            "  \"Patient Score 2\": 1,",
+                            "  \"Patient Score 3\": 1",
+                            "};",
+                            "",
+                            "  // Run tests comparing actual vs expected",
+                            "  tc.test(\"Initial Population matches expected\", getParamValue(\"Initial Population\") === expected[\"Initial Population\"]);",
+                            "  tc.test(\"Denominator 1 matches expected\", getParamValue(\"Denominator 1\") === expected[\"Denominator 1\"]);",
+                            "  tc.test(\"Denominator 2 matches expected\", getParamValue(\"Denominator 2\") === expected[\"Denominator 2\"]);",
+                            "  tc.test(\"Denominator 3 matches expected\", getParamValue(\"Denominator 3\") === expected[\"Denominator 3\"]);",
+                            "  tc.test(\"Denominator Exclusion matches expected\", getParamValue(\"Denominator Exclusion\") === expected[\"Denominator Exclusion\"]);",
+                            "  tc.test(\"Numerator 1 matches expected\", getParamValue(\"Numerator 1\") === expected[\"Numerator 1\"]);",
+                            "  tc.test(\"Numerator 2 matches expected\", getParamValue(\"Numerator 2\") === expected[\"Numerator 2\"]);",
+                            "  tc.test(\"Numerator 3 matches expected\", getParamValue(\"Numerator 3\") === expected[\"Numerator 3\"]);",
+                            "  tc.test(\"Patient Score 1 matches expected\", getParamValue(\"Patient Score 1\") === expected[\"Patient Score 1\"]);",
+                            "  tc.test(\"Patient Score 2 matches expected\", getParamValue(\"Patient Score 2\") === expected[\"Patient Score 2\"]);",
+                            "  tc.test(\"Patient Score 3 matches expected\", getParamValue(\"Patient Score 3\") === expected[\"Patient Score 3\"]);",
+                            "",
+                            "",
+                            "  tc.test(\"All critical values match expected\", criticalTests.every(test => test === true));"
+                        ]
+                    }
+                ]
+            }
         }
     ],
     "settings": {
