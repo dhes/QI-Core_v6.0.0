@@ -45,6 +45,13 @@
             "containerId": "",
             "created": "2025-06-28T01:28:37.459Z",
             "sortNum": 6250
+        },
+        {
+            "_id": "bcb8b416-91ee-4550-83f9-262bf0edb155",
+            "name": "expunge/redeploy PalliativeCare",
+            "containerId": "",
+            "created": "2025-10-02T00:45:48.657Z",
+            "sortNum": 1875
         }
     ],
     "requests": [
@@ -487,6 +494,65 @@
                 "raw": "",
                 "form": [],
                 "binary": "../common-libraries/library-Hospice-6.15.002.json"
+            }
+        },
+        {
+            "_id": "6dee0c99-47a3-4b9a-8bca-2172ca5fc278",
+            "colId": "eed947a8-d901-41e5-8d02-bb4e8fdca540",
+            "containerId": "bcb8b416-91ee-4550-83f9-262bf0edb155",
+            "name": "get existing",
+            "url": "Library/PalliativeCare/_history",
+            "method": "GET",
+            "sortNum": 210000,
+            "created": "2025-10-02T00:45:48.657Z",
+            "modified": "2025-10-02T00:46:43.425Z",
+            "headers": []
+        },
+        {
+            "_id": "5edd2eb7-c96c-4e75-8abd-c3267561140f",
+            "colId": "eed947a8-d901-41e5-8d02-bb4e8fdca540",
+            "containerId": "bcb8b416-91ee-4550-83f9-262bf0edb155",
+            "name": "delete existing",
+            "url": "Library/PalliativeCare",
+            "method": "DELETE",
+            "sortNum": 220000,
+            "created": "2025-10-02T00:45:48.658Z",
+            "modified": "2025-10-02T00:46:59.537Z",
+            "headers": []
+        },
+        {
+            "_id": "69354ce3-262b-447d-87b9-62db9f636850",
+            "colId": "eed947a8-d901-41e5-8d02-bb4e8fdca540",
+            "containerId": "bcb8b416-91ee-4550-83f9-262bf0edb155",
+            "name": "expunge existing",
+            "url": "Library/PalliativeCare/$expunge",
+            "method": "POST",
+            "sortNum": 230000,
+            "created": "2025-10-02T00:45:48.659Z",
+            "modified": "2025-10-02T00:47:14.105Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"limit\",\n      \"valueInteger\": 1000\n    },{\n      \"name\": \"expungeDeletedResources\",\n      \"valueBoolean\": true\n    },{\n      \"name\": \"expungePreviousVersions\",\n      \"valueBoolean\": true\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "a10ed980-7a58-4d1e-a163-c36092086f66",
+            "colId": "eed947a8-d901-41e5-8d02-bb4e8fdca540",
+            "containerId": "bcb8b416-91ee-4550-83f9-262bf0edb155",
+            "name": "deploy",
+            "url": "Library/PalliativeCare",
+            "method": "PUT",
+            "sortNum": 240000,
+            "created": "2025-10-02T00:45:48.660Z",
+            "modified": "2025-10-02T00:48:19.110Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../common-libraries/library-PalliativeCare-1.15.002.json"
             }
         }
     ],
